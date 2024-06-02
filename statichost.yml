@@ -1,0 +1,5 @@
+domains:
+  # Primary domain
+  - www.casderooij.nl
+  # Domains that redirect to the primary
+  - casderooij.nl
