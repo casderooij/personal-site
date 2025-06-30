@@ -11,6 +11,9 @@ jobs:
 
       - name: Composer install
         uses: php-actions/composer@v6
+        with:
+          dev: no
+          args: --profile --ignore-platform-reqs
 
       - name: Deploy using Rsync
         uses: burnett01/rsync-deployments@6.0.0
