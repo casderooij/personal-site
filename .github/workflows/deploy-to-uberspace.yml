@@ -28,7 +28,7 @@ jobs:
             --exclude="site/accounts"
             --exclude="site/sessions"
             --exclude="site/config/.license"
-          path: /
+          path: ./
           remote_path: /var/www/virtual/${{ vars.SSH_USERNAME }}/html
           remote_host: ${{ vars.SSH_HOST }}
           remote_user: ${{ vars.SSH_USERNAME }}
