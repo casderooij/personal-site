@@ -9,11 +9,25 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Composer install
-        uses: php-actions/composer@v6
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          dev: no
-          args: --profile --ignore-platform-reqs
+          node-version: '20'
+
+      - name: Install pnpm
+        run: npm install -g pnpm
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build project
+        run: pnpm build
+
+      # - name: Composer install
+      #   uses: php-actions/composer@v6
+      #   with:
+      #     dev: no
+      #     args: --profile --ignore-platform-reqs
 
       - name: Deploy using Rsync
         uses: burnett01/rsync-deployments@6.0.0
