@@ -32,7 +32,18 @@ jobs:
       - name: Deploy using Rsync
         uses: burnett01/rsync-deployments@6.0.0
         with:
-          switches: -avrh --delete --exclude=".git" --exclude=".github" --exclude="site/cache" --exclude="site/accounts" --exclude="site/sessions" --exclude="site/config/.license" --exclude="node_modules"
+          switches: |
+            -avrh
+            --delete
+            --exclude=".git"
+            --exclude=".github"
+            --exclude="site/cache"
+            --exclude="site/accounts"
+            --exclude="site/sessions"
+            --exclude="site/config/.license"
+            --exclude="vendor"
+            --exclude="kirby"
+            --exclude="node_modules"
           path: ./
           remote_path: /var/www/virtual/${{ vars.SSH_USERNAME }}/html
           remote_host: ${{ vars.SSH_HOST }}
