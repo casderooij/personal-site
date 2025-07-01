@@ -1,0 +1,7 @@
+.git
+.github
+site/cache
+site/accounts
+site/sessions
+site/config/.license
+.rsync-exclude
