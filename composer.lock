@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "42c24665b7d1bdc28de7f80a37688bc4",
+    "content-hash": "fcc999d78c9c1377d81c06e7ed51003a",
     "packages": [
         {
             "name": "christian-riesen/base32",
@@ -541,6 +541,45 @@
                 "source": "https://github.com/thephpleague/color-extractor/tree/0.4.0"
             },
             "time": "2022-09-24T15:57:16+00:00"
+        },
+        {
+            "name": "lukaskleinschmidt/kirby-laravel-vite",
+            "version": "2.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/lukaskleinschmidt/kirby-laravel-vite.git",
+                "reference": "f2a5ee427661ccaec2b89bbc42ba906f8c597bf2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/lukaskleinschmidt/kirby-laravel-vite/zipball/f2a5ee427661ccaec2b89bbc42ba906f8c597bf2",
+                "reference": "f2a5ee427661ccaec2b89bbc42ba906f8c597bf2",
+                "shasum": ""
+            },
+            "require": {
+                "getkirby/composer-installer": "^1.2",
+                "php": "^8.2"
+            },
+            "type": "kirby-plugin",
+            "extra": {
+                "installer-name": "laravel-vite"
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Lukas Kleinschmidt",
+                    "email": "contact@kleinschmidt.mozmail.com"
+                }
+            ],
+            "description": "Kirby Laravel Vite",
+            "support": {
+                "issues": "https://github.com/lukaskleinschmidt/kirby-laravel-vite/issues",
+                "source": "https://github.com/lukaskleinschmidt/kirby-laravel-vite/tree/2.2.0"
+            },
+            "time": "2025-05-21T07:46:05+00:00"
         },
         {
             "name": "michelf/php-smartypants",

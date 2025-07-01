@@ -51,3 +51,6 @@ Icon
 
 vendor
 kirby
+node_modules
+build
+hot
