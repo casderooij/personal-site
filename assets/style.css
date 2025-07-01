@@ -12,6 +12,14 @@
   --bg-color: rgb(232, 234, 240);
   --text-color: rgb(55, 65, 81);
   --text-color-hover: rgb(100, 110, 126);
+
+  --outer-padding: 0.6rem;
+}
+
+@media (min-width: 700px) {
+  :root {
+    --outer-padding: 1.2rem;
+  }
 }
 
 h1,
@@ -33,7 +41,7 @@ body {
 }
 
 header {
-  padding: 1.4em;
+  padding: var(--outer-padding);
 
   a {
     font-size: 1.4em;
