@@ -1,20 +1,13 @@
 @import 'node_modules/modern-normalize/modern-normalize.css';
 
 @font-face {
-  font-family: 'Hedvig Letters Sans';
-  src: url('./fonts/hedvig-letters-sans-regular.woff2') format(woff2);
-  display: swap;
-}
-
-@font-face {
-  font-family: 'Whois Mono';
-  src: url('./fonts/whois-mono.woff2') format(woff2);
+  font-family: 'Martian Grotesk';
+  src: url('./fonts/martian-grotesk-std-lt.woff2') format(woff2);
   display: swap;
 }
 
 :root {
-  --font-sans: 'Hedvig Letters Sans', sans-serif;
-  --font-mono: 'Whois Mono', monospace;
+  --font-sans: 'Martian Grotesk', sans-serif;
 
   --bg-color: rgb(232, 234, 240);
   --text-color: rgb(55, 65, 81);
@@ -30,6 +23,7 @@ h6,
 p,
 a {
   color: var(--text-color);
+  margin: 0;
 }
 
 body {
@@ -39,10 +33,12 @@ body {
 }
 
 header {
+  padding: 1.4em;
+
   a {
-    text-decoration: none;
     font-size: 1.4em;
-    transition: color 100ms ease-out;
+    text-decoration: none;
+    transition: color 100ms ease-in-out;
   }
   a:hover {
     color: var(--text-color-hover);

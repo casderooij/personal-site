@@ -7,13 +7,7 @@
 
 	<link
 		rel="preload"
-		href="<?= vite()->asset('assets/fonts/hedvig-letters-sans-regular.woff2') ?>"
-		as="font"
-		type="font/woff2"
-		crossorigin>
-	<link
-		rel="preload"
-		href="<?= vite()->asset('assets/fonts/whois-mono.woff2') ?>"
+		href="<?= vite()->asset('assets/fonts/martian-grotesk-std-lt.woff2') ?>"
 		as="font"
 		type="font/woff2"
 		crossorigin>
@@ -28,7 +22,9 @@
 
 <body>
 	<header>
-		<a href="/"><?= $page->title() ?></a>
+		<div class="header-content">
+			<a href="/"><?= $page->title() ?></a>
+		</div>
 	</header>
 </body>
 
