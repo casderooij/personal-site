@@ -1,0 +1,31 @@
+title: Project
+
+fields:
+  title:
+    label: Title
+    type: text
+    width: 1/2
+  description:
+    label: Description
+    type: textarea
+    width: 1/2
+  tags:
+    label: Tags
+    type: tags
+    width: 1/2
+    options:
+      type: query
+      query: site.find('projects').children.pluck('tags', ',', true)
+  date:
+    label: Date
+    type: date
+    default: today
+    width: 1/2
+    display: false
+  image:
+    label: Project Image
+    type: files
+    multiple: false
+    layout: cards
+    width: 1/2
+    template: image

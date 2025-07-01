@@ -3,3 +3,12 @@ title: Site
 sections:
   pages:
     type: pages
+  projects:
+    type: pages
+    parent: site.find('projects')
+    label: Projects
+    create:
+      - project
+    templates:
+      - project
+    empty: No projects yet. Create the first one!

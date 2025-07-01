@@ -49,6 +49,12 @@ Icon
 
 /site/config/.license
 
+# Content
+# ---------------
+
+/content/projects/*
+!/content/projects/projects.txt
+
 vendor
 kirby
 node_modules
