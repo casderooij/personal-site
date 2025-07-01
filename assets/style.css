@@ -1,3 +1,48 @@
-html {
-  color: green;
+@font-face {
+  font-family: 'Hedvig Letters Sans';
+  src: url('./fonts/hedvig-letters-sans-regular.woff2') format(woff2);
+  display: swap;
+}
+
+@font-face {
+  font-family: 'Whois Mono';
+  src: url('./fonts/whois-mono.woff2') format(woff2);
+  display: swap;
+}
+
+:root {
+  --font-sans: 'Hedvig Letters Sans', sans-serif;
+  --font-mono: 'Whois Mono', monospace;
+
+  --bg-color: rgb(232, 234, 240);
+  --text-color: rgb(55, 65, 81);
+  --text-color-hover: rgb(100, 110, 126);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a {
+  color: var(--text-color);
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+header {
+  a {
+    text-decoration: none;
+    font-size: 1.4em;
+    transition: color 100ms ease-out;
+  }
+  a:hover {
+    color: var(--text-color-hover);
+  }
 }
