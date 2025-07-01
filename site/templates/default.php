@@ -12,6 +12,13 @@
 		type="font/woff2"
 		crossorigin>
 
+	<link
+		rel="preload"
+		href="<?= vite()->asset('assets/fonts/newsreader-regular.woff2') ?>"
+		as="font"
+		type="font/woff2"
+		crossorigin>
+
 	<?= vite([
 		'assets/style.css',
 		'assets/index.js'
@@ -26,6 +33,10 @@
 			<a href="/"><?= $page->title() ?></a>
 		</div>
 	</header>
+
+	<main>
+		<p class="body-text">Fugiat sint amet sunt veniam fugiat exercitation. Cupidatat aliquip adipisicing ullamco qui. Non exercitation eu nulla amet incididunt ad exercitation. Cillum esse anim cupidatat non sit velit. Ea Lorem velit elit enim nostrud sunt incididunt commodo pariatur est.</p>
+	</main>
 </body>
 
 </html>

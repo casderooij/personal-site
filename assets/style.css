@@ -6,12 +6,19 @@
   display: swap;
 }
 
+@font-face {
+  font-family: 'Newsreader';
+  src: url('./fonts/newsreader-regular.woff2') format(woff2);
+  display: swap;
+}
+
 :root {
   --font-sans: 'Martian Grotesk', sans-serif;
+  --font-serif: 'Newsreader', serif;
 
   --bg-color: rgb(232, 234, 240);
   --text-color: rgb(55, 65, 81);
-  --text-color-hover: rgb(100, 110, 126);
+  --text-color-hover: rgb(90, 110, 142);
 
   --outer-padding: 0.6rem;
 }
@@ -34,6 +41,10 @@ a {
   margin: 0;
 }
 
+p {
+  font-family: var(--font-serif);
+}
+
 body {
   font-family: var(--font-sans);
   background-color: var(--bg-color);
@@ -44,6 +55,7 @@ header {
   padding: var(--outer-padding);
 
   a {
+    color: rgb(66, 66, 245);
     font-size: 1.4em;
     text-decoration: none;
     transition: color 100ms ease-in-out;
@@ -51,4 +63,14 @@ header {
   a:hover {
     color: var(--text-color-hover);
   }
+}
+
+main {
+  padding: var(--outer-padding);
+}
+
+.body-text {
+  font-size: 1.1rem;
+  width: 500px;
+  line-height: 1.4;
 }
