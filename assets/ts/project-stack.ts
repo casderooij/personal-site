@@ -29,15 +29,33 @@ export default function initProjectStack() {
         currentTopElement.classList.add('is-top')
         const videoInside = currentTopElement.querySelector('video')
         if (videoInside) {
+          console.log('Video found for top element.');
           videoInside.currentTime = 0; // Reset video to beginning
+
+          const attemptPlay = () => {
+            console.log('Attempting to play video...');
+            const playPromise = videoInside.play();
+
+            if (playPromise !== undefined) {
+              playPromise.then(() => {
+                console.log('Video playback started successfully.');
+              }).catch(error => {
+                console.error('Video playback failed:', error);
+                // Common errors: NotAllowedError (user gesture required), AbortError (e.g., interrupted)
+              });
+            }
+          };
 
           // Check if video is already ready to play
           if (videoInside.readyState >= 4) { // HTMLMediaElement.HAVE_ENOUGH_DATA
-            videoInside.play();
+            console.log('Video already ready (HAVE_ENOUGH_DATA).');
+            attemptPlay();
           } else {
+            console.log('Video not ready, waiting for canplaythrough...');
             // Wait for the video to be ready to play through
             const playWhenReady = () => {
-              videoInside.play();
+              console.log('canplaythrough event fired.');
+              attemptPlay();
               videoInside.removeEventListener('canplaythrough', playWhenReady);
             };
             videoInside.addEventListener('canplaythrough', playWhenReady);
