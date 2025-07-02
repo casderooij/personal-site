@@ -16,9 +16,12 @@ $index = 0;
 					width="<?= $thumb->width() ?>"
 					height="<?= $thumb->height() ?>"
 					style="--stack-i: <?= $index ?>"
+					data-original-index="<?= $index ?>"
 					loading="lazy">
 			<?php endif ?>
 			<?php $index++; ?>
 		<?php endforeach ?>
+
+		<div class="indicator glass-effect"><span id="project-stack-indicator">1 / <?= count($projects) ?></span></div>
 	</section>
 <?php endif ?>

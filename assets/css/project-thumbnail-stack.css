@@ -5,19 +5,24 @@
 }
 
 .project-thumbnails-stack {
-  --radius: 20px;
+  --radius: 30px;
   --offset: 10deg;
 
   display: grid;
   grid-template-areas: 'stack';
+  position: relative;
+
+  width: 260px;
+  height: 260px;
 
   img {
     --angle: calc(
       var(--stack-i) * calc(360deg / var(--total-items) + var(--offset))
     );
 
-    width: 200px;
-    height: 200px;
+    width: 240px;
+    height: 240px;
+    aspect-ratio: '1/1';
 
     grid-area: stack;
     z-index: calc(var(--total-items) - var(--stack-i));
@@ -36,5 +41,16 @@
     &.no-transition {
       transition: none;
     }
+  }
+
+  .indicator {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: 100;
+    font-size: 12px;
+    padding: 0.3rem 0.4rem;
+    border-radius: 0.2rem;
+    font-family: var(--font-mono);
   }
 }

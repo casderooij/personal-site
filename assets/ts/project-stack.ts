@@ -1,51 +1,81 @@
 export default function initProjectStack() {
-  const stack = document.querySelector('.project-thumbnails-stack');
+  const stack = document.querySelector('.project-thumbnails-stack')
+  const indicator = document.getElementById('project-stack-indicator')
 
-  if (stack) {
-    const images = Array.from(stack.querySelectorAll('img'));
-    const totalItems = images.length;
+  if (stack && indicator) {
+    const images = Array.from(stack.querySelectorAll('img'))
+    const totalItems = images.length
+
+    // Initial update of the indicator
+    const initialTopImage = images.find(
+      (img) => parseInt(img.style.getPropertyValue('--stack-i')) === 0,
+    )
+    if (initialTopImage) {
+      const originalIndex = parseInt(
+        initialTopImage.dataset.originalIndex || '0',
+      )
+      indicator.textContent = `${originalIndex + 1} / ${totalItems}`
+    }
 
     stack.addEventListener('click', (event) => {
-      const target = event.target as HTMLElement;
-      if (!target) return;
+      const target = event.target as HTMLElement
+      if (!target) return
 
-      const clickedImage = target.closest('img');
-      if (!clickedImage) return;
+      const clickedImage = target.closest('img')
+      if (!clickedImage) return
 
-      const clickedIndex = parseInt(clickedImage.style.getPropertyValue('--stack-i'));
+      const clickedIndex = parseInt(
+        clickedImage.style.getPropertyValue('--stack-i'),
+      )
 
       // Find the index of the image at the top of the stack
-      let topIndex = 0;
+      let topIndex = 0
 
       // Only proceed if the clicked image is the one on top
       if (clickedIndex !== topIndex) {
-        return;
+        return
       }
 
-      clickedImage.classList.add('fading-out');
+      clickedImage.classList.add('fading-out')
 
-      clickedImage.addEventListener('transitionend', () => {
-        clickedImage.classList.add('no-transition');
+      clickedImage.addEventListener(
+        'transitionend',
+        () => {
+          clickedImage.classList.add('no-transition')
 
-        // Move the clicked image to the bottom and shift others up
-        images.forEach(img => {
-          const currentIndex = parseInt(img.style.getPropertyValue('--stack-i'));
-          if (currentIndex === clickedIndex) {
-            // Move to the bottom
-            img.style.setProperty('--stack-i', (totalItems - 1).toString());
-          } else {
-            // Shift up
-            img.style.setProperty('--stack-i', (currentIndex - 1).toString());
+          // Move the clicked image to the bottom and shift others up
+          images.forEach((img) => {
+            const currentIndex = parseInt(
+              img.style.getPropertyValue('--stack-i'),
+            )
+            if (currentIndex === clickedIndex) {
+              // Move to the bottom
+              img.style.setProperty('--stack-i', (totalItems - 1).toString())
+            } else {
+              // Shift up
+              img.style.setProperty('--stack-i', (currentIndex - 1).toString())
+            }
+          })
+
+          // Update the indicator after the stack has been reordered
+          const newTopImage = images.find(
+            (img) => parseInt(img.style.getPropertyValue('--stack-i')) === 0,
+          )
+          if (newTopImage) {
+            const originalIndex = parseInt(
+              newTopImage.dataset.originalIndex || '0',
+            )
+            indicator.textContent = `${originalIndex + 1} / ${totalItems}`
           }
-        });
 
-        // Allow the DOM to update before removing the class
-        setTimeout(() => {
-          clickedImage.classList.remove('fading-out');
-          clickedImage.classList.remove('no-transition');
-        }, 0);
-
-      }, { once: true });
-    });
+          // Allow the DOM to update before removing the class
+          setTimeout(() => {
+            clickedImage.classList.remove('fading-out')
+            clickedImage.classList.remove('no-transition')
+          }, 0)
+        },
+        { once: true },
+      )
+    })
   }
 }
