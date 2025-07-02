@@ -1,0 +1,17 @@
+title: Video
+
+accept:
+  type: video
+
+columns:
+  - width: 1/2
+    sections:
+      content:
+        type: fields
+        fields:
+          posterImage:
+            label: Poster Image
+            type: files
+            multiple: false
+            layout: cards
+            max: 1

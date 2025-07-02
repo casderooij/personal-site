@@ -1,10 +1,23 @@
 title: Image
-fields:
-  alt:
-    label: Alt Text
-    type: text
-    width: 1/2
-  caption:
-    label: Caption
-    type: text
-    width: 1/2 
+
+accept:
+  type: image
+
+columns:
+  - width: 1/2
+    sections:
+      content:
+        type: fields
+        fields:
+          caption:
+            label: Caption
+            type: textarea
+            size: medium
+  - width: 1/2
+    sections:
+      meta:
+        type: fields
+        fields:
+          alt:
+            label: Alternative Text
+            type: text

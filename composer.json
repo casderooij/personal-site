@@ -23,7 +23,13 @@
   "require": {
     "php": "~8.1.0 || ~8.2.0 || ~8.3.0 || ~8.4.0",
     "getkirby/cms": "^5.0",
-    "lukaskleinschmidt/kirby-laravel-vite": "^2.2"
+    "lukaskleinschmidt/kirby-laravel-vite": "^2.2",
+    "php-ffmpeg/php-ffmpeg": "^1.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "SitePlugin\\": "site/plugins/poster-generator/"
+    }
   },
   "config": {
     "allow-plugins": {

@@ -28,4 +28,15 @@ fields:
     multiple: false
     layout: cards
     width: 1/2
-    template: image
+    uploads:
+      template: image
+  video:
+    label: Project Video
+    type: files
+    multiple: false
+    layout: cards
+    width: 1/2
+    uploads:
+      template: video
+    max: 1
+    accept: video/*
