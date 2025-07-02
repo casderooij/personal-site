@@ -15,7 +15,7 @@
   width: 260px;
   height: 260px;
 
-  img {
+  .stack-item {
     --angle: calc(
       var(--stack-i) * calc(360deg / var(--total-items) + var(--offset))
     );
@@ -45,6 +45,13 @@
     &.is-top:hover {
       cursor: pointer;
     }
+
+    img,
+    video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
   }
 
   .indicator {
@@ -55,7 +62,7 @@
     padding: 0.3rem 0.4rem;
     border-radius: 0.2rem;
 
-    font-size: 12px;
+    font-size: 10px;
     font-family: var(--font-mono);
   }
 }

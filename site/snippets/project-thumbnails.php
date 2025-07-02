@@ -8,16 +8,48 @@ $index = 0;
 <?php if ($projects->isNotEmpty()): ?>
 	<section class="project-thumbnails-stack" style="--total-items: <?= count($projects) ?>">
 		<?php foreach ($projects as $project): ?>
-			<?php if ($image = $project->image()): ?>
-				<?php $thumb = $image->thumb('project'); ?>
-				<img
-					src="<?= $thumb->url() ?>"
-					alt="<?= $image->alt()->or($project->title())->esc() ?>"
-					width="<?= $thumb->width() ?>"
-					height="<?= $thumb->height() ?>"
+			<?php
+			$mediaElement = null;
+			$posterUrl = null;
+
+			// Prefer video if available
+			if ($video = $project->video()->toFile()) {
+				$mediaElement = $video;
+				// Check if a poster image is linked in the video's content file
+				if ($poster = $video->content()->poster()->toFile()) {
+					$posterUrl = $poster->url();
+				}
+			} elseif ($image = $project->image()->toFile()) {
+				// Fallback to image if no video
+				$mediaElement = $image;
+			}
+			?>
+
+			<?php if ($mediaElement): ?>
+				<?php $thumb = $mediaElement->thumb('project'); ?>
+				<div
+					class="stack-item"
 					style="--stack-i: <?= $index ?>"
 					data-original-index="<?= $index ?>"
-					loading="lazy">
+					data-type="<?= $mediaElement->type() ?>">
+					<?php if ($mediaElement->type() === 'video'): ?>
+						<video
+							src="<?= $mediaElement->url() ?>"
+							width="<?= $thumb->width() ?>"
+							height="<?= $thumb->height() ?>"
+							loop
+							muted
+							playsinline
+							preload="auto"></video>
+					<?php else: ?>
+						<img
+							src="<?= $thumb->url() ?>"
+							alt="<?= $mediaElement->alt()->or($project->title())->esc() ?>"
+							width="<?= $thumb->width() ?>"
+							height="<?= $thumb->height() ?>"
+							loading="lazy">
+					<?php endif ?>
+				</div>
 			<?php endif ?>
 			<?php $index++; ?>
 		<?php endforeach ?>

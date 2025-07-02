@@ -3,82 +3,96 @@ export default function initProjectStack() {
   const indicator = document.getElementById('project-stack-indicator')
 
   if (stack && indicator) {
-    const images = Array.from(stack.querySelectorAll('img'))
-    const totalItems = images.length
+    const mediaElements = Array.from(stack.querySelectorAll('.stack-item')) as HTMLElement[]
+    const totalItems = mediaElements.length
 
-    // Initial update of the indicator
-    let currentTopImage = images.find(
-      (img) => parseInt(img.style.getPropertyValue('--stack-i')) === 0,
-    )
-    if (currentTopImage) {
-      currentTopImage.classList.add('is-top')
-      const originalIndex = parseInt(
-        currentTopImage.dataset.originalIndex || '0',
-      )
-      indicator.textContent = `${originalIndex + 1} / ${totalItems}`
+    let currentTopElement: HTMLElement | null = null
+
+    const updateTopElement = () => {
+      // Pause all videos first
+      mediaElements.forEach((el) => {
+        const videoInside = el.querySelector('video')
+        if (videoInside) {
+          videoInside.pause()
+        }
+      })
+
+      if (currentTopElement) {
+        currentTopElement.classList.remove('is-top')
+      }
+
+      currentTopElement = mediaElements.find(
+        (el) => parseInt(el.style.getPropertyValue('--stack-i')) === 0,
+      ) as HTMLElement | null
+
+      if (currentTopElement) {
+        currentTopElement.classList.add('is-top')
+        const videoInside = currentTopElement.querySelector('video')
+        if (videoInside) {
+          setTimeout(() => {
+            videoInside.play()
+          }, 50)
+        }
+        const originalIndex = parseInt(
+          currentTopElement.dataset.originalIndex || '0',
+        )
+        indicator.textContent = `${originalIndex + 1} / ${totalItems}`
+      }
     }
+
+    // Initial update
+    updateTopElement()
 
     stack.addEventListener('click', (event) => {
       const target = event.target as HTMLElement
       if (!target) return
 
-      const clickedImage = target.closest('img')
-      if (!clickedImage) return
+      const clickedElement = target.closest('.stack-item') as HTMLElement | null
+      if (!clickedElement) return
 
       const clickedIndex = parseInt(
-        clickedImage.style.getPropertyValue('--stack-i'),
+        clickedElement.style.getPropertyValue('--stack-i'),
       )
 
-      // Find the index of the image at the top of the stack
-      let topIndex = 0
-
-      // Only proceed if the clicked image is the one on top
-      if (clickedIndex !== topIndex) {
+      // Only proceed if the clicked element is the one on top
+      if (clickedElement !== currentTopElement) {
         return
       }
 
-      clickedImage.classList.add('fading-out')
+      // Pause the current top video if it's a video
+      const videoInsideCurrentTop = currentTopElement?.querySelector('video')
+      if (videoInsideCurrentTop) {
+        videoInsideCurrentTop.pause()
+      }
 
-      clickedImage.addEventListener(
+      clickedElement.classList.add('fading-out')
+
+      clickedElement.addEventListener(
         'transitionend',
         () => {
-          clickedImage.classList.add('no-transition')
+          clickedElement.classList.add('no-transition')
 
-          // Move the clicked image to the bottom and shift others up
-          images.forEach((img) => {
+          // Move the clicked element to the bottom and shift others up
+          mediaElements.forEach((el) => {
             const currentIndex = parseInt(
-              img.style.getPropertyValue('--stack-i'),
+              el.style.getPropertyValue('--stack-i'),
             )
             if (currentIndex === clickedIndex) {
               // Move to the bottom
-              img.style.setProperty('--stack-i', (totalItems - 1).toString())
+              el.style.setProperty('--stack-i', (totalItems - 1).toString())
             } else {
               // Shift up
-              img.style.setProperty('--stack-i', (currentIndex - 1).toString())
+              el.style.setProperty('--stack-i', (currentIndex - 1).toString())
             }
           })
 
-          // Update the indicator after the stack has been reordered
-          const newTopImage = images.find(
-            (img) => parseInt(img.style.getPropertyValue('--stack-i')) === 0,
-          )
-          if (newTopImage) {
-            if (currentTopImage) {
-              currentTopImage.classList.remove('is-top')
-            }
-            newTopImage.classList.add('is-top')
-            currentTopImage = newTopImage
-
-            const originalIndex = parseInt(
-              newTopImage.dataset.originalIndex || '0',
-            )
-            indicator.textContent = `${originalIndex + 1} / ${totalItems}`
-          }
+          // Update the top element and play/pause videos
+          updateTopElement()
 
           // Allow the DOM to update before removing the class
           setTimeout(() => {
-            clickedImage.classList.remove('fading-out')
-            clickedImage.classList.remove('no-transition')
+            clickedElement.classList.remove('fading-out')
+            clickedElement.classList.remove('no-transition')
           }, 0)
         },
         { once: true },
