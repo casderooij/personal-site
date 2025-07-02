@@ -1,4 +1,5 @@
 @import 'node_modules/modern-normalize/modern-normalize.css';
+@import './css/project-thumbnail-stack.css';
 
 @font-face {
   font-family: 'Martian Grotesk';
@@ -75,21 +76,4 @@ main {
   width: 100%;
   max-width: 500px;
   line-height: 1.4;
-}
-
-.project-thumbnails-stack {
-	display: grid;
-	position: relative;
-	width: max-content;
-	grid-template-areas: "stack";
-
-	img {
-		grid-area: stack;
-		z-index: calc(10 - var(--stack-i));
-		transform: translate(
-			calc(var(--stack-i) * 20px),
-			calc(var(--stack-i) * 20px)
-		);
-		border-radius: 0.5rem;
-	}
 }

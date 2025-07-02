@@ -1,0 +1,40 @@
+@property --angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.project-thumbnails-stack {
+  --radius: 20px;
+  --offset: 10deg;
+
+  display: grid;
+  grid-template-areas: 'stack';
+
+  img {
+    --angle: calc(
+      var(--stack-i) * calc(360deg / var(--total-items) + var(--offset))
+    );
+
+    width: 200px;
+    height: 200px;
+
+    grid-area: stack;
+    z-index: calc(var(--total-items) - var(--stack-i));
+    transform: translate(
+      calc(cos(var(--angle)) * var(--radius)),
+      calc(sin(var(--angle)) * var(--radius))
+    );
+    transition:
+      --angle 0.5s ease-in-out,
+      opacity 0.3s ease-in-out;
+
+    &.fading-out {
+      opacity: 0;
+    }
+
+    &.no-transition {
+      transition: none;
+    }
+  }
+}

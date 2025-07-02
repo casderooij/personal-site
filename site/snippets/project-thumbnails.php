@@ -6,7 +6,7 @@ $index = 0;
 ?>
 
 <?php if ($projects->isNotEmpty()): ?>
-	<section class="project-thumbnails-stack">
+	<section class="project-thumbnails-stack" style="--total-items: <?= count($projects) ?>">
 		<?php foreach ($projects as $project): ?>
 			<?php if ($image = $project->image()): ?>
 				<?php $thumb = $image->thumb('project'); ?>
@@ -16,8 +16,7 @@ $index = 0;
 					width="<?= $thumb->width() ?>"
 					height="<?= $thumb->height() ?>"
 					style="--stack-i: <?= $index ?>"
-					loading="lazy"
-				>
+					loading="lazy">
 			<?php endif ?>
 			<?php $index++; ?>
 		<?php endforeach ?>
