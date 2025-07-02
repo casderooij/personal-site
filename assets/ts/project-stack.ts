@@ -10,16 +10,16 @@ export default function initProjectStack() {
 
     let currentTopElement: HTMLElement | null = null
 
-    // Prime all videos except the top one to avoid iOS Safari glitches
+    // Hide all non-top stack-items before priming, then show after priming
     const primeVideos = () => {
-      // Add is-priming class to all non-top stack-items
+      // Add is-hidden class to all non-top stack-items
       mediaElements.forEach((el) => {
         const stackIndex = parseInt(el.style.getPropertyValue('--stack-i'))
         if (stackIndex !== 0) {
-          el.classList.add('is-priming')
+          el.classList.add('is-hidden')
         }
       })
-      
+
       const promises: Promise<void>[] = []
       mediaElements.forEach((el) => {
         const video = el.querySelector('video') as HTMLVideoElement | null
@@ -60,10 +60,13 @@ export default function initProjectStack() {
           )
         }
       })
-      // After all priming is done, remove is-priming class
+      // After all priming is done, remove is-hidden class from all non-top stack-items
       Promise.all(promises).then(() => {
         mediaElements.forEach((el) => {
-          el.classList.remove('is-priming')
+          const stackIndex = parseInt(el.style.getPropertyValue('--stack-i'))
+          if (stackIndex !== 0) {
+            el.classList.remove('is-hidden')
+          }
         })
       })
     }
