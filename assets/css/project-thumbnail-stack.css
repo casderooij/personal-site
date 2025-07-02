@@ -18,6 +18,8 @@
 
     width: 200px;
     height: 200px;
+    filter: blur(calc(var(--stack-i) * 5px));
+    border-radius: 0.5rem;
 
     grid-area: stack;
     z-index: calc(var(--total-items) - var(--stack-i));
@@ -27,7 +29,8 @@
     );
     transition:
       --angle 0.5s ease-in-out,
-      opacity 0.3s ease-in-out;
+      opacity 0.3s ease-in-out,
+      filter 0.5s ease-in-out;
 
     &.fading-out {
       opacity: 0;
