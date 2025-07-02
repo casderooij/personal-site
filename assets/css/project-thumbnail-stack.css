@@ -66,3 +66,7 @@
     font-family: var(--font-mono);
   }
 }
+
+.stack-item.is-priming video {
+  opacity: 0;
+}

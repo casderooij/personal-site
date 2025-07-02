@@ -12,39 +12,59 @@ export default function initProjectStack() {
 
     // Prime all videos except the top one to avoid iOS Safari glitches
     const primeVideos = () => {
-      mediaElements.forEach((el, idx) => {
+      // Add is-priming class to all non-top stack-items
+      mediaElements.forEach((el) => {
+        const stackIndex = parseInt(el.style.getPropertyValue('--stack-i'))
+        if (stackIndex !== 0) {
+          el.classList.add('is-priming')
+        }
+      })
+      
+      const promises: Promise<void>[] = []
+      mediaElements.forEach((el) => {
         const video = el.querySelector('video') as HTMLVideoElement | null
         if (!video) return
-        // Skip the top element (stack-i: 0)
         const stackIndex = parseInt(el.style.getPropertyValue('--stack-i'))
         if (stackIndex === 0) return
-        // Only prime if not already ready
         if (video.readyState >= 2) return
         video.muted = true
         try {
           video.currentTime = 0.01
-        } catch (e) {
-          // Some browsers may throw if not enough data
-        }
+        } catch (e) {}
         const playPromise = video.play()
         if (playPromise !== undefined) {
-          playPromise.then(() => {
-            setTimeout(() => {
-              video.pause()
-              try {
-                video.currentTime = 0
-              } catch (e) {}
-            }, 50)
-          }).catch(() => {})
+          promises.push(
+            playPromise.then(() => {
+              return new Promise<void>((resolve) => {
+                setTimeout(() => {
+                  video.pause()
+                  try {
+                    video.currentTime = 0
+                  } catch (e) {}
+                  resolve()
+                }, 50)
+              })
+            }).catch(() => {})
+          )
         } else {
-          // Fallback: pause after short delay
-          setTimeout(() => {
-            video.pause()
-            try {
-              video.currentTime = 0
-            } catch (e) {}
-          }, 50)
+          promises.push(
+            new Promise<void>((resolve) => {
+              setTimeout(() => {
+                video.pause()
+                try {
+                  video.currentTime = 0
+                } catch (e) {}
+                resolve()
+              }, 50)
+            })
+          )
         }
+      })
+      // After all priming is done, remove is-priming class
+      Promise.all(promises).then(() => {
+        mediaElements.forEach((el) => {
+          el.classList.remove('is-priming')
+        })
       })
     }
 
