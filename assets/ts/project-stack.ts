@@ -7,12 +7,13 @@ export default function initProjectStack() {
     const totalItems = images.length
 
     // Initial update of the indicator
-    const initialTopImage = images.find(
+    let currentTopImage = images.find(
       (img) => parseInt(img.style.getPropertyValue('--stack-i')) === 0,
     )
-    if (initialTopImage) {
+    if (currentTopImage) {
+      currentTopImage.classList.add('is-top')
       const originalIndex = parseInt(
-        initialTopImage.dataset.originalIndex || '0',
+        currentTopImage.dataset.originalIndex || '0',
       )
       indicator.textContent = `${originalIndex + 1} / ${totalItems}`
     }
@@ -62,6 +63,12 @@ export default function initProjectStack() {
             (img) => parseInt(img.style.getPropertyValue('--stack-i')) === 0,
           )
           if (newTopImage) {
+            if (currentTopImage) {
+              currentTopImage.classList.remove('is-top')
+            }
+            newTopImage.classList.add('is-top')
+            currentTopImage = newTopImage
+
             const originalIndex = parseInt(
               newTopImage.dataset.originalIndex || '0',
             )

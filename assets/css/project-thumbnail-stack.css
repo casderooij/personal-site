@@ -41,6 +41,10 @@
     &.no-transition {
       transition: none;
     }
+
+    &.is-top:hover {
+      cursor: pointer;
+    }
   }
 
   .indicator {
