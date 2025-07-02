@@ -10,6 +10,47 @@ export default function initProjectStack() {
 
     let currentTopElement: HTMLElement | null = null
 
+    // Prime all videos except the top one to avoid iOS Safari glitches
+    const primeVideos = () => {
+      mediaElements.forEach((el, idx) => {
+        const video = el.querySelector('video') as HTMLVideoElement | null
+        if (!video) return
+        // Skip the top element (stack-i: 0)
+        const stackIndex = parseInt(el.style.getPropertyValue('--stack-i'))
+        if (stackIndex === 0) return
+        // Only prime if not already ready
+        if (video.readyState >= 2) return
+        video.muted = true
+        try {
+          video.currentTime = 0.01
+        } catch (e) {
+          // Some browsers may throw if not enough data
+        }
+        const playPromise = video.play()
+        if (playPromise !== undefined) {
+          playPromise.then(() => {
+            setTimeout(() => {
+              video.pause()
+              try {
+                video.currentTime = 0
+              } catch (e) {}
+            }, 50)
+          }).catch(() => {})
+        } else {
+          // Fallback: pause after short delay
+          setTimeout(() => {
+            video.pause()
+            try {
+              video.currentTime = 0
+            } catch (e) {}
+          }, 50)
+        }
+      })
+    }
+
+    // Prime videos before first update
+    primeVideos()
+
     const updateTopElement = () => {
       // Pause all videos first
       mediaElements.forEach((el) => {
