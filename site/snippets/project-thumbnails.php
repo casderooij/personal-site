@@ -41,6 +41,7 @@ $index = 0;
 							loop
 							muted
 							playsinline
+							autoplay
 							preload="auto"></video>
 					<?php else: ?>
 						<img
