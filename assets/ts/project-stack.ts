@@ -61,7 +61,7 @@ const setTopStackItem = (
       }, 100)
     }
     const originalIndex = parseInt(topEl.dataset.originalIndex || '0')
-    // Build indicator string: #---, -#--, --#-, ---#
+
     const indicatorString = Array.from({ length: mediaElements.length }, (_, i) => i === originalIndex ? '#' : '-').join('')
     indicator.textContent = indicatorString
   }

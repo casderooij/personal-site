@@ -58,7 +58,6 @@ $index = 0;
 
 		<div class="indicator glass-effect"><span id="project-stack-indicator">
 			<?php
-				// Build indicator string: #---, -#--, --#-, ---#
 				$indicator = '';
 				for ($i = 0; $i < count($projects); $i++) {
 					$indicator .= $i === 0 ? '#' : '-';

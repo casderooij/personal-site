@@ -61,11 +61,12 @@
 
   .indicator {
     position: absolute;
-    bottom: 0;
+    bottom: 0.4em;
     right: 0;
-    z-index: 100;
+    z-index: calc(var(--total-items) + 1);
     padding: 0.3rem 0.4rem;
     border-radius: 0.2rem;
+		pointer-events: none;
 
     font-size: 10px;
     font-family: var(--font-mono);
