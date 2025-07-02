@@ -29,9 +29,19 @@ export default function initProjectStack() {
         currentTopElement.classList.add('is-top')
         const videoInside = currentTopElement.querySelector('video')
         if (videoInside) {
-          setTimeout(() => {
-            videoInside.play()
-          }, 50)
+          videoInside.currentTime = 0; // Reset video to beginning
+
+          // Check if video is already ready to play
+          if (videoInside.readyState >= 4) { // HTMLMediaElement.HAVE_ENOUGH_DATA
+            videoInside.play();
+          } else {
+            // Wait for the video to be ready to play through
+            const playWhenReady = () => {
+              videoInside.play();
+              videoInside.removeEventListener('canplaythrough', playWhenReady);
+            };
+            videoInside.addEventListener('canplaythrough', playWhenReady);
+          }
         }
         const originalIndex = parseInt(
           currentTopElement.dataset.originalIndex || '0',
