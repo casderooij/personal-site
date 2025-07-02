@@ -9,9 +9,12 @@ columns:
       content:
         type: fields
         fields:
-          posterImage:
+          poster:
             label: Poster Image
             type: files
             multiple: false
             layout: cards
+            template: image
             max: 1
+            size: tiny
+
