@@ -21,7 +21,7 @@
 
 	<?= vite([
 		'assets/style.css',
-		'assets/index.js'
+		'assets/index.ts'
 	]) ?>
 
 	<title>Cas de Rooij</title>
