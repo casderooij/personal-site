@@ -35,6 +35,7 @@ $index = 0;
 					<?php if ($mediaElement->type() === 'video'): ?>
 						<video
 							src="<?= $mediaElement->url() ?>"
+							<?= $posterUrl ? 'poster="' . $posterUrl . '"' : '' ?>
 							width="<?= $thumb->width() ?>"
 							height="<?= $thumb->height() ?>"
 							loop
