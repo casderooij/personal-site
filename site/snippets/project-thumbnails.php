@@ -28,7 +28,7 @@ $index = 0;
 			<?php if ($mediaElement): ?>
 				<?php $thumb = $mediaElement->thumb('project'); ?>
 				<div
-					class="stack-item"
+					class="stack-item <?= $index === 0 ? 'is-top' : 'is-hidden' ?>"
 					style="--stack-i: <?= $index ?>"
 					data-original-index="<?= $index ?>"
 					data-type="<?= $mediaElement->type() ?>">
@@ -55,6 +55,15 @@ $index = 0;
 			<?php $index++; ?>
 		<?php endforeach ?>
 
-		<div class="indicator glass-effect"><span id="project-stack-indicator">1 / <?= count($projects) ?></span></div>
+		<div class="indicator glass-effect"><span id="project-stack-indicator">
+			<?php
+				// Build indicator string: #---, -#--, --#-, ---#
+				$indicator = '';
+				for ($i = 0; $i < count($projects); $i++) {
+					$indicator .= $i === 0 ? '#' : '-';
+				}
+				echo $indicator;
+			?>
+		</span></div>
 	</section>
 <?php endif ?>
