@@ -3,7 +3,9 @@ export default function initProjectStack() {
   const indicator = document.getElementById('project-stack-indicator')
 
   if (stack && indicator) {
-    const mediaElements = Array.from(stack.querySelectorAll('.stack-item')) as HTMLElement[]
+    const mediaElements = Array.from(
+      stack.querySelectorAll('.stack-item'),
+    ) as HTMLElement[]
     const totalItems = mediaElements.length
 
     let currentTopElement: HTMLElement | null = null
@@ -29,36 +31,39 @@ export default function initProjectStack() {
         currentTopElement.classList.add('is-top')
         const videoInside = currentTopElement.querySelector('video')
         if (videoInside) {
-          console.log('Video found for top element.');
-          videoInside.currentTime = 0; // Reset video to beginning
+          console.log('Video found for top element.')
+          videoInside.currentTime = 0 // Reset video to beginning
 
           const attemptPlay = () => {
-            console.log('Attempting to play video...');
-            const playPromise = videoInside.play();
+            console.log('Attempting to play video...')
+            const playPromise = videoInside.play()
 
             if (playPromise !== undefined) {
-              playPromise.then(() => {
-                console.log('Video playback started successfully.');
-              }).catch(error => {
-                console.error('Video playback failed:', error);
-                // Common errors: NotAllowedError (user gesture required), AbortError (e.g., interrupted)
-              });
+              playPromise
+                .then(() => {
+                  console.log('Video playback started successfully.')
+                })
+                .catch((error) => {
+                  console.error('Video playback failed:', error)
+                  // Common errors: NotAllowedError (user gesture required), AbortError (e.g., interrupted)
+                })
             }
-          };
+          }
 
           // Check if video is already ready to play
-          if (videoInside.readyState >= 4) { // HTMLMediaElement.HAVE_ENOUGH_DATA
-            console.log('Video already ready (HAVE_ENOUGH_DATA).');
-            attemptPlay();
+          if (videoInside.readyState >= 4) {
+            // HTMLMediaElement.HAVE_ENOUGH_DATA
+            console.log('Video already ready (HAVE_ENOUGH_DATA).')
+            attemptPlay()
           } else {
-            console.log('Video not ready, waiting for canplaythrough...');
+            console.log('Video not ready, waiting for canplay...')
             // Wait for the video to be ready to play through
             const playWhenReady = () => {
-              console.log('canplaythrough event fired.');
-              attemptPlay();
-              videoInside.removeEventListener('canplaythrough', playWhenReady);
-            };
-            videoInside.addEventListener('canplaythrough', playWhenReady);
+              console.log('canplay event fired.')
+              attemptPlay()
+              videoInside.removeEventListener('canplay', playWhenReady)
+            }
+            videoInside.addEventListener('canplay', playWhenReady)
           }
         }
         const originalIndex = parseInt(
