@@ -6,7 +6,10 @@ export default function initProjectStack() {
     const totalItems = images.length;
 
     stack.addEventListener('click', (event) => {
-      const clickedImage = event.target.closest('img');
+      const target = event.target as HTMLElement;
+      if (!target) return;
+
+      const clickedImage = target.closest('img');
       if (!clickedImage) return;
 
       const clickedIndex = parseInt(clickedImage.style.getPropertyValue('--stack-i'));
@@ -29,10 +32,10 @@ export default function initProjectStack() {
           const currentIndex = parseInt(img.style.getPropertyValue('--stack-i'));
           if (currentIndex === clickedIndex) {
             // Move to the bottom
-            img.style.setProperty('--stack-i', totalItems - 1);
+            img.style.setProperty('--stack-i', (totalItems - 1).toString());
           } else {
             // Shift up
-            img.style.setProperty('--stack-i', currentIndex - 1);
+            img.style.setProperty('--stack-i', (currentIndex - 1).toString());
           }
         });
 
