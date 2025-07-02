@@ -32,39 +32,21 @@ export default function initProjectStack() {
         const videoInside = currentTopElement.querySelector('video')
         if (videoInside) {
           console.log('Video found for top element.')
-          videoInside.currentTime = 0 // Reset video to beginning
+          
 
-          const attemptPlay = () => {
-            console.log('Attempting to play video...')
+          // Add a small delay for initial playback
+          setTimeout(() => {
             const playPromise = videoInside.play()
-
             if (playPromise !== undefined) {
               playPromise
                 .then(() => {
-                  console.log('Video playback started successfully.')
+                  console.log('Initial video playback started successfully.')
                 })
                 .catch((error) => {
-                  console.error('Video playback failed:', error)
-                  // Common errors: NotAllowedError (user gesture required), AbortError (e.g., interrupted)
+                  console.error('Initial video playback failed:', error)
                 })
             }
-          }
-
-          // Check if video is already ready to play
-          if (videoInside.readyState >= 4) {
-            // HTMLMediaElement.HAVE_ENOUGH_DATA
-            console.log('Video already ready (HAVE_ENOUGH_DATA).')
-            attemptPlay()
-          } else {
-            console.log('Video not ready, waiting for canplay...')
-            // Wait for the video to be ready to play through
-            const playWhenReady = () => {
-              console.log('canplay event fired.')
-              attemptPlay()
-              videoInside.removeEventListener('canplay', playWhenReady)
-            }
-            videoInside.addEventListener('canplay', playWhenReady)
-          }
+          }, 100) // 100ms delay for initial playback
         }
         const originalIndex = parseInt(
           currentTopElement.dataset.originalIndex || '0',
@@ -121,6 +103,28 @@ export default function initProjectStack() {
 
           // Update the top element and play/pause videos
           updateTopElement()
+
+          // Re-introduce a small delay for video playback after the new top element is set
+          const newTopVideo = currentTopElement?.querySelector('video')
+          if (newTopVideo) {
+            setTimeout(() => {
+              const playPromise = newTopVideo.play()
+              if (playPromise !== undefined) {
+                playPromise
+                  .then(() => {
+                    console.log(
+                      'Video playback started successfully after transition.',
+                    )
+                  })
+                  .catch((error) => {
+                    console.error(
+                      'Video playback failed after transition:',
+                      error,
+                    )
+                  })
+              }
+            }, 100) // 100ms delay for playback
+          }
 
           // Allow the DOM to update before removing the class
           setTimeout(() => {
