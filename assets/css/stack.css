@@ -90,7 +90,7 @@
 
   .indicator {
     position: absolute;
-    bottom: 2em;
+    bottom: 4.5em;
     right: 2em;
     z-index: calc(var(--total-items) + 1);
     padding: 0.3rem 0.4rem;
