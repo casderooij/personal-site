@@ -1,12 +1,21 @@
-@property --angle {
-  syntax: '<angle>';
-  initial-value: 0deg;
-  inherits: false;
+.stack-container {
+  @property --angle {
+    syntax: '<angle>';
+    initial-value: 0deg;
+    inherits: false;
+  }
+
+  --space: 2em;
+
+  position: relative;
+  padding-block: 5em;
 }
 
 .stack.circle {
-  --radius: 30px;
+  --radius: var(--space);
   --offset: 10deg;
+
+  --easing: cubic-bezier(0.65, 0, 0.35, 1);
 
   .stack-item {
     transform: translate(
@@ -15,7 +24,7 @@
     );
 
     transition:
-      --angle 0.5s ease-in-out,
+      --angle 0.5s var(--easing),
       opacity 0.3s ease-in-out;
   }
 }
@@ -33,7 +42,7 @@
     );
 
     transition:
-      transform 0.5s ease-in-out,
+      transform 0.5s var(--easing),
       opacity 0.3s ease-in-out;
   }
 }
@@ -41,19 +50,15 @@
 .stack {
   display: grid;
   grid-template-areas: 'stack';
-  position: relative;
-
-  width: 260px;
-  height: 260px;
+  margin-inline-start: var(--space);
 
   .stack-item {
     --angle: calc(
       var(--stack-i) * calc(360deg / var(--total-items) + var(--offset))
     );
 
-    width: 240px;
-    height: 240px;
-    aspect-ratio: '1/1';
+    width: calc(100% - var(--space));
+    aspect-ratio: 1 / 1;
 
     grid-area: stack;
     z-index: calc(var(--total-items) - var(--stack-i));
@@ -85,8 +90,8 @@
 
   .indicator {
     position: absolute;
-    bottom: 0.4em;
-    right: 0;
+    bottom: 2em;
+    right: 2em;
     z-index: calc(var(--total-items) + 1);
     padding: 0.3rem 0.4rem;
     border-radius: 0.2rem;
