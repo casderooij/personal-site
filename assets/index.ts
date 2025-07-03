@@ -1,5 +1,6 @@
-import initProjectStack from './ts/project-stack'
+import { initializeStack } from './ts/project-stack'
 
 document.addEventListener('DOMContentLoaded', () => {
-  initProjectStack()
+  const stackElement = document.querySelector('.stack') as HTMLElement
+  initializeStack(stackElement)
 })

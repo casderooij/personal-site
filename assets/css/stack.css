@@ -4,7 +4,7 @@
   inherits: false;
 }
 
-.project-thumbnails-stack.circle {
+.stack.circle {
   --radius: 30px;
   --offset: 10deg;
 
@@ -20,7 +20,7 @@
   }
 }
 
-.project-thumbnails-stack.wave {
+.stack.wave {
   --offset: 30deg;
 
   --spacing: 20px; /* Adjust this value based on how spread out you want the items to be horizontally */
@@ -38,7 +38,7 @@
   }
 }
 
-.project-thumbnails-stack {
+.stack {
   display: grid;
   grid-template-areas: 'stack';
   position: relative;

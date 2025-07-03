@@ -6,7 +6,11 @@ $index = 0;
 ?>
 
 <?php if ($projects->isNotEmpty()): ?>
-	<section class="project-thumbnails-stack circle" style="--total-items: <?= count($projects) ?>">
+	<section
+		class="stack circle"
+		style="--total-items: <?= count($projects) ?>"
+		data-index="0">
+
 		<?php foreach ($projects as $project): ?>
 			<?php
 			$mediaElement = null;
@@ -30,18 +34,14 @@ $index = 0;
 				<div
 					class="stack-item <?= $index === 0 ? 'is-top' : 'is-hidden' ?>"
 					style="--stack-i: <?= $index ?>"
-					data-original-index="<?= $index ?>"
+					data-index="<?= $index ?>"
 					data-type="<?= $mediaElement->type() ?>">
 					<?php if ($mediaElement->type() === 'video'): ?>
 						<video
 							src="<?= $mediaElement->url() ?>"
-							<?= $posterUrl ? 'poster="' . $posterUrl . '"' : '' ?>
-							width="<?= $thumb->width() ?>"
-							height="<?= $thumb->height() ?>"
 							loop
 							muted
 							playsinline
-							autoplay
 							preload="auto"></video>
 					<?php else: ?>
 						<img
@@ -56,7 +56,8 @@ $index = 0;
 			<?php $index++; ?>
 		<?php endforeach ?>
 
-		<div class="indicator glass-effect"><span id="project-stack-indicator">
+		<div class="indicator glass-effect">
+			<span>
 				<?php
 				$indicator = '';
 				for ($i = 0; $i < count($projects); $i++) {
@@ -64,6 +65,7 @@ $index = 0;
 				}
 				echo $indicator;
 				?>
-			</span></div>
+			</span>
+		</div>
 	</section>
 <?php endif ?>
