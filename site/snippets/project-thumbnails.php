@@ -6,7 +6,7 @@ $index = 0;
 ?>
 
 <?php if ($projects->isNotEmpty()): ?>
-	<section class="project-thumbnails-stack" style="--total-items: <?= count($projects) ?>">
+	<section class="project-thumbnails-stack circle" style="--total-items: <?= count($projects) ?>">
 		<?php foreach ($projects as $project): ?>
 			<?php
 			$mediaElement = null;
@@ -57,13 +57,13 @@ $index = 0;
 		<?php endforeach ?>
 
 		<div class="indicator glass-effect"><span id="project-stack-indicator">
-			<?php
+				<?php
 				$indicator = '';
 				for ($i = 0; $i < count($projects); $i++) {
 					$indicator .= $i === 0 ? '#' : '-';
 				}
 				echo $indicator;
-			?>
-		</span></div>
+				?>
+			</span></div>
 	</section>
 <?php endif ?>
