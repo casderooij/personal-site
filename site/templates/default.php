@@ -27,8 +27,8 @@
 		crossorigin>
 
 	<?= vite([
-		'assets/style.css',
-		'assets/index.ts'
+		'assets/css/main.css',
+		'assets/ts/index.ts'
 	]) ?>
 
 	<title>Cas de Rooij</title>
@@ -44,7 +44,9 @@
 	<main>
 		<section class="grid-2-col">
 			<p class="body-text">Fugiat sint amet sunt veniam fugiat exercitation. Cupidatat aliquip adipisicing ullamco qui. Non exercitation eu nulla amet incididunt ad exercitation. Cillum esse anim cupidatat non sit velit. Ea Lorem velit elit enim nostrud sunt incididunt commodo pariatur est.</p>
-			<?php snippet('project-thumbnails') ?>
+			<div class="stack-wrapper">
+				<?php snippet('project-thumbnails') ?>
+			</div>
 		</section>
 	</main>
 </body>

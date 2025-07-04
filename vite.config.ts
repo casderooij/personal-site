@@ -15,7 +15,7 @@ export default defineConfig({
   },
   plugins: [
     laravel({
-      input: ['assets/style.css', 'assets/index.ts'],
+      input: ['assets/css/main.css', 'assets/ts/index.ts'],
       refresh: ['site/templates/**', 'site/snippets/**'],
       publicDirectory: './',
     }),

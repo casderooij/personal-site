@@ -1,20 +1,13 @@
-.stack-container {
-  @property --angle {
-    syntax: '<angle>';
-    initial-value: 0deg;
-    inherits: false;
-  }
+@property --angle {
+  syntax: '<angle>';
+  initial-value: 10deg;
+  inherits: false;
+}
 
+.stack-container {
   --space: 2em;
 
   position: relative;
-  padding-block: 5em;
-  margin-inline: auto;
-
-  max-width: 400px;
-
-  @media (--viewport-sm) {
-  }
 }
 
 .stack.circle {
@@ -56,11 +49,11 @@
 
   display: grid;
   grid-template-areas: 'stack';
-  margin-inline-start: var(--space);
+  margin-left: var(--space);
 
   .stack-item {
     --angle: calc(
-      var(--stack-i) * calc(360deg / var(--total-items) + var(--offset))
+      var(--stack-i) * calc(360deg / var(--total-items)) + var(--offset)
     );
 
     width: calc(100% - var(--space));
@@ -92,15 +85,15 @@
 
   .indicator {
     position: absolute;
-    bottom: 4.5rem;
-    right: 2em;
+    bottom: 0.5rem;
+    right: 1em;
     z-index: calc(var(--total-items) + 1);
     padding: 0.3em 0.4em;
     border-radius: 0.2em;
     pointer-events: none;
 
     font-family: var(--font-mono);
-    font-size: 15px;
+    font-size: 10px;
 
     @media (--viewport-sm) {
       font-size: 12px;

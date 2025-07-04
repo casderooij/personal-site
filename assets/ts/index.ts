@@ -1,4 +1,4 @@
-import { Stack } from './ts/project-stack'
+import { Stack } from './stack'
 
 document.addEventListener('DOMContentLoaded', () => {
   const stackElements = document.querySelectorAll(
