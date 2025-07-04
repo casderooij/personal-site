@@ -1,62 +1,102 @@
 import { primeVideos } from './prime-videos'
 
-export async function initializeStack(stackElement: HTMLElement) {
-  const observer = new IntersectionObserver((entries) => {
-    const { isIntersecting } = entries[0]
+export class Stack {
+  stackElement: HTMLElement
+  stackItems: HTMLElement[]
+  numberOfStackItems: number
+  topStackItem: HTMLElement
+  indicatorElement: HTMLElement | null
 
-    const topItem = getTopItem()
-    if (!topItem) return
-    const topItemVideo = getItemVideo(topItem)
-    if (!topItemVideo) return
+  constructor(stackElement: HTMLElement) {
+    this.stackElement = stackElement
+    this.stackItems = Array.from(
+      stackElement.querySelectorAll('.stack-item'),
+    ) as HTMLElement[]
+    this.numberOfStackItems = this.stackItems.length
+    this.topStackItem = this.stackItems[0]
+    this.indicatorElement = stackElement.querySelector('.indicator')
 
-    if (isIntersecting && topItemVideo.paused) {
-      topItemVideo.play()
-    } else if (!isIntersecting) {
-      topItemVideo.pause()
-    }
-  })
-  observer.observe(stackElement)
+    this.intialize()
+  }
 
-  const stackItems = Array.from(
-    stackElement.querySelectorAll('.stack-item'),
-  ) as HTMLElement[]
-  const numberOfStackItems = stackItems.length
-  const indicatorElement = stackElement.querySelector(
-    '.indicator',
-  ) as HTMLElement | null
+  async intialize() {
+    const observer = new IntersectionObserver((entries) => {
+      const { isIntersecting } = entries[0]
 
-  await primeVideos(stackItems)
+      const topItemVideo = this.getVideo(this.topStackItem)
+      if (!topItemVideo) return
 
-  stackItems.forEach((item) => {
-    if (item.dataset.index !== '0') {
-      item.classList.remove('is-hidden')
-    } else {
-      const video = getItemVideo(item)
-      if (video) {
-        video.play()
+      if (isIntersecting && topItemVideo.paused) {
+        topItemVideo.play()
+      } else if (!isIntersecting) {
+        topItemVideo.pause()
       }
-    }
-  })
+    })
+    observer.observe(this.stackElement)
 
-  function getCurrentStackIndex() {
-    return parseInt(stackElement.dataset.index || '0')
+    this.stackElement.addEventListener('click', () => {
+      this.updateStackIndex()
+      this.pauseAndHideTopItem()
+      this.updateIndicator()
+    })
+
+    await primeVideos(this.stackItems)
+
+    this.stackItems.forEach((item) => {
+      if (item.dataset.index !== '0') {
+        item.classList.remove('is-hidden')
+      } else {
+        const video = this.getVideo(item)
+        if (video) {
+          video.play()
+        }
+      }
+    })
   }
 
-  function updateStackIndex() {
-    const nextIndex = (getCurrentStackIndex() + 1) % numberOfStackItems
-    stackElement.dataset.index = nextIndex.toString()
+  getVideo(stackItem: HTMLElement) {
+    return stackItem.querySelector('video')
   }
 
-  function getTopItem() {
-    return stackItems.find((item) => parseInt(item.dataset.index || '0') === 0)
+  getTopItem() {
+    return this.stackItems.find(
+      (item) => parseInt(item.dataset.index || '0') === 0,
+    )
   }
 
-  function getItemVideo(item: HTMLElement) {
-    return item.querySelector('video')
+  getCurrentStackIndex() {
+    return parseInt(this.stackElement.dataset.index || '0')
   }
 
-  function pauseAndHideTopItem() {
-    const topItem = getTopItem()
+  shiftItems() {
+    this.stackItems.forEach((item) => {
+      const itemIndex = parseInt(item.dataset.index || '0')
+
+      const nextIndex =
+        (itemIndex - 1 + this.numberOfStackItems) % this.numberOfStackItems
+
+      item.dataset.index = nextIndex.toString()
+      item.style.setProperty('--stack-i', nextIndex.toString())
+    })
+  }
+
+  playTopItem() {
+    const topItem = this.getTopItem()
+    if (!topItem) return
+
+    const video = topItem.querySelector('video')
+    if (!video) return
+    video.play()
+  }
+
+  updateStackIndex() {
+    const nextIndex =
+      (this.getCurrentStackIndex() + 1) % this.numberOfStackItems
+    this.stackElement.dataset.index = nextIndex.toString()
+  }
+
+  pauseAndHideTopItem() {
+    const topItem = this.getTopItem()
 
     if (topItem) {
       topItem.classList.add('fading-out')
@@ -65,12 +105,12 @@ export async function initializeStack(stackElement: HTMLElement) {
         () => {
           topItem.classList.add('no-transition')
 
-          const video = getItemVideo(topItem)
+          const video = this.getVideo(topItem)
           if (!video) return
           video.pause()
 
-          shiftItems()
-          playTopItem()
+          this.shiftItems()
+          this.playTopItem()
 
           // Allow DOM to update before removing the class
           setTimeout(() => {
@@ -83,41 +123,15 @@ export async function initializeStack(stackElement: HTMLElement) {
     }
   }
 
-  function shiftItems() {
-    stackItems.forEach((item) => {
-      const itemIndex = parseInt(item.dataset.index || '0')
+  updateIndicator() {
+    if (!this.indicatorElement) return
 
-      const nextIndex =
-        (itemIndex - 1 + numberOfStackItems) % numberOfStackItems
-
-      item.dataset.index = nextIndex.toString()
-      item.style.setProperty('--stack-i', nextIndex.toString())
-    })
-  }
-
-  function playTopItem() {
-    const topItem = getTopItem()
-    if (!topItem) return
-
-    const video = topItem.querySelector('video')
-    if (!video) return
-    video.play()
-  }
-
-  function updateIndicator() {
-    if (!indicatorElement) return
-
-    const index = getCurrentStackIndex()
-    const indicatorString = Array.from({ length: stackItems.length }, (_, i) =>
-      i === index ? '#' : '-',
+    const index = this.getCurrentStackIndex()
+    const indicatorString = Array.from(
+      { length: this.stackItems.length },
+      (_, i) => (i === index ? '#' : '-'),
     ).join('')
 
-    indicatorElement.textContent = indicatorString
+    this.indicatorElement.textContent = indicatorString
   }
-
-  stackElement.addEventListener('click', () => {
-    updateStackIndex()
-    pauseAndHideTopItem()
-    updateIndicator()
-  })
 }
