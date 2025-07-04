@@ -1,6 +1,22 @@
 import { primeVideos } from './prime-videos'
 
 export async function initializeStack(stackElement: HTMLElement) {
+  const observer = new IntersectionObserver((entries) => {
+    const { isIntersecting } = entries[0]
+
+    const topItem = getTopItem()
+    if (!topItem) return
+    const topItemVideo = getItemVideo(topItem)
+    if (!topItemVideo) return
+
+    if (isIntersecting && topItemVideo.paused) {
+      topItemVideo.play()
+    } else if (!isIntersecting) {
+      topItemVideo.pause()
+    }
+  })
+  observer.observe(stackElement)
+
   const stackItems = Array.from(
     stackElement.querySelectorAll('.stack-item'),
   ) as HTMLElement[]
@@ -15,7 +31,7 @@ export async function initializeStack(stackElement: HTMLElement) {
     if (item.dataset.index !== '0') {
       item.classList.remove('is-hidden')
     } else {
-      const video = item.querySelector('video')
+      const video = getItemVideo(item)
       if (video) {
         video.play()
       }
@@ -35,6 +51,10 @@ export async function initializeStack(stackElement: HTMLElement) {
     return stackItems.find((item) => parseInt(item.dataset.index || '0') === 0)
   }
 
+  function getItemVideo(item: HTMLElement) {
+    return item.querySelector('video')
+  }
+
   function pauseAndHideTopItem() {
     const topItem = getTopItem()
 
@@ -45,7 +65,7 @@ export async function initializeStack(stackElement: HTMLElement) {
         () => {
           topItem.classList.add('no-transition')
 
-          const video = topItem.querySelector('video')
+          const video = getItemVideo(topItem)
           if (!video) return
           video.pause()
 
