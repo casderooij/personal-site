@@ -42,10 +42,14 @@
 	</header>
 
 	<main>
-		<section class="grid-2-col">
-			<p class="body-text">Fugiat sint amet sunt veniam fugiat exercitation. Cupidatat aliquip adipisicing ullamco qui. Non exercitation eu nulla amet incididunt ad exercitation. Cillum esse anim cupidatat non sit velit. Ea Lorem velit elit enim nostrud sunt incididunt commodo pariatur est.</p>
-			<div class="stack-wrapper">
-				<?php snippet('project-thumbnails') ?>
+		<section class="head-section">
+			<div class="head-section__item">
+				<p class="head-text">As a web developer with a background in design, I enjoy crafting and bringing unique & playful concepts to life for a wide audience.</p>
+			</div>
+			<div class="head-section__item">
+				<div class="stack-wrapper">
+					<?php snippet('project-thumbnails') ?>
+				</div>
 			</div>
 		</section>
 	</main>
