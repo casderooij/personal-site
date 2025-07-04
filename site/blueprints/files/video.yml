@@ -8,13 +8,3 @@ columns:
     sections:
       content:
         type: fields
-        fields:
-          poster:
-            label: Poster Image
-            type: files
-            multiple: false
-            layout: cards
-            template: image
-            max: 1
-            size: tiny
-
