@@ -6,7 +6,7 @@ $index = 0;
 ?>
 
 <?php if ($projects->isNotEmpty()): ?>
-	<section class="stack-container">
+	<div class="stack-container">
 
 		<div class="stack circle"
 			style="--total-items: <?= count($projects) ?>"
@@ -69,5 +69,5 @@ $index = 0;
 				</span>
 			</div>
 		</div>
-	</section>
+	</div>
 <?php endif ?>

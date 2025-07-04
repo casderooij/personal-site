@@ -31,7 +31,9 @@
   --outer-padding: 0.6rem;
 }
 
-@media (min-width: 700px) {
+@custom-media --viewport-sm (min-width: 700px);
+
+@media (--viewport-sm) {
   :root {
     --outer-padding: 1.2rem;
   }
@@ -80,8 +82,6 @@ main {
 
 .body-text {
   font-size: 1.1rem;
-  width: 100%;
-  max-width: 500px;
   line-height: 1.4;
 }
 
@@ -90,4 +90,14 @@ main {
   backdrop-filter: blur(5px);
   border: 1px solid rgba(255, 255, 255, 0.3);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.grid-2-col {
+  display: grid;
+}
+
+@media (--viewport-sm) {
+  .grid-2-col {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }

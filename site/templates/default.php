@@ -42,9 +42,10 @@
 	</header>
 
 	<main>
-		<p class="body-text">Fugiat sint amet sunt veniam fugiat exercitation. Cupidatat aliquip adipisicing ullamco qui. Non exercitation eu nulla amet incididunt ad exercitation. Cillum esse anim cupidatat non sit velit. Ea Lorem velit elit enim nostrud sunt incididunt commodo pariatur est.</p>
-
-		<?php snippet('project-thumbnails') ?>
+		<section class="grid-2-col">
+			<p class="body-text">Fugiat sint amet sunt veniam fugiat exercitation. Cupidatat aliquip adipisicing ullamco qui. Non exercitation eu nulla amet incididunt ad exercitation. Cillum esse anim cupidatat non sit velit. Ea Lorem velit elit enim nostrud sunt incididunt commodo pariatur est.</p>
+			<?php snippet('project-thumbnails') ?>
+		</section>
 	</main>
 </body>
 

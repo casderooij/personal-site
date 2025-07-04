@@ -8,6 +8,9 @@ export default defineConfig({
     transformer: 'lightningcss',
     lightningcss: {
       targets: browserslistToTargets(browserslist('>= 0.25%')),
+      drafts: {
+        customMedia: true,
+      },
     },
   },
   plugins: [
@@ -17,4 +20,7 @@ export default defineConfig({
       publicDirectory: './',
     }),
   ],
+  build: {
+    cssMinify: 'lightningcss',
+  },
 })
