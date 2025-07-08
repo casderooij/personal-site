@@ -12,3 +12,12 @@ sections:
     templates:
       - project
     empty: No projects yet. Create the first one!
+  artifacts:
+    type: pages
+    parent: site.find('artifacts')
+    label: Artifacts
+    create:
+      - artifact
+    templates:
+      - artifact
+    info: "{{ page.date.toDate('d-m-Y') }} | {{ page.tags }}"

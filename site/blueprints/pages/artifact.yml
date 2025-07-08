@@ -1,0 +1,32 @@
+title: Artifact
+
+fields:
+  title:
+    label: Title
+    type: text
+    width: 1/2
+  description:
+    label: Description
+    type: textarea
+    width: 1/2
+  tags:
+    label: Tags
+    type: tags
+    width: 1/2
+    options:
+      type: query
+      query: site.find('artifacts').children.pluck('tags', ',', true)
+  date:
+    label: Date
+    type: date
+    default: today
+    width: 1/2
+    display: false
+  media:
+    label: Media
+    type: files
+    multiple: true
+    layout: cards
+    uploads:
+      - image
+      - video
