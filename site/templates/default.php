@@ -42,16 +42,9 @@
 	</header>
 
 	<main>
-		<section class="head-section">
-			<div class="head-section__item">
-				<p class="head-text">As a web developer with a background in design, I enjoy crafting and bringing unique & playful concepts to life for a wide audience.</p>
-			</div>
-			<div class="head-section__item">
-				<div class="stack-wrapper">
-					<?php snippet('project-thumbnails') ?>
-				</div>
-			</div>
-		</section>
+		<div class="timeline">
+
+		</div>
 	</main>
 </body>
 
