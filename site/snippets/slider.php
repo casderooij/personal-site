@@ -1,30 +1,25 @@
-<?php
-$projects = site()->find('projects')->children()->listed()->filter(function ($project) {
-	return in_array('experiment', $project->tags()->split(','));
-});
-$index = 0;
-?>
+<?php $index = 0; ?>
 
-<?php if ($projects->isNotEmpty()): ?>
+<?php if ($slides->isNotEmpty()): ?>
 	<div class="stack-container">
 
 		<div class="stack circle"
-			style="--total-items: <?= count($projects) ?>"
+			style="--total-items: <?= count($slides) ?>"
 			data-index="0">
 
-			<?php foreach ($projects as $project): ?>
+			<?php foreach ($slides as $slide): ?>
 				<?php
 				$mediaElement = null;
 				$posterUrl = null;
 
 				// Prefer video if available
-				if ($video = $project->video()->toFile()) {
+				if ($video = $slide->video()->toFile()) {
 					$mediaElement = $video;
 					// Check if a poster image is linked in the video's content file
 					if ($poster = $video->content()->poster()->toFile()) {
 						$posterUrl = $poster->url();
 					}
-				} elseif ($image = $project->image()->toFile()) {
+				} elseif ($image = $slide->image()->toFile()) {
 					// Fallback to image if no video
 					$mediaElement = $image;
 				}
@@ -47,7 +42,7 @@ $index = 0;
 						<?php else: ?>
 							<img
 								src="<?= $thumb->url() ?>"
-								alt="<?= $mediaElement->alt()->or($project->title())->esc() ?>"
+								alt="<?= $mediaElement->alt()->or($slide->title())->esc() ?>"
 								width="<?= $thumb->width() ?>"
 								height="<?= $thumb->height() ?>"
 								loading="lazy">
@@ -61,7 +56,7 @@ $index = 0;
 				<span>
 					<?php
 					$indicator = '';
-					for ($i = 0; $i < count($projects); $i++) {
+					for ($i = 0; $i < count($slides); $i++) {
 						$indicator .= $i === 0 ? '#' : '-';
 					}
 					echo $indicator;
