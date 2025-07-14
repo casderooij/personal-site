@@ -1,0 +1,21 @@
+.timeline {
+  padding: 0 var(--outer-padding);
+}
+
+.timeline__today {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  background-color: white;
+  padding: 0.2em 1em;
+  border-radius: 1000px;
+  position: relative;
+}
+.timeline__today::after {
+  content: '';
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  transform: translate(0%, 50%);
+  width: 100%;
+  border: 1px solid black;
+}

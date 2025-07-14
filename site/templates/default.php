@@ -36,27 +36,30 @@
 
 <body>
 	<header>
-		<div class="header-content">
-			<a href="/"><?= $page->title() ?></a>
-		</div>
+		<a href="/"><?= $page->title() ?></a>
+
+		<!-- <div class="stack-wrapper">
+					<?php snippet('slider', ['slides' => $site->Homepagecarousel()->toStructure()]) ?>
+				</div> -->
 	</header>
 
 	<main>
-		<div class="timeline">
 
-			<div class="stack-wrapper">
-				<?php snippet('slider', ['slides' => $site->Homepagecarousel()->toStructure()]) ?>
-			</div>
 
-			<section>
-				<?php $artifacts = site()->find('artifacts')->children()->listed(); ?>
 
-				<?php foreach ($artifacts as $artifact): ?>
-					<?= $artifact->title() ?>
-				<?php endforeach ?>
-			</section>
 
-		</div>
+		<section class="timeline">
+			<?php date_default_timezone_set('Europe/Amsterdam'); ?>
+			<time class="timeline__today"><?= date('D M j') ?></time>
+
+			<?php $artifacts = site()->find('artifacts')->children()->listed(); ?>
+
+			<?php foreach ($artifacts as $artifact): ?>
+				<!-- <?= $artifact->title() ?> -->
+			<?php endforeach ?>
+		</section>
+
+
 	</main>
 </body>
 
