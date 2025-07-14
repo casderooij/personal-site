@@ -44,6 +44,18 @@
 	<main>
 		<div class="timeline">
 
+			<div class="stack-wrapper">
+				<?php snippet('slider', ['slides' => $site->Homepagecarousel()->toStructure()]) ?>
+			</div>
+
+			<section>
+				<?php $artifacts = site()->find('artifacts')->children()->listed(); ?>
+
+				<?php foreach ($artifacts as $artifact): ?>
+					<?= $artifact->title() ?>
+				<?php endforeach ?>
+			</section>
+
 		</div>
 	</main>
 </body>
