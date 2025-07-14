@@ -55,6 +55,9 @@ Icon
 /content/projects/*
 !/content/projects/projects.txt
 
+/content/artifacts/*
+!/content/artifacts/artifacts.txt
+
 vendor
 kirby
 node_modules
