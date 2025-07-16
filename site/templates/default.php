@@ -49,14 +49,16 @@
 
 
 		<section class="timeline">
-			<?php date_default_timezone_set('Europe/Amsterdam'); ?>
+			<?php
+			date_default_timezone_set('Europe/Amsterdam');
+			$now = new \DateTime('now');
+			?>
 			<time class="timeline__today"><?= date('D M j') ?></time>
 
-			<?php $artifacts = site()->find('artifacts')->children()->listed(); ?>
-
-			<?php foreach ($artifacts as $artifact): ?>
-				<!-- <?= $artifact->title() ?> -->
-			<?php endforeach ?>
+			<?php $artifacts = $kirby->collection('artifacts');
+			foreach ($artifacts as $artifact):
+				snippet('artifact', ['now' => $now, 'artifact' => $artifact]);
+			endforeach ?>
 		</section>
 
 

@@ -1,6 +1,7 @@
 <?php
 
 return [
+	'debug' => true,
 	'thumbs' => [
 		'presets' => [
 			'project' => [
