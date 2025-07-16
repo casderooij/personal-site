@@ -14,7 +14,6 @@ $index = 0;
 	</div>
 
 	<div class="artifact__media">
-
 		<div class="stack circle" style="--total-items: <?= $artifact->media()->count() ?>"
 			data-index="0">
 			<?php
