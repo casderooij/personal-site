@@ -27,6 +27,9 @@
   left: calc(50% + (sin(var(--angle)) * var(--amplitude)));
 
   transform: translateX(-50%);
+
+  display: flex;
+  flex-direction: column;
 }
 
 .artifact__meta {
@@ -46,4 +49,9 @@
 
 .artifact__media {
   width: 200px;
+
+  video {
+    padding-bottom: 1px;
+    border-radius: 9px;
+  }
 }
