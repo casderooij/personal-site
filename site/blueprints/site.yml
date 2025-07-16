@@ -14,25 +14,3 @@ sections:
     templates:
       - artifact
     info: "{{ page.date.toDate('d-m-Y') }} | {{ page.tags }}"
-
-  carousel:
-    type: fields
-    fields:
-      homepageCarousel:
-        label: Homepage carousel
-        type: structure
-        min: 3
-        max: 5
-        fields:
-          title:
-            label: Title
-            type: text
-          video:
-            label: Video
-            type: files
-            multiple: false
-            layout: cards
-            uploads: true
-            template: video
-            max: 1
-            accept: video/*

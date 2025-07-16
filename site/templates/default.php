@@ -37,17 +37,9 @@
 <body>
 	<header>
 		<a href="/"><?= $page->title() ?></a>
-
-		<!-- <div class="stack-wrapper">
-					<?php snippet('slider', ['slides' => $site->Homepagecarousel()->toStructure()]) ?>
-				</div> -->
 	</header>
 
 	<main>
-
-
-
-
 		<section class="timeline">
 			<?php
 			date_default_timezone_set('Europe/Amsterdam');
@@ -60,8 +52,6 @@
 				snippet('artifact', ['now' => $now, 'artifact' => $artifact]);
 			endforeach ?>
 		</section>
-
-
 	</main>
 </body>
 
