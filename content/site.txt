@@ -1,22 +1,2 @@
 Title: Site Title
 
-----
-
-Homepagecarousel:
-
-- 
-  title: Marching squares
-  video:
-    - file://yw7p2dd7f3kfazqk
-- 
-  title: Pattern generator
-  video:
-    - file://wmbglmmhgdapkung
-- 
-  title: Moving mountains
-  video:
-    - file://ygwu6m5jgd3gj3gz
-- 
-  title: Running horses
-  video:
-    - file://lvmx2lj8xzs39ilh

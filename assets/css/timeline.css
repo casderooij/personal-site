@@ -4,6 +4,7 @@
   padding: 0 var(--outer-padding);
   position: relative;
 
+  overflow: hidden;
   height: calc(var(--full-timeline-offset) * var(--day-space));
 }
 
@@ -21,7 +22,7 @@
   position: absolute;
   top: calc(var(--time-offset) * var(--day-space));
 
-  --amplitude: calc(50vw / 2);
+  --amplitude: calc(40vw / 2);
   --angle: calc(var(--time-offset) * 100deg);
 
   left: calc(50% + (sin(var(--angle)) * var(--amplitude)));
@@ -30,6 +31,10 @@
 
   display: flex;
   flex-direction: column;
+
+  @media (--viewport-sm) {
+    --amplitude: calc(50vw / 2);
+  }
 }
 
 .artifact__meta {
