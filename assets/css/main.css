@@ -29,6 +29,8 @@
   --text-color: rgb(55, 65, 81);
   --text-color-hover: rgb(90, 110, 142);
 
+  --blue: rgb(66, 66, 245);
+
   --header-height: 4rem;
 
   --outer-padding: 0.6rem;
@@ -54,10 +56,6 @@ a {
   margin: 0;
 }
 
-p {
-  font-family: var(--font-serif);
-}
-
 body {
   font-family: var(--font-sans);
   background-color: var(--bg-color);
@@ -74,7 +72,7 @@ header {
   padding: 0 var(--outer-padding);
 
   a {
-    color: rgb(66, 66, 245);
+    color: var(--blue);
     font-size: 1.4em;
     text-decoration: none;
     transition: color 100ms ease-in-out;
