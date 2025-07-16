@@ -7,8 +7,10 @@ $timeOffset = $now->diff(
 	)
 )->days;
 ?>
+
 <section class="timeline" style="--full-timeline-offset: <?= $timeOffset + 10 ?>">
 
+	<?php snippet('months') ?>
 	<time class="timeline__today"><?= date('D M j') ?></time>
 
 	<?php

@@ -1,21 +1,45 @@
 .timeline {
   --day-space: 40px;
 
-  padding: 0 var(--outer-padding);
   position: relative;
-
   overflow: hidden;
   height: calc(var(--full-timeline-offset) * var(--day-space));
 }
 
 .timeline__today {
-  font-size: 12px;
-  background-color: var(--blue);
-  color: white;
+  background-color: white;
   padding: 0.2em 1em;
+  margin-left: var(--outer-padding);
   border-radius: 1000px;
   position: relative;
   font-family: var(--font-mono);
+  font-size: 10px;
+}
+
+.timeline__month {
+  position: absolute;
+  top: calc(var(--time-offset) * var(--day-space));
+  width: 100%;
+  padding: 0 var(--outer-padding);
+  z-index: 100;
+  pointer-events: none;
+}
+
+.timeline__month-line {
+  width: 100%;
+  height: 1px;
+  background-color: var(--blue);
+}
+
+.timeline__month-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  position: absolute;
+  background-color: white;
+  transform: translateY(-50%);
+  padding: 0.2em 1em;
+  border-radius: 1000px;
+  box-shadow: var(--shadow);
 }
 
 .artifact {
@@ -31,25 +55,21 @@
 
   display: flex;
   flex-direction: column;
+  align-items: start;
 
   @media (--viewport-sm) {
     --amplitude: calc(50vw / 2);
   }
 }
 
-.artifact__meta {
-  display: flex;
-  flex-direction: column;
-  align-items: start;
-}
-
 .artifact__title,
 .artifact__date {
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: 10px;
   background-color: white;
   padding: 0.2em 1em;
   border-radius: 1000px;
+  box-shadow: var(--shadow);
 }
 
 .artifact__media {
@@ -58,5 +78,6 @@
   video {
     padding-bottom: 1px;
     border-radius: 9px;
+    box-shadow: var(--shadow);
   }
 }
