@@ -22,10 +22,20 @@ fields:
     default: today
     width: 1/2
     display: false
+  link:
+    label: Link
+    type: link
+    width: 1/2
+  related:
+    label: Related artifacts
+    type: pages
+    query: site.find('artifacts')
+    width: 1/2
   media:
     label: Media
     type: files
     multiple: true
+    width: 1/2
     layout: cards
     uploads:
       - image
