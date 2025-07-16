@@ -6,7 +6,7 @@ $index = 0;
 
 <article
 	class="artifact"
-	style="--time-offset: <?= $timeOffset ?>px;">
+	style="--time-offset: <?= $timeOffset ?>;">
 
 	<div class="artifact__meta">
 		<span class="artifact__date"><?= $artifact->date() ?></span>

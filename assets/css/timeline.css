@@ -1,8 +1,10 @@
 .timeline {
+  --day-space: 40px;
+
   padding: 0 var(--outer-padding);
   position: relative;
 
-  --day-space: 40;
+  height: calc(var(--full-timeline-offset) * var(--day-space));
 }
 
 .timeline__today {
@@ -18,6 +20,13 @@
 .artifact {
   position: absolute;
   top: calc(var(--time-offset) * var(--day-space));
+
+  --amplitude: calc(50vw / 2);
+  --angle: calc(var(--time-offset) * 100deg);
+
+  left: calc(50% + (sin(var(--angle)) * var(--amplitude)));
+
+  transform: translateX(-50%);
 }
 
 .artifact__meta {
@@ -36,5 +45,5 @@
 }
 
 .artifact__media {
-  width: 100px;
+  width: 200px;
 }
