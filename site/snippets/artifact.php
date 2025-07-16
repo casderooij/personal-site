@@ -8,8 +8,10 @@ $index = 0;
 	class="artifact"
 	style="--time-offset: <?= $timeOffset ?>;">
 
-	<span class="artifact__date"><?= $artifact->date()->toDate('d-m-y') ?></span>
-	<span class="artifact__title"><?= $artifact->title() ?></span>
+	<div class="artifact__meta">
+		<span class="artifact__date"><?= $artifact->date()->toDate('M j') ?></span>
+		<span class="artifact__title"><?= $artifact->title() ?></span>
+	</div>
 
 	<div class="artifact__media">
 		<div class="stack circle" style="--total-items: <?= $artifact->media()->count() ?>"

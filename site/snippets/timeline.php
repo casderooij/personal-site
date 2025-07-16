@@ -11,7 +11,8 @@ $timeOffset = $now->diff(
 <section class="timeline" style="--full-timeline-offset: <?= $timeOffset + 10 ?>">
 
 	<?php snippet('months') ?>
-	<time class="timeline__today"><?= date('D M j') ?></time>
+
+	<time class="timeline__today">Today <?= date('M j') ?></time>
 
 	<?php
 	$artifacts = $kirby->collection('artifacts');
