@@ -101,12 +101,10 @@
     padding: 0.2em 1em;
     border-radius: 1000px;
     pointer-events: none;
+    background-color: white;
+    box-shadow: var(--shadow);
 
     font-family: var(--font-mono);
     font-size: 10px;
-
-    @media (--viewport-sm) {
-      font-size: 12px;
-    }
   }
 }

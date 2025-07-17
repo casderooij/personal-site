@@ -50,7 +50,7 @@
 			<?php endforeach ?>
 
 			<?php if ($slides->count() > 1): ?>
-				<div class="indicator glass-effect">
+				<div class="indicator">
 					<span>
 						<?php
 						$indicator = '';
