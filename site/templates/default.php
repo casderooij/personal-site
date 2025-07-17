@@ -26,6 +26,8 @@
 		type="font/woff2"
 		crossorigin>
 
+	<link rel="icon" href="<?= url('favicon.png') ?>" type="image/png">
+
 	<?= vite([
 		'assets/css/main.css',
 		'assets/ts/index.ts'
