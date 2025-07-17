@@ -3,25 +3,22 @@
 <?php if ($slides->isNotEmpty()): ?>
 	<div class="stack-container">
 
-		<div class="stack circle"
+		<div class="stack wave <?= $slides->count() === 1 ? 'single-slide' : '' ?>"
 			style="--total-items: <?= count($slides) ?>"
 			data-index="0">
 
 			<?php foreach ($slides as $slide): ?>
 				<?php
-				$mediaElement = null;
+				$mediaElement = $slide;
 				$posterUrl = null;
 
 				// Prefer video if available
-				if ($video = $slide->video()->toFile()) {
-					$mediaElement = $video;
+				if ($slide->type() === 'video') {
+					$video = $slide;
 					// Check if a poster image is linked in the video's content file
 					if ($poster = $video->content()->poster()->toFile()) {
 						$posterUrl = $poster->url();
 					}
-				} elseif ($image = $slide->image()->toFile()) {
-					// Fallback to image if no video
-					$mediaElement = $image;
 				}
 				?>
 
@@ -52,17 +49,19 @@
 				<?php $index++; ?>
 			<?php endforeach ?>
 
-			<div class="indicator glass-effect">
-				<span>
-					<?php
-					$indicator = '';
-					for ($i = 0; $i < count($slides); $i++) {
-						$indicator .= $i === 0 ? '#' : '-';
-					}
-					echo $indicator;
-					?>
-				</span>
-			</div>
+			<?php if ($slides->count() > 1): ?>
+				<div class="indicator glass-effect">
+					<span>
+						<?php
+						$indicator = '';
+						for ($i = 0; $i < count($slides); $i++) {
+							$indicator .= $i === 0 ? '#' : '-';
+						}
+						echo $indicator;
+						?>
+					</span>
+				</div>
+			<?php endif; ?>
 		</div>
 	</div>
 <?php endif ?>
