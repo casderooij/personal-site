@@ -12,7 +12,12 @@ $timeOffset = $now->diff(
 
 	<?php snippet('months') ?>
 
-	<time class="timeline__today">Today <?= date('M j') ?></time>
+	<div class="timeline__date-container" style="--time-offset: 0;">
+		<div class="timeline__date">
+			<div class="timeline__date-line"></div>
+			<span class="timeline__date-label">Today <?= date('M j') ?></span>
+		</div>
+	</div>
 
 	<?php
 	$artifacts = $kirby->collection('artifacts');

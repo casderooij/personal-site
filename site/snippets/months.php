@@ -14,17 +14,21 @@ if ($artifacts->isNotEmpty()) {
 	$current = clone $oldestArtifactDate;
 
 	for ($i = 0; $i <= $monthsDifference; $i++) {
-		$timelineMonths[] = clone $current;
+		if ($i > 0) {
+			$timelineMonths[] = clone $current;
+		}
 		$current->modify('+1 month');
 	}
 }
 ?>
 
-
 <?php foreach ($timelineMonths as $monthDate): ?>
 	<?php $monthOffset = $now->diff($monthDate)->days; ?>
-	<div class="timeline__month" style="--time-offset: <?= $monthOffset ?>;">
-		<div class="timeline__month-line"></div>
-		<span class="timeline__month-label"><?= $monthDate->format('F') ?></span>
+
+	<div class="timeline__date-container" style="--time-offset: <?= $monthOffset ?>;">
+		<div class="timeline__date">
+			<div class="timeline__date-line"></div>
+			<span class="timeline__date-label"><?= $monthDate->format('F') ?></span>
+		</div>
 	</div>
 <?php endforeach; ?>

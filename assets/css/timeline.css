@@ -2,41 +2,35 @@
   --day-space: 40px;
 
   position: relative;
-  overflow: hidden;
   height: calc(var(--full-timeline-offset) * var(--day-space));
 }
 
-.timeline__today {
-  background-color: white;
-  padding: 0.2em 1em;
-  margin-left: var(--outer-padding);
-  border-radius: 1000px;
-  position: relative;
-  font-family: var(--font-mono);
-  font-size: 10px;
-  box-shadow: var(--shadow);
-}
-
-.timeline__month {
+.timeline__date-container {
   position: absolute;
-  top: calc(var(--time-offset) * var(--day-space));
   width: 100%;
+  top: calc(var(--time-offset) * var(--day-space));
   padding: 0 var(--outer-padding);
-  pointer-events: none;
 }
 
-.timeline__month-line {
+.timeline__date {
+  position: relative;
+  pointer-events: none;
+  z-index: 100;
+}
+
+.timeline__date-line {
+  position: absolute;
   width: 100%;
   height: 1px;
   background-color: var(--blue);
 }
 
-.timeline__month-label {
+.timeline__date-label {
+  position: absolute;
+  transform: translateY(-50%);
   font-family: var(--font-mono);
   font-size: 10px;
-  position: absolute;
   background-color: white;
-  transform: translateY(-50%);
   padding: 0.2em 1em;
   border-radius: 1000px;
   box-shadow: var(--shadow);
@@ -47,7 +41,7 @@
   top: calc(var(--time-offset) * var(--day-space));
 
   --amplitude: calc(40vw / 2);
-  --angle: calc(var(--time-offset) * 100deg);
+  --angle: calc(var(--time-offset) * 20deg);
 
   left: calc(50% + (sin(var(--angle)) * var(--amplitude)));
 

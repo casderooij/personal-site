@@ -40,6 +40,12 @@
 	</header>
 
 	<main>
+		<section class="intro">
+			<p class="intro__text">
+				<?= $site->homePage()->introText() ?>
+			</p>
+		</section>
+
 		<?php snippet('timeline') ?>
 	</main>
 </body>

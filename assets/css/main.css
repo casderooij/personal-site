@@ -1,5 +1,6 @@
 @import 'node_modules/modern-normalize/modern-normalize.css';
 @import './stack.css';
+@import './intro.css';
 @import './timeline.css';
 
 @font-face {

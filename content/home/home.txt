@@ -2,4 +2,8 @@ Title: Cas de Rooij
 
 ----
 
+IntroText: As a developer fascinated by web technologies and design, I like to create prototypes and experimenting with new ideas. This timeline website is where I showcase my latest projects and explorations.
+
+----
+
 Uuid: v4B6gxRp7M7iNI9y

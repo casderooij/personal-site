@@ -1,0 +1,7 @@
+title: Home
+
+fields:
+  introText:
+    label: Intro text
+    type: textarea
+    width: 1/2
