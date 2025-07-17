@@ -37,13 +37,16 @@
 }
 
 .artifact {
+  --width: 200px;
+  --amplitude: calc(
+    calc(100vw - calc(var(--width) + var(--outer-padding))) / 2
+  );
+  --angle: calc(var(--time-offset) * 100deg);
+
   position: absolute;
   top: calc(var(--time-offset) * var(--day-space));
-
-  --amplitude: calc(40vw / 2);
-  --angle: calc(var(--time-offset) * 20deg);
-
   left: calc(50% + (sin(var(--angle)) * var(--amplitude)));
+  width: var(--width);
 
   transform: translate(-50%, -1em);
 
@@ -53,6 +56,7 @@
 
   @media (--viewport-sm) {
     --amplitude: calc(50vw / 2);
+    --angle: calc(var(--time-offset) * 20deg);
   }
 }
 
@@ -84,7 +88,7 @@
 }
 
 .artifact__media {
-  width: 200px;
+  width: 100%;
 
   video {
     padding-bottom: 1px;
