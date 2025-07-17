@@ -11,12 +11,6 @@
 }
 
 @font-face {
-  font-family: 'Newsreader';
-  src: url('../fonts/newsreader-regular.woff2') format(woff2);
-  display: swap;
-}
-
-@font-face {
   font-family: 'Martian Mono';
   src: url('../fonts/martian-mono-light.woff2') format(woff2);
   display: swap;
