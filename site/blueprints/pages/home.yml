@@ -1,6 +1,19 @@
 title: Home
 
 fields:
+  location:
+    label: location
+    type: text
+    width: 1/2
+  github:
+    label: Github
+    type: object
+    width: 1/2
+    fields:
+      link:
+        type: link
+      label:
+        type: text
   introText:
     label: Intro text
     type: textarea

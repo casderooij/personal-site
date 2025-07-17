@@ -1,5 +1,6 @@
 @import 'node_modules/modern-normalize/modern-normalize.css';
 @import './stack.css';
+@import './info.css';
 @import './intro.css';
 @import './timeline.css';
 
@@ -57,6 +58,11 @@ p,
 a {
   color: var(--text-color);
   margin: 0;
+}
+
+a {
+  color: var(--blue);
+  text-decoration: none;
 }
 
 body {
