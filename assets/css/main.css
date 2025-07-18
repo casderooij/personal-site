@@ -3,6 +3,7 @@
 @import './info.css';
 @import './intro.css';
 @import './timeline.css';
+@import './artifact.css';
 
 @font-face {
   font-family: 'Martian Grotesk';

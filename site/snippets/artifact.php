@@ -16,4 +16,10 @@ $index = 0;
 	<div class="artifact__media">
 		<?php snippet('slider', ['slides' => $artifact->media()->toFiles()]) ?>
 	</div>
+
+	<div class="artifact__tags">
+		<?php foreach ($artifact->tags()->split() as $tag): ?>
+			<span class="artifact__tag"><?= $tag ?></span>
+		<?php endforeach ?>
+	</div>
 </article>
