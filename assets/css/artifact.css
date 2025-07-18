@@ -49,6 +49,10 @@
   z-index: 2;
 }
 
+.artifact__expand-link {
+  display: none;
+}
+
 .artifact__media {
   width: 100%;
 

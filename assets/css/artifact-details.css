@@ -1,10 +1,10 @@
 .artifact-details__container {
-  position: absolute;
+  position: fixed;
   width: 100vw;
   height: 100vh;
   top: 0;
   left: 0;
-  border: 1px solid red;
+  z-index: 1000;
 }
 
 .artifact-details {

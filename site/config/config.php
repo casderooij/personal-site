@@ -12,7 +12,7 @@ return [
 	],
 	'routes' => [
 		[
-			'pattern' => 'artifact/(:any)',
+			'pattern' => 'artifact-details/(:any)',
 			'method' => 'GET',
 			'action' => function (string $artifactId) {
 				$artifact = page('artifacts/' . $artifactId);

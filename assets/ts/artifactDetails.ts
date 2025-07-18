@@ -6,8 +6,6 @@ const artifactDetailAnchorElements = document.querySelectorAll(
 ) as NodeListOf<HTMLAnchorElement>
 
 artifactDetailAnchorElements.forEach((anchor) => {
-  console.log(anchor.href)
-  // Attach click event listener
   anchor.addEventListener('click', async (e) => {
     e.preventDefault()
 
