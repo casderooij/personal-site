@@ -1,4 +1,5 @@
 import { Stack } from './stack'
+import './artifactDetails'
 
 document.addEventListener('DOMContentLoaded', () => {
   const stackElements = document.querySelectorAll(

@@ -4,6 +4,7 @@
 @import './intro.css';
 @import './timeline.css';
 @import './artifact.css';
+@import './artifact-details.css';
 
 @font-face {
   font-family: 'Martian Grotesk';

@@ -1,0 +1,19 @@
+.artifact-details__container {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  border: 1px solid red;
+}
+
+.artifact-details {
+  position: absolute;
+  background-color: white;
+  padding: 0.2em 1em;
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
