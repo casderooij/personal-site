@@ -50,7 +50,7 @@
 }
 
 .artifact__expand-link {
-  /* display: none; */
+  display: none;
 }
 
 .artifact__media {
