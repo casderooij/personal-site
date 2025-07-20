@@ -10,6 +10,7 @@ artifactDetailAnchorElements.forEach((anchor) => {
     e.preventDefault()
 
     const html = await fetchArtifact(anchor.href)
+    console.log(html)
     if (html && artifactDetailContainer) {
       artifactDetailContainer.innerHTML = html
     }
