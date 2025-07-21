@@ -17,6 +17,9 @@ artifactDetailAnchorElements.forEach((anchor) => {
       const artifactDetailsElement = parseArtifactDetails(html)
       artifactDetailContainer.appendChild(artifactDetailsElement)
 
+      // const slug = anchor.getAttribute('data-slug') || ''
+      // history.pushState({ page: 'artifact' }, '', `/artifacts/${slug}`)
+
       const stackElements = document.querySelectorAll(
         '.stack',
       ) as NodeListOf<HTMLElement>
@@ -31,14 +34,14 @@ artifactDetailAnchorElements.forEach((anchor) => {
 
       function escKeyListener(event: KeyboardEvent) {
         if (event.key === 'Escape') {
-          artifactDetailContainer.removeChild(artifactDetailsElement)
-          removeEventListeners()
+          closeOnClickListener()
         }
       }
 
       function closeOnClickListener() {
         artifactDetailContainer.removeChild(artifactDetailsElement)
         removeEventListeners()
+        // history.replaceState({ page: 'home' }, '', '/')
       }
 
       function removeEventListeners() {

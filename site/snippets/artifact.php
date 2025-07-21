@@ -7,7 +7,7 @@ $slug = $artifact->intendedTemplate() == 'artifact-update' ?
 	$artifact->slug();
 ?>
 
-<a class="artifact__expand-link" href="/artifact-details/<?= $slug ?>">
+<a class="artifact__expand-link" href="/artifact-details/<?= $slug ?>" data-slug="<?= $slug ?>">
 	<article
 		class="artifact"
 		style="--time-offset: <?= $timeOffset ?>;">
