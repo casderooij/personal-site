@@ -1,5 +1,9 @@
 title: Artifact
 
+status:
+  - draft
+  - unlisted
+
 fields:
   title:
     label: Title
