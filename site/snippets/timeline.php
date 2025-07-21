@@ -24,5 +24,6 @@ $timeOffset = $now->diff(
 
 	foreach ($artifacts as $artifact):
 		snippet('artifact', ['now' => $now, 'artifact' => $artifact]);
-	endforeach ?>
+	endforeach
+	?>
 </section>

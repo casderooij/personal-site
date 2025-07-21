@@ -15,8 +15,7 @@ return [
 			'pattern' => 'artifact-details/(:any)',
 			'method' => 'GET',
 			'action' => function (string $artifactId) {
-				$artifact = page('artifacts/' . $artifactId);
-				if ($artifact) {
+				if ($artifact = page('artifacts/' . $artifactId)) {
 					return snippet('artifact-details', ['artifact' => $artifact], true);
 				} else {
 					return kirby()->response()->code(404);

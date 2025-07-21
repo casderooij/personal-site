@@ -6,56 +6,55 @@ status:
   unlisted:
     label: Public
 
-fields:
-  title:
-    label: Title
-    type: text
-    width: 1/2
-  description:
-    label: Description
-    type: textarea
-    width: 1/2
-  tags:
-    label: Tags
-    type: tags
-    width: 1/2
-    options:
-      type: query
-      query: site.find('artifacts').children.pluck('tags', ',', true)
-  date:
-    label: Date
-    type: date
-    default: today
-    width: 1/2
-    display: false
-  link:
-    label: Link
-    type: link
-    width: 1/2
-  related:
-    label: Related artifacts
-    type: pages
-    query: site.find('artifacts')
-    width: 1/2
+sections:
+  content:
+    type: fields
+    fields:
+      title:
+        label: Title
+        type: text
+        width: 1/2
+      description:
+        label: Description
+        type: textarea
+        width: 1/2
+      tags:
+        label: Tags
+        type: tags
+        width: 1/2
+        options:
+          type: query
+          query: site.find('artifacts').children.pluck('tags', ',', true)
+      date:
+        label: Date
+        type: date
+        default: today
+        width: 1/2
+        display: false
+      link:
+        label: Link
+        type: link
+        width: 1/2
+      related:
+        label: Related artifacts
+        type: pages
+        query: site.find('artifacts')
+        width: 1/2
 
-  parent_artifact:
-    label: Parent artifact
-    type: pages
-    query: site.find('artifacts')
-    width: 1/2
-    max: 1
-  children_artifacts:
-    label: Children artifacts
-    type: pages
-    query: site.find('artifacts')
-    width: 1/2
+      media:
+        label: Media
+        type: files
+        multiple: true
+        width: 1/2
+        layout: cards
+        uploads:
+          - image
+          - video
 
-  media:
-    label: Media
-    type: files
-    multiple: true
-    width: 1/2
-    layout: cards
-    uploads:
-      - image
-      - video
+  updates:
+    type: pages
+    create:
+      - artifactupdate
+    templates:
+      - artifactupdate
+    info: "{{ page.date.toDate('d-m-Y') }}"

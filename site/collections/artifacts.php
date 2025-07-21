@@ -1,8 +1,8 @@
 <?php
 
 return function ($site) {
-	return $site
-		->find('artifacts')
-		->children()
-		->sortBy('date', 'desc');
+	$artifacts = $site->find('artifacts')->children();
+	$artifactsUpdates = $artifacts->children();
+
+	return $artifacts->merge($artifactsUpdates)->sortBy('date', 'desc');
 };

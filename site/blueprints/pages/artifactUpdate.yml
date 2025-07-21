@@ -1,0 +1,28 @@
+title: Artifact update
+
+status:
+  draft:
+    label: Draft
+  listed:
+    label: Public
+
+fields:
+  description:
+    label: Description
+    type: textarea
+    width: 1/2
+  date:
+    label: Date
+    type: date
+    default: today
+    width: 1/2
+    display: false
+  media:
+    label: Media
+    type: files
+    multiple: true
+    width: 1/2
+    layout: cards
+    uploads:
+      - image
+      - video
