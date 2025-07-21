@@ -1,8 +1,12 @@
 .timeline {
-  --day-space: 40px;
+  --day-space: 50px;
 
   position: relative;
   height: calc(var(--full-timeline-offset) * var(--day-space));
+
+  @media (--viewport-sm) {
+    --day-space: 40px;
+  }
 }
 
 .timeline__date-container {
