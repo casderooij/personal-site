@@ -53,7 +53,7 @@ sections:
   updates:
     type: pages
     create:
-      - artifactupdate
+      - artifact-update
     templates:
-      - artifactupdate
+      - artifact-update
     info: "{{ page.date.toDate('d-m-Y') }}"
