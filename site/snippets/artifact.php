@@ -2,7 +2,7 @@
 $dateTime = new \DateTime($artifact->date());
 $timeOffset = $now->diff($dateTime)->days;
 
-$slug = $artifact->intendedTemplate() == 'artifactupdate' ?
+$slug = $artifact->intendedTemplate() == 'artifact-update' ?
 	$artifact->parent()->slug() :
 	$artifact->slug();
 ?>
