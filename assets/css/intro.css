@@ -3,7 +3,7 @@
   padding: 0.4em 0.6em;
   max-width: 400px;
   margin: 0 var(--outer-padding) 2em;
-  border-radius: 9px;
+  border-radius: 4px;
   box-shadow: var(--shadow);
   z-index: 10;
   position: relative;

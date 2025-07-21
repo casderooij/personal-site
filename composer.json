@@ -23,7 +23,8 @@
   "require": {
     "php": "~8.1.0 || ~8.2.0 || ~8.3.0 || ~8.4.0",
     "getkirby/cms": "^5.0",
-    "lukaskleinschmidt/kirby-laravel-vite": "^2.2"
+    "lukaskleinschmidt/kirby-laravel-vite": "^2.2",
+    "james-heinrich/getid3": "^1.9"
   },
   "config": {
     "allow-plugins": {

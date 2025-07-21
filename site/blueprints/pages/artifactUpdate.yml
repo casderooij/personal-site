@@ -21,8 +21,7 @@ fields:
     label: Media
     type: files
     multiple: true
-    width: 1/2
-    layout: cards
+    layout: list
     uploads:
       - image
       - video

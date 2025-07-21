@@ -125,3 +125,14 @@ header {
     max-width: 400px;
   }
 }
+
+.pill {
+  background-color: white;
+  padding: 0.2em 1em;
+  border-radius: 1000px;
+  box-shadow: var(--shadow);
+  font-size: 10px;
+}
+.pill--small {
+  padding: 0.2em 0.6em;
+}

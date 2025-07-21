@@ -12,17 +12,22 @@
 		</div>
 
 		<div class="artifact-details__body">
+			<p class="artifact-details__description"><?= $artifact->description() ?></p>
 
-
-			<p><?= $artifact->description() ?></p>
+			<div class="artifact-details__media-container">
+				<?php snippet('slider', ['slides' => $artifact->media()->toFiles()]); ?>
+			</div>
 
 			<?php if ($artifact->hasChildren()): ?>
-				<section>
-					<p>Updates:</p>
-					<ul>
+				<section class="artifact-detail__update-section">
+					<p>Updates</p>
+					<ul class="artifact-detail__update-list">
 						<?php foreach ($artifact->children() as $update): ?>
-							<li><?= $update->date()->toDate('M j') ?>
-
+							<li class="artifact-detail__update">
+								<div class="pill artifact-detail__update-date"><?= $update->date()->toDate('F j') ?></div>
+								<div class="artifact-detail__update-media-container">
+									<?php snippet('slider', ['slides' => $update->media()->toFiles()]); ?>
+								</div>
 							</li>
 						<?php endforeach ?>
 					</ul>

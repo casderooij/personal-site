@@ -34,6 +34,10 @@ export class Stack {
     })
     observer.observe(this.stackElement)
 
+    if (this.numberOfStackItems === 1) {
+      return
+    }
+
     this.stackElement.addEventListener('click', () => {
       this.updateStackIndex()
       this.pauseAndHideTopItem()
@@ -106,8 +110,9 @@ export class Stack {
           topItem.classList.add('no-transition')
 
           const video = this.getVideo(topItem)
-          if (!video) return
-          video.pause()
+          if (video) {
+            video.pause()
+          }
 
           this.shiftItems()
           this.playTopItem()

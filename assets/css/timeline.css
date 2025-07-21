@@ -35,6 +35,7 @@
   font-family: var(--font-mono);
   font-size: 10px;
   background-color: white;
+  color: var(--blue);
   padding: 0.2em 1em;
   border-radius: 1000px;
   box-shadow: var(--shadow);

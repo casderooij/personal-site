@@ -1,3 +1,5 @@
+import { Stack } from './stack'
+
 const artifactDetailContainer = document.querySelector(
   '#artifact-detail',
 ) as HTMLDivElement
@@ -14,6 +16,11 @@ artifactDetailAnchorElements.forEach((anchor) => {
     if (html && artifactDetailContainer) {
       const artifactDetailsElement = parseArtifactDetails(html)
       artifactDetailContainer.appendChild(artifactDetailsElement)
+
+      const stackElements = document.querySelectorAll(
+        '.stack',
+      ) as NodeListOf<HTMLElement>
+      stackElements.forEach((stackElement) => new Stack(stackElement))
 
       const closeButtonElement = artifactDetailsElement.querySelector(
         '#close-details',

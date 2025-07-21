@@ -15,7 +15,7 @@ $timeOffset = $now->diff(
 	<div class="timeline__date-container" style="--time-offset: 0;">
 		<div class="timeline__date">
 			<div class="timeline__date-line"></div>
-			<span class="timeline__date-label">Today <?= date('M j') ?></span>
+			<span class="timeline__date-label">Today <?= date('F j') ?></span>
 		</div>
 	</div>
 

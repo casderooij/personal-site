@@ -1,51 +1,39 @@
 <?php $index = 0; ?>
 
 <?php if ($slides->isNotEmpty()): ?>
-	<div class="stack-container">
+	<div class="stack-container" style="--total-items: <?= count($slides) ?>">
 
 		<div class="stack wave <?= $slides->count() === 1 ? 'single-slide' : '' ?>"
-			style="--total-items: <?= count($slides) ?>"
 			data-index="0">
 
 			<?php foreach ($slides as $slide): ?>
+
 				<?php
-				$mediaElement = $slide;
-				$posterUrl = null;
-
-				// Prefer video if available
-				if ($slide->type() === 'video') {
-					$video = $slide;
-					// Check if a poster image is linked in the video's content file
-					if ($poster = $video->content()->poster()->toFile()) {
-						$posterUrl = $poster->url();
-					}
-				}
+				$thumb = $slide->thumb('project');
+				$type = $slide->type();
 				?>
+				<div
+					class="stack-item <?= $index === 0 ? 'is-top' : 'is-hidden' ?>"
+					style="--stack-i: <?= $index ?>; --aspect-ratio: <?= $slide->aspectRatio() ?>"
+					data-index="<?= $index ?>"
+					data-type="<?= $type ?>">
+					<?php if ($type === 'video'): ?>
+						<video
+							src="<?= $slide->url() ?>"
+							loop
+							muted
+							playsinline
+							preload="auto"></video>
+					<?php elseif ($type === 'image'): ?>
+						<img
+							src="<?= $thumb->url() ?>"
+							alt="<?= $slide->alt()->or($slide->title())->esc() ?>"
+							width="<?= $thumb->width() ?>"
+							height="<?= $thumb->height() ?>"
+							loading="lazy">
+					<?php endif ?>
+				</div>
 
-				<?php if ($mediaElement): ?>
-					<?php $thumb = $mediaElement->thumb('project'); ?>
-					<div
-						class="stack-item <?= $index === 0 ? 'is-top' : 'is-hidden' ?>"
-						style="--stack-i: <?= $index ?>"
-						data-index="<?= $index ?>"
-						data-type="<?= $mediaElement->type() ?>">
-						<?php if ($mediaElement->type() === 'video'): ?>
-							<video
-								src="<?= $mediaElement->url() ?>"
-								loop
-								muted
-								playsinline
-								preload="auto"></video>
-						<?php else: ?>
-							<img
-								src="<?= $thumb->url() ?>"
-								alt="<?= $mediaElement->alt()->or($slide->title())->esc() ?>"
-								width="<?= $thumb->width() ?>"
-								height="<?= $thumb->height() ?>"
-								loading="lazy">
-						<?php endif ?>
-					</div>
-				<?php endif ?>
 				<?php $index++; ?>
 			<?php endforeach ?>
 

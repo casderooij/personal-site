@@ -1,32 +1,42 @@
 <?php
 $dateTime = new \DateTime($artifact->date());
 $timeOffset = $now->diff($dateTime)->days;
-$index = 0;
 
 $slug = $artifact->intendedTemplate() == 'artifactupdate' ?
 	$artifact->parent()->slug() :
 	$artifact->slug();
 ?>
 
-<article
-	class="artifact"
-	style="--time-offset: <?= $timeOffset ?>;">
+<a class="artifact__expand-link" href="/artifact-details/<?= $slug ?>">
+	<article
+		class="artifact"
+		style="--time-offset: <?= $timeOffset ?>;">
 
-	<div class="artifact__meta">
-		<span class="artifact__date"><?= $artifact->date()->toDate('M j') ?></span>
-	</div>
+		<div class="artifact__meta">
+			<span class="artifact__date pill">
+				<?= $artifact->date()->toDate('F j') ?>
+			</span>
+			<?php if ($artifact->intendedTemplate() == 'artifactupdate'): ?>
+				<span class="artifact__icon pill pill--small">
+					<svg xmlns="http://www.w3.org/2000/svg" width="11.5" height="11.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+						<circle cx="12" cy="12" r="3" />
+						<line x1="3" x2="9" y1="12" y2="12" />
+						<line x1="15" x2="21" y1="12" y2="12" />
+					</svg>
+				</span>
+			<?php endif ?>
+			<?php if ($artifact->hasChildren()): ?>
+				<span class="artifact__icon pill pill--small">
+					<?= count($artifact->children()) ?>
+					<svg xmlns="http://www.w3.org/2000/svg" width="11.5" height="11.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+						<circle cx="6" cy="19" r="3" />
+						<path d="M9 19h8.5a3.5 3.5 0 0 0 0-7h-11a3.5 3.5 0 0 1 0-7H15" />
+						<circle cx="18" cy="5" r="3" />
+					</svg>
+				</span>
+			<?php endif ?>
+		</div>
 
-	<a class="artifact__expand-link" href="/artifact-details/<?= $slug ?>">
-		<svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-			<path d="M10 6.5C10 8.433 8.433 10 6.5 10C4.567 10 3 8.433 3 6.5C3 4.567 4.567 3 6.5 3C8.433 3 10 4.567 10 6.5ZM9.30884 10.0159C8.53901 10.6318 7.56251 11 6.5 11C4.01472 11 2 8.98528 2 6.5C2 4.01472 4.01472 2 6.5 2C8.98528 2 11 4.01472 11 6.5C11 7.56251 10.6318 8.53901 10.0159 9.30884L12.8536 12.1464C13.0488 12.3417 13.0488 12.6583 12.8536 12.8536C12.6583 13.0488 12.3417 13.0488 12.1464 12.8536L9.30884 10.0159Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path>
-		</svg>
-	</a>
-
-	<div class="artifact__media">
-		<?php snippet('slider', ['slides' => $artifact->media()->toFiles()]) ?>
-	</div>
-
-	<div class="artifact__tags">
-		<?php snippet('artifact-tags', ['tags' => $artifact->tags()]) ?>
-	</div>
-</article>
+		<?php snippet('artifact-thumbnail', ['item' => $artifact->media()->toFiles()->first()]) ?>
+	</article>
+</a>

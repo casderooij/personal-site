@@ -27,10 +27,10 @@
 }
 
 .stack.wave {
-  --offset: 30deg;
+  --offset: 20deg;
 
   --spacing: 20px; /* Adjust this value based on how spread out you want the items to be horizontally */
-  --amplitude: -20px; /* Adjust this value to control the height of the wave's peaks and troughs */
+  --amplitude: 30px; /* Adjust this value to control the height of the wave's peaks and troughs */
 
   .stack-item {
     transform: translate(
@@ -49,7 +49,7 @@
 
   display: grid;
   grid-template-areas: 'stack';
-  margin-left: calc(-2 * var(--space));
+  /* margin-left: calc(-2 * var(--space)); */
 
   .stack-item {
     --angle: calc(
@@ -57,9 +57,12 @@
     );
 
     width: calc(100% - var(--space));
+    aspect-ratio: var(--aspect-ratio);
 
     grid-area: stack;
     z-index: calc(var(--total-items) - var(--stack-i));
+    overflow: hidden;
+    border-radius: 0.4em;
 
     &.fading-out {
       opacity: 0;
@@ -79,6 +82,10 @@
       width: 100%;
       height: auto;
       object-fit: contain;
+      display: block;
+    }
+    video {
+      margin-bottom: -2px;
     }
   }
 
