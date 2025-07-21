@@ -1,8 +1,10 @@
 title: Artifact
 
 status:
-  - draft
-  - unlisted
+  draft:
+    label: Draft
+  unlisted:
+    label: Public
 
 fields:
   title:
@@ -35,6 +37,19 @@ fields:
     type: pages
     query: site.find('artifacts')
     width: 1/2
+
+  parent_artifact:
+    label: Parent artifact
+    type: pages
+    query: site.find('artifacts')
+    width: 1/2
+    max: 1
+  children_artifacts:
+    label: Children artifacts
+    type: pages
+    query: site.find('artifacts')
+    width: 1/2
+
   media:
     label: Media
     type: files

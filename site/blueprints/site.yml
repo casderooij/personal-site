@@ -13,4 +13,4 @@ sections:
       - artifact
     templates:
       - artifact
-    info: "{{ page.date.toDate('d-m-Y') }} | {{ page.tags }}"
+    info: "{{ page.date.toDate('d-m-Y') }}"

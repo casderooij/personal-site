@@ -10,7 +10,6 @@ $index = 0;
 
 	<div class="artifact__meta">
 		<span class="artifact__date"><?= $artifact->date()->toDate('M j') ?></span>
-		<span class="artifact__title"><?= $artifact->title() ?></span>
 	</div>
 
 	<a class="artifact__expand-link" href="/artifact-details/<?= $artifact->slug() ?>">
