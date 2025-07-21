@@ -16,7 +16,7 @@ $slug = $artifact->intendedTemplate() == 'artifactupdate' ?
 			<span class="artifact__date pill">
 				<?= $artifact->date()->toDate('F j') ?>
 			</span>
-			<?php if ($artifact->intendedTemplate() == 'artifactupdate'): ?>
+			<?php if ($artifact->intendedTemplate() == 'artifact-update'): ?>
 				<span class="artifact__icon pill pill--small">
 					<svg xmlns="http://www.w3.org/2000/svg" width="11.5" height="11.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 						<circle cx="12" cy="12" r="3" />
