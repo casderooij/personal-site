@@ -14,6 +14,15 @@ fields:
         type: link
       label:
         type: text
+  linkedin:
+    label: LinkedIn
+    type: object
+    width: 1/2
+    fields:
+      link:
+        type: link
+      label:
+        type: text
   introText:
     label: Intro text
     type: textarea

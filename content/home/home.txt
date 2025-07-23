@@ -13,6 +13,14 @@ label: /casderooij
 
 ----
 
+Linkedin:
+
+link: >
+  https://www.linkedin.com/in/cas-de-rooij-86374861/
+label: LinkedIn
+
+----
+
 Introtext: As a developer fascinated by web technologies and design, I like to create prototypes and experimenting with new ideas. This timeline website is where I showcase my latest projects and explorations.
 
 ----
