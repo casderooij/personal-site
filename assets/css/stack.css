@@ -61,8 +61,6 @@
 
     grid-area: stack;
     z-index: calc(var(--total-items) - var(--stack-i));
-    overflow: hidden;
-    border-radius: 0.4em;
 
     &.fading-out {
       opacity: 0;
