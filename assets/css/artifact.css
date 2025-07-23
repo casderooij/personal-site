@@ -17,7 +17,7 @@
   align-items: start;
 
   @media (--viewport-sm) {
-    --amplitude: calc(50vw / 2);
+    --amplitude: calc(60vw / 2);
     --angle: calc(var(--time-offset) * 20deg);
   }
 }
