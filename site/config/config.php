@@ -1,7 +1,5 @@
 <?php
 
-use getID3;
-
 return [
 	'debug' => true,
 	'thumbs' => [
