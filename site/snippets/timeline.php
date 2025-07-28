@@ -7,7 +7,9 @@ $timeOffset = $now->diff(new \DateTime($artifacts->last()->date()))->days;
 
 <section class="timeline" style="--full-timeline-offset: <?= $timeOffset + 10 ?>">
 	<div class="timeline__date-container" style="--time-offset: 0;">
-		<span class="timeline__date-label">[Today <?= date('F j') ?>]</span>
+		<time datetime="<?= date('Y-m-d') ?>" class="timeline__date-label">
+			[Today <?= date('F j') ?>]
+		</time>
 	</div>
 
 	<?php snippet('months') ?>

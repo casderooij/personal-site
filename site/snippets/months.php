@@ -24,6 +24,8 @@ if ($artifacts->isNotEmpty()) {
 	<?php $monthOffset = $now->diff($monthDate)->days; ?>
 
 	<div class="timeline__date-container" style="--time-offset: <?= $monthOffset ?>;">
-		<span class="timeline__date-label">[<?= $monthDate->format('F') ?>]</span>
+		<time datetime="<?= $monthDate->format('Y-m-d') ?>" class="timeline__date-label">
+			[<?= $monthDate->format('F') ?>]
+		</time>
 	</div>
 <?php endforeach; ?>

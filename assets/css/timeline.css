@@ -17,19 +17,19 @@
   pointer-events: none;
   display: flex;
   align-items: center;
-  z-index: 100;
 }
 .timeline__date-container::before {
   content: '';
   position: absolute;
   width: calc(100% - var(--outer-spacing) * 2);
-  height: 8px;
-  background-color: var(--blue);
-  filter: blur(14px);
+  height: 1px;
+  background-color: var(--color-text);
+  z-index: -2;
 }
 
 .timeline__date-label {
   font-family: var(--font-mono);
   font-size: 10px;
-  margin-left: 1rem;
+  padding-right: 0.2rem;
+  background-color: var(--color-timeline);
 }
