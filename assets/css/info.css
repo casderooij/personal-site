@@ -2,22 +2,11 @@
   display: flex;
   flex-direction: column;
   align-items: end;
-  padding: 0 var(--outer-padding);
-  margin-bottom: 1em;
+  margin-bottom: var(--size-3);
 }
 
 .info-item {
   display: flex;
   align-items: center;
-  gap: 0.2em;
-  background-color: white;
-  font-family: var(--font-mono);
-  font-size: 10px;
-  padding: 0.2em 1em;
-  border-radius: 1000px;
-  box-shadow: var(--shadow);
-
-  @media (--viewport-sm) {
-    font-size: 12px;
-  }
+  gap: var(--size-1);
 }

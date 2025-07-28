@@ -13,7 +13,7 @@
   position: absolute;
   width: 100%;
   top: calc(var(--time-offset) * var(--day-space));
-  padding: 0 var(--outer-padding);
+  padding: var(--page-padding);
 }
 
 .timeline__date {

@@ -1,7 +1,7 @@
 .artifact {
   --width: 200px;
   --amplitude: calc(
-    calc(100vw - calc(var(--width) + var(--outer-padding))) / 2
+    calc(100vw - calc(var(--width) + var(--outer-spacing))) / 2
   );
   --angle: calc(var(--time-offset) * 100deg);
 

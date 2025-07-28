@@ -1,20 +1,5 @@
 .intro {
-  background-color: white;
-  padding: 0.4em 0.6em;
-  max-width: 400px;
-  margin: 0 var(--outer-padding) 2em;
-  border-radius: 4px;
-  box-shadow: var(--shadow);
-  z-index: 10;
   position: relative;
-}
-
-.intro__text {
-  font-family: var(--font-sans);
-  font-size: 12px;
-  line-height: 1.4;
-
-  @media (--viewport-sm) {
-    font-size: 15px;
-  }
+  max-width: 25rem;
+  z-index: 10;
 }
