@@ -26,7 +26,8 @@
 							<li class="artifact-detail__update">
 								<div class="pill artifact-detail__update-date"><?= $update->date()->toDate('F j') ?></div>
 								<div class="artifact-detail__update-media-container">
-									<?php snippet('slider', ['slides' => $update->media()->toFiles()]); ?>
+									<!-- <?php snippet('slider', ['slides' => $update->media()->toFiles()]); ?> -->
+									<?php snippet('artifact-slider', ['slides' => $update->media()->toFiles()]) ?>
 								</div>
 							</li>
 						<?php endforeach ?>

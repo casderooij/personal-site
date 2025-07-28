@@ -95,13 +95,13 @@
   margin: 0;
 }
 
-.artifact-detail__update {
+/* .artifact-detail__update {
   display: flex;
   flex-direction: column;
   align-items: start;
   padding: 0;
   margin: 0;
-}
+} */
 
 .artifact-detail__update-date {
   color: var(--blue);
@@ -109,10 +109,10 @@
   z-index: 10;
 }
 
-.artifact-detail__update-media-container {
+/* .artifact-detail__update-media-container {
   width: 60%;
 
   @media (--viewport-sm) {
     width: 300px;
   }
-}
+} */

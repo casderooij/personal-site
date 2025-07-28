@@ -1,0 +1,33 @@
+.artifact-slider {
+  --slider-item-width: 80%;
+
+  height: 300px;
+
+  ul {
+    display: flex;
+    height: 100%;
+    padding: 0;
+    list-style: none;
+    overflow-y: scroll;
+    scroll-snap-type: x mandatory;
+    scroll-snap-align: center;
+  }
+
+  li {
+    position: relative;
+    min-width: var(--slider-item-width);
+    scroll-snap-align: start;
+
+    & > * {
+      position: absolute;
+      aspect-ratio: var(--aspect-ratio);
+      display: block;
+      height: 100%;
+      width: 90%;
+      object-fit: contain;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+}
