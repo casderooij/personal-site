@@ -38,24 +38,6 @@
   --outer-spacing: 0.6rem;
   --page-padding: 0px var(--outer-spacing);
 
-  --size-000: -0.5rem;
-  --size-00: -0.25rem;
-  --size-1: 0.25rem;
-  --size-2: 0.5rem;
-  --size-3: 1rem;
-  --size-4: 1.25rem;
-  --size-5: 1.5rem;
-  --size-6: 1.75rem;
-  --size-7: 2rem;
-  --size-8: 3rem;
-  --size-9: 4rem;
-  --size-10: 5rem;
-  --size-11: 7.5rem;
-  --size-12: 10rem;
-  --size-13: 15rem;
-  --size-14: 20rem;
-  --size-15: 30rem;
-
   --radius-sm: 0.25rem;
   --radius-round: 1000px;
 
@@ -127,44 +109,6 @@ p {
 
 .page-spacer {
   margin-bottom: 2rem;
-}
-
-.head-section {
-  min-height: calc(100vh - var(--header-height));
-  display: grid;
-  gap: 2rem;
-
-  @media (--viewport-sm) {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
-  }
-}
-
-.head-section__item {
-  display: grid;
-  place-content: center;
-}
-
-.head-text {
-  font-family: var(--font-sans);
-  font-size: 1.2rem;
-  line-height: 140%;
-
-  @media (--viewport-sm) {
-    font-size: 1.4rem;
-  }
-
-  @media (min-width: 1200px) {
-    font-size: 2rem;
-  }
-}
-
-.stack-wrapper {
-  max-width: 300px;
-
-  @media (min-width: 1200px) {
-    max-width: 400px;
-  }
 }
 
 .pill {
