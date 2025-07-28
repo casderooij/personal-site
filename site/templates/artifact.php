@@ -1,15 +1,10 @@
 <?php snippet('head') ?>
 
-<header>
-	<a href="/">Cas de Rooij</a>
-</header>
+<header></header>
 
 <main>
-
-	<?php
-	snippet('general-info');
-	snippet('timeline');
-	?>
+	<div class="spacer"></div>
+	<?php snippet('timeline') ?>
 
 	<div class="artifact-detail" id="artifact-detail">
 		<?php

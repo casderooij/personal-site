@@ -1,9 +1,6 @@
 .artifact {
   position: relative;
   transform: translateY(calc(var(--time-offset) * var(--day-space)));
-
-  font-family: var(--font-mono);
-  font-size: 10px;
 }
 
 .artifact__x-position {

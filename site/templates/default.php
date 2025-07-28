@@ -1,15 +1,9 @@
 <?php snippet('head') ?>
 
-<!-- <header>
-	<div class="page-container">
-		<a href="/">Cas de Rooij — Frontend Developer</a>
-	</div>
-</header> -->
-
 <header></header>
 
 <main>
-	<div class="page-spacer"></div>
+	<div class="spacer"></div>
 
 	<?php snippet('timeline') ?>
 

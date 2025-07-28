@@ -10,12 +10,18 @@
 .artifact-details {
   overflow-y: scroll;
   position: absolute;
-  width: 500px;
+  width: 32rem;
   max-width: 90%;
   height: 100vh;
-  background-color: rgb(238, 237, 251);
-  top: 0;
   right: 0;
+  top: 0;
+
+  background: linear-gradient(to right, transparent, hsl(57, 94%, 87%) 4rem);
+  padding-left: 3rem;
+
+  h1 {
+    margin-bottom: 1rem;
+  }
 }
 
 .artifact-details__header {
