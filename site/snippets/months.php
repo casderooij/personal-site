@@ -1,6 +1,4 @@
 <?php
-date_default_timezone_set('Europe/Amsterdam');
-
 $now = new \DateTime('now');
 $artifacts = $kirby->collection('artifacts');
 
@@ -26,9 +24,7 @@ if ($artifacts->isNotEmpty()) {
 	<?php $monthOffset = $now->diff($monthDate)->days; ?>
 
 	<div class="timeline__date-container" style="--time-offset: <?= $monthOffset ?>;">
-		<div class="timeline__date">
-			<div class="timeline__date-line"></div>
-			<span class="timeline__date-label"><?= $monthDate->format('F') ?></span>
-		</div>
+		<span class="timeline__date-label">[<?= $monthDate->format('F') ?>]</span>
+		<div class="timeline__date-line"></div>
 	</div>
 <?php endforeach; ?>

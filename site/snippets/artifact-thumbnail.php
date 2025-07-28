@@ -1,6 +1,6 @@
 <?php $type = $item->type(); ?>
 
-<div class="artifact__thumbnail" style="aspect-ratio: <?= $item->aspectRatio() ?>; box-shadow: var(--shadow); width: 200px; height: auto;">
+<div class="artifact__thumbnail" style="aspect-ratio: <?= $item->aspectRatio() ?>; width: 200px; height: auto;">
 	<?php if ($type === 'video'): ?>
 		<video
 			src="<?= $item->url() ?>"

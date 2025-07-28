@@ -12,31 +12,24 @@
 .timeline__date-container {
   position: absolute;
   width: 100%;
-  top: calc(var(--time-offset) * var(--day-space));
+  transform: translate(0px, calc(var(--time-offset) * var(--day-space)));
   padding: var(--page-padding);
-}
-
-.timeline__date {
-  position: relative;
   pointer-events: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--outer-spacing);
   z-index: 100;
 }
 
-.timeline__date-line {
-  position: absolute;
-  width: 100%;
-  height: 1px;
-  background-color: var(--blue);
-}
-
 .timeline__date-label {
-  position: absolute;
-  transform: translateY(-50%);
   font-family: var(--font-mono);
   font-size: 10px;
-  background-color: white;
-  color: var(--blue);
-  padding: 0.2em 1em;
-  border-radius: 1000px;
-  box-shadow: var(--shadow);
+}
+
+.timeline__date-line {
+  flex: 1;
+  height: 2px;
+  background-color: var(--blue);
+  filter: blur(5px);
 }

@@ -1,4 +1,12 @@
 .artifact {
+  position: relative;
+  transform: translateY(calc(var(--time-offset) * var(--day-space)));
+
+  font-family: var(--font-mono);
+  font-size: 10px;
+}
+
+.artifact__x-position {
   --width: 200px;
   --amplitude: calc(
     calc(100vw - calc(var(--width) + var(--outer-spacing))) / 2
@@ -6,7 +14,6 @@
   --angle: calc(var(--time-offset) * 100deg);
 
   position: absolute;
-  top: calc(var(--time-offset) * var(--day-space));
   left: calc(50% + (sin(var(--angle)) * var(--amplitude)));
   width: var(--width);
 
@@ -22,27 +29,14 @@
   }
 }
 
-.artifact--top {
-  z-index: 100;
-}
-
 .artifact__meta {
+  color: var(--color-text);
   position: relative;
   display: flex;
   align-items: center;
-  gap: 0.4em;
-  margin-bottom: -0.4em;
-  padding: 0 0.4em;
-  z-index: 10;
-}
-
-.artifact__title,
-.artifact__date {
-  font-family: var(--font-mono);
-  font-size: 10px;
-}
-.artifact__date {
-  z-index: 2;
+  width: 100%;
+  justify-content: space-between;
+  margin-bottom: 0.2rem;
 }
 
 .artifact__icon {
@@ -75,5 +69,4 @@
   font-family: var(--font-mono);
   font-size: 10px;
   border-radius: 1000px;
-  box-shadow: var(--shadow);
 }

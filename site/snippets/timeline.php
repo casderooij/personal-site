@@ -1,29 +1,21 @@
 <?php
-date_default_timezone_set('Europe/Amsterdam');
+date_default_timezone_set('Europe/Berlin');
 $now = new \DateTime('now');
-$timeOffset = $now->diff(
-	new \DateTime(
-		$kirby->collection('artifacts')->last()->date()
-	)
-)->days;
+$artifacts = $kirby->collection('artifacts');
+$timeOffset = $now->diff(new \DateTime($artifacts->last()->date()))->days;
 ?>
 
 <section class="timeline" style="--full-timeline-offset: <?= $timeOffset + 10 ?>">
+	<div class="timeline__date-container" style="--time-offset: 0;">
+		<span class="timeline__date-label">[Today <?= date('F j') ?>]</span>
+		<div class="timeline__date-line"></div>
+	</div>
 
 	<?php snippet('months') ?>
 
-	<div class="timeline__date-container" style="--time-offset: 0;">
-		<div class="timeline__date">
-			<div class="timeline__date-line"></div>
-			<span class="timeline__date-label">Today <?= date('F j') ?></span>
-		</div>
-	</div>
-
 	<?php
-	$artifacts = $kirby->collection('artifacts');
-
-	foreach ($artifacts as $artifact):
+	foreach ($artifacts as $artifact) {
 		snippet('artifact', ['now' => $now, 'artifact' => $artifact]);
-	endforeach
+	}
 	?>
 </section>
