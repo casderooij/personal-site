@@ -1,0 +1,50 @@
+@font-face {
+  font-family: 'Martian Grotesk';
+  src: url('../fonts/martian-grotesk-std-lt.woff2') format(woff2);
+  display: swap;
+}
+
+@font-face {
+  font-family: 'Martian Mono';
+  src: url('../fonts/martian-mono-light.woff2') format(woff2);
+  display: swap;
+}
+
+@custom-media --viewport-sm (min-width: 700px);
+
+:root {
+  --font-sans: 'Martian Grotesk', sans-serif;
+  --font-mono: 'Martian Mono', monospace;
+
+  --color-timeline: hsl(225, 21%, 93%);
+  --color-light: hsl(0, 0%, 100%);
+  --color-text: hsl(217, 19%, 27%);
+
+  --blue: hsl(240, 90%, 61%);
+
+  --shadow: 0px 0px 5px hsla(0, 0%, 0%, 0.2);
+
+  --header-height: 4rem;
+
+  --outer-spacing: 0.6rem;
+  --page-padding: 0px var(--outer-spacing);
+
+  --radius-sm: 0.25rem;
+  --radius-round: 1000px;
+
+  --font-size-00: 0.625rem;
+  --font-size-0: 0.75rem;
+  --font-size-1: 1rem;
+
+  --font-size-small: 0.625rem;
+  --font-size-medium: 0.75rem;
+
+  --line-height-medium: 1.6;
+
+  @media (--viewport-sm) {
+    --outer-spacing: 1.2rem;
+
+    --font-size-small: 0.75rem;
+    --font-size-medium: 1rem;
+  }
+}
