@@ -25,6 +25,5 @@ if ($artifacts->isNotEmpty()) {
 
 	<div class="timeline__date-container" style="--time-offset: <?= $monthOffset ?>;">
 		<span class="timeline__date-label">[<?= $monthDate->format('F') ?>]</span>
-		<div class="timeline__date-line"></div>
 	</div>
 <?php endforeach; ?>

@@ -1,10 +1,4 @@
 @font-face {
-  font-family: 'Martian Grotesk';
-  src: url('../fonts/martian-grotesk-std-lt.woff2') format(woff2);
-  display: swap;
-}
-
-@font-face {
   font-family: 'Martian Mono';
   src: url('../fonts/martian-mono-light.woff2') format(woff2);
   display: swap;
@@ -21,10 +15,6 @@
   --color-text: hsl(217, 19%, 27%);
 
   --blue: hsl(240, 90%, 61%);
-
-  --shadow: 0px 0px 5px hsla(0, 0%, 0%, 0.2);
-
-  --header-height: 4rem;
 
   --outer-spacing: 0.6rem;
   --page-padding: 0px var(--outer-spacing);

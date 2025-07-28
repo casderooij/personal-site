@@ -7,13 +7,6 @@
 
 	<link
 		rel="preload"
-		href="<?= vite()->asset('assets/fonts/martian-grotesk-std-lt.woff2') ?>"
-		as="font"
-		type="font/woff2"
-		crossorigin>
-
-	<link
-		rel="preload"
 		href="<?= vite()->asset('assets/fonts/martian-mono-light.woff2') ?>"
 		as="font"
 		type="font/woff2"

@@ -16,20 +16,20 @@
   padding: var(--page-padding);
   pointer-events: none;
   display: flex;
-  flex-direction: row;
   align-items: center;
-  gap: var(--outer-spacing);
   z-index: 100;
+}
+.timeline__date-container::before {
+  content: '';
+  position: absolute;
+  width: calc(100% - var(--outer-spacing) * 2);
+  height: 8px;
+  background-color: var(--blue);
+  filter: blur(14px);
 }
 
 .timeline__date-label {
   font-family: var(--font-mono);
   font-size: 10px;
-}
-
-.timeline__date-line {
-  flex: 1;
-  height: 2px;
-  background-color: var(--blue);
-  filter: blur(5px);
+  margin-left: 1rem;
 }

@@ -8,15 +8,12 @@
 }
 
 .artifact-details {
-  --background-color: rgb(226, 223, 255);
-
   overflow-y: scroll;
   position: absolute;
   width: 500px;
   max-width: 90%;
   height: 100vh;
-  background-color: var(--background-color);
-  box-shadow: var(--shadow);
+  background-color: rgb(238, 237, 251);
   top: 0;
   right: 0;
 }
@@ -29,8 +26,6 @@
   flex-direction: column;
   gap: 1em;
   padding: 1.2em 1em;
-  background-color: var(--background-color);
-  box-shadow: var(--shadow);
 }
 
 .artifact-details__header-top {

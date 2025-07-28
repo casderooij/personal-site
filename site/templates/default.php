@@ -6,6 +6,8 @@
 	</div>
 </header> -->
 
+<header></header>
+
 <main>
 	<div class="page-spacer"></div>
 

@@ -31,22 +31,6 @@ body {
   color: var(--color-text);
 }
 
-header {
-  position: sticky;
-  top: 0px;
-  display: flex;
-  align-items: center;
-
-  height: var(--header-height);
-
-  a {
-    color: var(--blue);
-    font-size: 1.4em;
-    text-decoration: none;
-    transition: color 100ms ease-in-out;
-  }
-}
-
 p {
   font-family: var(--font-sans);
   font-size: var(--font-size-medium);
@@ -59,13 +43,4 @@ p {
 
 .page-spacer {
   margin-bottom: 2rem;
-}
-
-.pill {
-  /* background-color: white; */
-  padding: 0.2rem 0.6rem;
-  /* border-radius: 1000px; */
-  /* box-shadow: var(--shadow); */
-  font-family: var(--font-mono);
-  /* font-size: var(--font-size-small); */
 }
