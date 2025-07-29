@@ -10,7 +10,7 @@
 
 					<h1><?= $artifact->title() ?></h1>
 				</div>
-				<a href="/" id="close">Close</a>
+				<a href="/" id="close">close</a>
 			</header>
 
 			<?php if ($artifact->description()): ?>

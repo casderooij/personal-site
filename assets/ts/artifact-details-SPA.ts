@@ -34,12 +34,25 @@ function loadArtifactDetails(artifactId: string, pushState = true) {
 
       lastFocusedElement = document.activeElement as HTMLElement
 
+      document.body.classList.add('no-scroll')
+
       const container = document.querySelector(
         '.artifact-details__container',
       ) as HTMLDivElement
       if (container) {
         container.addEventListener('click', handleClickOutside)
         trapFocus(container)
+      }
+
+      const artifactDetails = document.querySelector(
+        '.artifact-details',
+      ) as HTMLDivElement
+      if (artifactDetails) {
+        artifactDetails.addEventListener(
+          'focus',
+          () => trapFocus(artifactDetails),
+          false,
+        )
       }
 
       if (pushState) {
@@ -93,6 +106,8 @@ function closeArtifactDetails() {
   if (lastFocusedElement) {
     lastFocusedElement.focus()
   }
+
+  document.body.classList.remove('no-scroll')
 }
 
 function handleClickOutside(event: MouseEvent) {
@@ -110,6 +125,7 @@ function handlePopState(event: PopStateEvent) {
     loadArtifactDetails(event.state.artifactId, false)
   } else if (artifactDetailElement) {
     artifactDetailElement.innerHTML = ''
+    document.body.classList.remove('no-scroll')
   }
 }
 

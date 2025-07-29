@@ -14,6 +14,10 @@ body {
   color: var(--color-text);
 }
 
+.no-scroll {
+  overflow: hidden;
+}
+
 h1,
 h2,
 h3,

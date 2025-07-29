@@ -1,5 +1,6 @@
 .artifact-details__container {
   position: fixed;
+  background-color: hsla(0, 0, 0, 0.1);
   width: 100vw;
   height: 100vh;
   top: 0;
@@ -15,8 +16,7 @@
   height: 100vh;
   right: 0;
   top: 0;
-
-  background: linear-gradient(to right, transparent, hsl(57, 94%, 87%) 4rem);
+  background: linear-gradient(to right, transparent, hsl(57, 94%, 87%) 3rem);
   padding-left: 3rem;
 
   .artifact-content {
@@ -27,9 +27,13 @@
       justify-content: space-between;
       align-items: start;
 
-      #close:focus-visible {
-        outline-width: 1px;
-        outline-color: aquamarine;
+      #close {
+        padding: 0.2rem;
+      }
+      #close:focus,
+      #close:hover {
+        outline: none;
+        background-color: white;
       }
     }
   }
