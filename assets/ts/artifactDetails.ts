@@ -5,7 +5,7 @@ const artifactDetailContainer = document.querySelector(
 ) as HTMLDivElement
 
 const artifactDetailAnchorElements = document.querySelectorAll(
-  '.artifact__expand-link',
+  '[data-artifact-link]',
 ) as NodeListOf<HTMLAnchorElement>
 
 artifactDetailAnchorElements.forEach((anchor) => {

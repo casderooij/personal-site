@@ -3,6 +3,7 @@
 <div class="artifact__thumbnail" style="aspect-ratio: <?= $item->aspectRatio() ?>; width: 200px; height: auto;">
 	<?php if ($type === 'video'): ?>
 		<video
+			tabindex="-1"
 			src="<?= $item->url() ?>"
 			loop
 			muted

@@ -1,6 +1,12 @@
 .artifact {
+  display: block;
   position: relative;
   transform: translateY(calc(var(--time-offset) * var(--day-space)));
+  outline: none;
+}
+
+.artifact:focus .artifact__x-position {
+  box-shadow: 0 0 0 1px var(--blue);
 }
 
 .artifact__x-position {
