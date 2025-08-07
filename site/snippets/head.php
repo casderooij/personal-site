@@ -28,5 +28,5 @@
 		<a href="/">
 			<h1>Cas de Rooij -- web developer</h1>
 		</a>
-		<p>This website showcases projects, prototypes and sketches plotted on a timeline. Each day the items (artifacts) get pushed down a few pixels.</p>
+		<p>This website features an interactive timeline showcasing various projects, prototypes, and sketches. Each day, the items are shifted down a few pixels to reflect their progression over time.</p>
 	</header>
