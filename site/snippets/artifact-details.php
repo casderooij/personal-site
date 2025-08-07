@@ -1,6 +1,6 @@
 <?php
 $updates = $artifact->children()->sortBy('date', 'desc');
-$latestUpdate = isset($updates) ? $updates : null;
+$latestUpdate = $updates->last();
 $date = $artifact->date()->toDate('d-m-Y');
 ?>
 
@@ -10,6 +10,9 @@ $date = $artifact->date()->toDate('d-m-Y');
 			<header class="artifact-details__header">
 				<div>
 					<time datetime="<?= $date ?>">[<?= $date ?>]</time>
+					<?php if ($latestUpdate):
+						$latestUpdateDate = $latestUpdate->date()->toDate('d-m-Y'); ?>
+						<time datetime="<?= $latestUpdateDate ?>">[<?= $latestUpdateDate ?>]</time><?php endif ?>
 					<h2><?= $artifact->title() ?></h2>
 				</div>
 				<a href="/" id="close">close</a>

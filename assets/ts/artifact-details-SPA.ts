@@ -112,7 +112,7 @@ function closeArtifactDetails() {
 
 function handleClickOutside(event: MouseEvent) {
   const artifactDetails = document.querySelector(
-    '.artifact-details',
+    '.artifact-details__content',
   ) as HTMLDivElement | null
   if (artifactDetails && !artifactDetails.contains(event.target as Node)) {
     closeArtifactDetails()

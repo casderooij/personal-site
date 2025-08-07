@@ -6,6 +6,7 @@
   top: 0;
   left: 0;
   z-index: 1000;
+  backdrop-filter: blur(3px);
 }
 
 .artifact-details {
@@ -15,20 +16,21 @@
   height: 100vh;
   right: 0;
   top: 0;
-  background: linear-gradient(to right, transparent, hsl(57, 94%, 87%) 3rem);
-  padding-left: 3rem;
+  padding: var(--page-padding);
+  padding-block: 1rem;
+  padding: 0.5rem;
 }
 
 .artifact-details__content {
-  padding: var(--page-padding);
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+  background-color: hsl(57, 94%, 87%);
 }
 
 .artifact-details__header {
   display: flex;
   justify-content: space-between;
   align-items: start;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
 
   #close {
     padding: 0.2rem;
