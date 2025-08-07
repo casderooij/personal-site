@@ -41,3 +41,14 @@
     background-color: white;
   }
 }
+
+.artifact-details__header-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+
+  .artifact-time {
+    display: flex;
+    gap: 0.5rem;
+  }
+}
