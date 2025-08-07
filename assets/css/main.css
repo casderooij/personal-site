@@ -25,6 +25,16 @@ main {
 
 body > header {
   margin-top: 1rem;
+
+  h1 {
+    color: var(--blue);
+  }
+
+  p {
+    margin-top: 0.5rem;
+    color: gray;
+    max-width: 32rem;
+  }
 }
 
 h1,
@@ -46,12 +56,12 @@ time {
 a {
   color: var(--blue);
   text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 .content-container {
   padding: var(--page-padding);
-}
-
-.spacer {
-  margin-bottom: 2rem;
 }

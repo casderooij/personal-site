@@ -23,3 +23,10 @@
 </head>
 
 <body>
+
+	<header>
+		<a href="/">
+			<h1>Cas de Rooij -- web developer</h1>
+		</a>
+		<p>This website showcases projects, prototypes and sketches plotted on a timeline. Each day the items (artifacts) get pushed down a few pixels.</p>
+	</header>

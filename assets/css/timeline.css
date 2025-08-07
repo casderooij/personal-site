@@ -1,6 +1,8 @@
 .timeline {
   --day-space: 50px;
 
+  margin-top: 2rem;
+
   position: relative;
   height: calc(var(--full-timeline-offset) * var(--day-space));
 
