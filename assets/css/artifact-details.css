@@ -1,4 +1,6 @@
 .artifact-details__container {
+  --background-color: hsl(57, 94%, 87%);
+
   position: fixed;
   background-color: hsla(0, 0, 0, 0.1);
   width: 100vw;
@@ -23,14 +25,23 @@
 
 .artifact-details__content {
   border-radius: 0.25rem;
-  padding: 0.5rem;
-  background-color: hsl(57, 94%, 87%);
+  max-height: 100%;
+  overflow-y: scroll;
+  background-color: var(--background-color);
 }
 
 .artifact-details__header {
+  padding: 0.5rem;
   display: flex;
   justify-content: space-between;
   align-items: start;
+  position: sticky;
+  top: 0;
+
+  h2 {
+    background-color: var(--background-color);
+    padding: 0.2rem;
+  }
 
   #close {
     padding: 0.2rem;
@@ -46,9 +57,29 @@
   display: flex;
   flex-direction: column;
   gap: 0.2rem;
+}
 
-  .artifact-time {
-    display: flex;
-    gap: 0.5rem;
+.artifact-details__tags {
+  display: flex;
+  gap: 0.3rem;
+
+  span {
+    background-color: #e0dfb9;
+    padding: 0.2rem;
   }
+}
+
+.artifact-details__updates {
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.artifact-details__update {
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
 }
