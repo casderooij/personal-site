@@ -15,7 +15,7 @@ $slug = $artifact->intendedTemplate() == 'artifact-update' ?
 	tabindex="0">
 	<div class="artifact__x-position">
 		<div class="artifact__meta">
-			<time datetime="<?= $dateTime->format('Y-m-d') ?>">
+			<time datetime="<?= $dateTime->format('d-m-Y') ?>">
 				[<?= $artifact->date()->toDate('F j') ?>]
 			</time>
 

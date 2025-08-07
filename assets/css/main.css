@@ -18,6 +18,15 @@ body {
   overflow: hidden;
 }
 
+body > header,
+main {
+  padding: var(--page-padding);
+}
+
+body > header {
+  margin-top: 1rem;
+}
+
 h1,
 h2,
 h3,
@@ -29,6 +38,7 @@ a,
 time {
   font-size: 10px;
   font-weight: 300;
+  line-height: 1.4;
   color: var(--color-text);
   margin: 0px;
 }
@@ -36,10 +46,6 @@ time {
 a {
   color: var(--blue);
   text-decoration: none;
-}
-
-p {
-  line-height: 1.4;
 }
 
 .content-container {

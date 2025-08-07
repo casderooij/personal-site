@@ -1,14 +1,16 @@
+<?php
+$updates = $artifact->children()->sortBy('date', 'desc');
+$latestUpdate = isset($updates) ? $updates : null;
+$date = $artifact->date()->toDate('d-m-Y');
+?>
+
 <div class="artifact-details__container">
 	<div class="artifact-details">
-		<div class="spacer"></div>
-		<div class="artifact-content">
-			<header>
+		<div class="artifact-details__content">
+			<header class="artifact-details__header">
 				<div>
-					<time datetime="<?= $artifact->date() ?>">
-						[<?= $artifact->date() ?>]
-					</time>
-
-					<h1><?= $artifact->title() ?></h1>
+					<time datetime="<?= $date ?>">[<?= $date ?>]</time>
+					<h2><?= $artifact->title() ?></h2>
 				</div>
 				<a href="/" id="close">close</a>
 			</header>

@@ -9,7 +9,6 @@
 }
 
 .artifact-details {
-  overflow-y: scroll;
   position: absolute;
   width: 32rem;
   max-width: 90%;
@@ -18,27 +17,25 @@
   top: 0;
   background: linear-gradient(to right, transparent, hsl(57, 94%, 87%) 3rem);
   padding-left: 3rem;
+}
 
-  .artifact-content {
-    padding: 0 1rem;
+.artifact-details__content {
+  padding: var(--page-padding);
+}
 
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: start;
+.artifact-details__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 
-      #close {
-        padding: 0.2rem;
-      }
-      #close:focus,
-      #close:hover {
-        outline: none;
-        background-color: white;
-      }
-    }
+  #close {
+    padding: 0.2rem;
   }
-
-  h1 {
-    margin-bottom: 1rem;
+  #close:focus,
+  #close:hover {
+    outline: none;
+    background-color: white;
   }
 }

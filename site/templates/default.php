@@ -1,7 +1,5 @@
 <?php snippet('head') ?>
 
-<header></header>
-
 <main>
 	<div class="spacer"></div>
 
