@@ -31,6 +31,7 @@
 		<p>This website features an interactive timeline showcasing various projects, prototypes, and sketches. Each day, the items are shifted down a few pixels to reflect their progression over time.</p>
 
 		<div>
+			<a target="_blank" rel="noopener noreferrer" href="https://bsky.app/profile/casderooij.nl">Bluesky</a>
 			<a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/cas-de-rooij-86374861/">LinkedIn</a>
 			<a target="_blank" rel="noopener noreferrer" href="https://github.com/casderooij">Github</a>
 		</div>
