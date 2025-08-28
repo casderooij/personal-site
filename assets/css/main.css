@@ -12,6 +12,14 @@ body {
   font-family: var(--font-mono);
   background-color: var(--color-timeline);
   color: var(--color-text);
+
+  background-size: 100px 100px;
+  background-position: center;
+  background-image: linear-gradient(
+    to right,
+    rgba(128, 128, 128, 0.1) 1px,
+    transparent 1px
+  );
 }
 
 .no-scroll {
