@@ -148,7 +148,7 @@ export function renderVideoSphere() {
   const { width, height } = sphereContainerElement.getBoundingClientRect()
 
   const scene = new THREE.Scene()
-  scene.fog = new THREE.Fog(0xf7f6f2, 4, 10)
+  scene.fog = new THREE.Fog(0xe5e7eb, 4, 10)
 
   const sphere = new THREE.Group()
   scene.add(sphere)
