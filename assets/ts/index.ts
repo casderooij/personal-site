@@ -118,7 +118,20 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     subscribe(state, () => {
-      selectedVideoContainer.innerHTML = state.selectedVideoTitle || ''
+      gsap.to(selectedVideoContainer, {
+        opacity: 0,
+        duration: 0.3,
+        ease: 'power2.in',
+        onComplete: () => {
+          selectedVideoContainer.innerHTML = state.selectedVideoTitle || ''
+
+          gsap.to(selectedVideoContainer, {
+            opacity: 1,
+            duration: 0.3,
+            ease: 'power2.out',
+          })
+        },
+      })
 
       const videoElement = document.getElementById(
         state.selectedVideoId || '',
