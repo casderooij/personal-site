@@ -120,14 +120,14 @@ document.addEventListener('DOMContentLoaded', () => {
       gsap.to(selectedVideoContainer, {
         opacity: 0,
         duration: 0.3,
-        ease: 'power2.in',
+        ease: 'power2.inOut',
         onComplete: () => {
           selectedVideoContainer.innerHTML = state.selectedVideoTitle || ''
 
           gsap.to(selectedVideoContainer, {
             opacity: 1,
             duration: 0.3,
-            ease: 'power2.out',
+            ease: 'power2.inOut',
           })
         },
       })
@@ -148,12 +148,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const { width, height } = sphereContainerElement.getBoundingClientRect()
 
   const scene = new THREE.Scene()
-  scene.background = new THREE.Color(0xf6f3ea)
 
   const camera = new THREE.PerspectiveCamera(75, width / height)
   camera.position.setZ(7)
 
-  const renderer = new THREE.WebGLRenderer({ antialias: true })
+  const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true })
   renderer.setPixelRatio(window.devicePixelRatio)
   renderer.setSize(width, height)
   sphereContainerElement.appendChild(renderer.domElement)
