@@ -1,9 +1,10 @@
 <?php snippet('head') ?>
 
-<main>
-	<?php snippet('timeline') ?>
+<header>
 
-	<div class="artifact-detail" id="artifact-detail"></div>
+</header>
+
+<main>
 </main>
 
 <?php snippet('footer') ?>
