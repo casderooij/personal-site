@@ -189,52 +189,59 @@ document.addEventListener('DOMContentLoaded', () => {
     return mesh
   })
 
-  videoMeshes.forEach((videoMesh) => scene.add(videoMesh))
+  videoMeshes.forEach((mesh) => scene.add(mesh))
 
   const controls = new TrackballControls(camera, renderer.domElement)
 
   let activeVideoMesh: THREE.Mesh | null = null
 
+  let frameCount = 0
   function animate() {
     requestAnimationFrame(animate)
-
-    let minDistance = Infinity
-    let closestMesh: THREE.Mesh | null = null
+    frameCount++
 
     for (const videoMesh of videoMeshes) {
       videoMesh.quaternion.copy(camera.quaternion)
-      const worldPosition = new THREE.Vector3()
-      videoMesh.getWorldPosition(worldPosition)
-      const distance = camera.position.distanceTo(worldPosition)
-
-      if (distance < minDistance) {
-        minDistance = distance
-        closestMesh = videoMesh
-      }
     }
 
-    if (closestMesh && closestMesh !== activeVideoMesh) {
-      if (activeVideoMesh) {
-        gsap.to(activeVideoMesh.scale, {
-          x: 1,
-          y: 1,
+    if (frameCount % 10 === 0) {
+      let minDistance = Infinity
+      let closestMesh: THREE.Mesh | null = null
+
+      for (const videoMesh of videoMeshes) {
+        const worldPosition = new THREE.Vector3()
+        videoMesh.getWorldPosition(worldPosition)
+        const distance = camera.position.distanceTo(worldPosition)
+
+        if (distance < minDistance) {
+          minDistance = distance
+          closestMesh = videoMesh
+        }
+      }
+
+      if (closestMesh && closestMesh !== activeVideoMesh) {
+        if (activeVideoMesh) {
+          gsap.to(activeVideoMesh.scale, {
+            x: 1,
+            y: 1,
+            z: 1,
+            duration: 0.5,
+            ease: 'power2.out',
+          })
+        }
+
+        gsap.to(closestMesh.scale, {
+          x: 2,
+          y: 2,
           z: 1,
           duration: 0.5,
           ease: 'power2.out',
         })
+
+        activeVideoMesh = closestMesh
+        state.selectedVideoTitle = activeVideoMesh.userData.videoTitle
+        state.selectedVideoId = activeVideoMesh.userData.videoId
       }
-
-      gsap.to(closestMesh.scale, {
-        x: 2,
-        y: 2,
-        z: 1,
-        duration: 0.5,
-        ease: 'power2.out',
-      })
-
-      activeVideoMesh = closestMesh
-      state.selectedVideoTitle = activeVideoMesh.userData.videoTitle
-      state.selectedVideoId = activeVideoMesh.userData.videoId
     }
 
     controls.update()
