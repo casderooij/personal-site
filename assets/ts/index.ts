@@ -194,13 +194,16 @@ document.addEventListener('DOMContentLoaded', () => {
       const worldPosition = new THREE.Vector3()
       videoMesh.getWorldPosition(worldPosition)
       const distance = camera.position.distanceTo(worldPosition)
+      videoMesh.scale.set(1, 1, 0)
       if (distance < minDistance) {
         minDistance = distance
         selectedVideoMesh = videoMesh
+      } else {
       }
     }
 
     if (selectedVideoMesh) {
+      selectedVideoMesh.scale.set(2, 2, 0)
       state.selectedVideoTitle = selectedVideoMesh.userData.videoTitle
       state.selectedVideoId = selectedVideoMesh.userData.videoId
     }
