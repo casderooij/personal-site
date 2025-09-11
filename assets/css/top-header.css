@@ -50,4 +50,9 @@
   padding-block: 0.4rem;
   padding-inline: 0.8rem;
   cursor: pointer;
+  opacity: 1;
+
+  @media (--viewport-sm) {
+    opacity: 0;
+  }
 }
