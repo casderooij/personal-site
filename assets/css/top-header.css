@@ -38,3 +38,16 @@
   display: none;
   position: absolute;
 }
+
+.scroll-down-button {
+  border: none;
+  color: blue;
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: white;
+  padding-block: 0.4rem;
+  padding-inline: 0.8rem;
+  cursor: pointer;
+}

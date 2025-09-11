@@ -61,7 +61,7 @@ main {
   background-color: rgba(255, 255, 255, 0.6);
   padding-inline: 0.5rem;
   padding-block: 0.25rem;
-  transition: color ease-in-out;
+  transition: background ease-out 0.2s;
 }
 .external-link:hover {
   background-color: white;
