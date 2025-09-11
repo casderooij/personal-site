@@ -5,7 +5,7 @@ body {
   padding: 0;
 
   font-family: var(--font-mono);
-  background-color: var(--color-timeline);
+  background-color: var(--color-bg);
   color: var(--color-text);
 }
 
@@ -30,10 +30,13 @@ body {
 
 .selected-video-container {
   position: absolute;
-  top: 0;
-  left: 0;
-  border: 1px solid black;
+  top: 2rem;
+  left: 2rem;
   opacity: 0;
+  background-color: white;
+  color: blue;
+  padding-block: 0.4rem;
+  padding-inline: 0.8rem;
 }
 
 .sphere-video {
