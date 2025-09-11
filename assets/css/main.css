@@ -19,6 +19,8 @@ body {
     linear-gradient(rgb(255, 255, 255), rgb(255, 255, 255)),
     linear-gradient(rgb(0, 0, 0) 85%, rgba(0, 0, 0, 0) 100%);
 
+  opacity: 0;
+
   @media (--viewport-sm) {
     width: 1200px;
     max-width: 100vw;
