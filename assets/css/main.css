@@ -1,4 +1,5 @@
 @import './props.css';
+@import './top-header.css';
 
 body {
   margin: 0;
@@ -7,41 +8,4 @@ body {
   font-family: var(--font-mono);
   background-color: var(--color-bg);
   color: var(--color-text);
-}
-
-.sphere-container {
-  width: 100%;
-  height: 100svh;
-
-  mask-composite: intersect, intersect, intersect;
-  mask-image:
-    linear-gradient(rgb(255, 255, 255), rgb(255, 255, 255)),
-    linear-gradient(rgb(255, 255, 255), rgb(255, 255, 255)),
-    linear-gradient(rgb(0, 0, 0) 85%, rgba(0, 0, 0, 0) 100%);
-
-  opacity: 0;
-
-  @media (--viewport-sm) {
-    width: 1200px;
-    max-width: 100vw;
-    height: 800px;
-    max-height: 100svh;
-    margin-inline: auto;
-  }
-}
-
-.selected-video-container {
-  position: absolute;
-  top: 2rem;
-  left: 2rem;
-  opacity: 0;
-  background-color: white;
-  color: blue;
-  padding-block: 0.4rem;
-  padding-inline: 0.8rem;
-}
-
-.sphere-video {
-  display: none;
-  position: absolute;
 }

@@ -1,6 +1,6 @@
 <?php snippet('head') ?>
 
-<header>
+<header class="top-header">
     <div id="sphere-container" class="sphere-container"></div>
     <div id="selected-video-container" class="selected-video-container"></div>
 </header>
