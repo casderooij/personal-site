@@ -8,3 +8,20 @@ body {
   background-color: var(--color-timeline);
   color: var(--color-text);
 }
+
+#sphere-container {
+  width: 100vw;
+  height: 100vh;
+}
+
+#selected-video-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: 1px solid black;
+}
+
+.sphere-video {
+  display: none;
+  position: absolute;
+}
