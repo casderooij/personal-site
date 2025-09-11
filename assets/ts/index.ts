@@ -1,5 +1,9 @@
 import { globalState } from './globalState'
 import { renderVideoSphere } from './videoSphere'
+import gsap from 'gsap'
+import { ScrollToPlugin } from 'gsap/ScrollToPlugin'
+
+gsap.registerPlugin(ScrollToPlugin)
 
 document.addEventListener('DOMContentLoaded', () => {
   renderVideoSphere()
@@ -19,7 +23,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const mainElement = document.querySelector('main')
   if (scrollDownToMainButton && mainElement) {
     scrollDownToMainButton.addEventListener('click', () =>
-      mainElement.scrollIntoView({ behavior: 'smooth' }),
+      gsap.to(window, {
+        duration: 1,
+        scrollTo: mainElement,
+        ease: 'power2.inOut',
+      }),
     )
   }
 })

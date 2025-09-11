@@ -1,6 +1,8 @@
 <?php snippet('head') ?>
 
 <header class="top-header">
+    <h1>creative web developer</h1>
+
     <div id="sphere-container" class="sphere-container"></div>
     <div id="selected-video-container" class="selected-video-container"></div>
 
@@ -8,10 +10,7 @@
 </header>
 
 <main>
-
     <section class="intro-section">
-        <h2>About me</h2>
-
         <div class="intro-content">
             <p>
                 I am a web developer working at the intersection of user experience,
@@ -39,7 +38,6 @@
             <?php snippet('external-link', ['label' => 'LinkedIn', 'url' => 'https://www.linkedin.com/in/cas-de-rooij-86374861/']) ?>
         </div>
     </section>
-
 </main>
 
 <?php snippet('footer') ?>
