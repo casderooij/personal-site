@@ -1,11 +1,4 @@
 @import './props.css';
-@import './stack.css';
-@import './info.css';
-@import './intro.css';
-@import './timeline.css';
-@import './artifact.css';
-@import './artifact-details.css';
-@import './artifact-slider.css';
 
 body {
   margin: 0;
@@ -14,65 +7,4 @@ body {
   font-family: var(--font-mono);
   background-color: var(--color-timeline);
   color: var(--color-text);
-
-  background-size: 100px 100px;
-  background-position: center;
-  background-image: linear-gradient(
-    to right,
-    rgba(128, 128, 128, 0.1) 1px,
-    transparent 1px
-  );
-}
-
-.no-scroll {
-  overflow: hidden;
-}
-
-body > header,
-main {
-  padding: var(--page-padding);
-}
-
-body > header {
-  margin-top: 1rem;
-
-  h1 {
-    color: var(--blue);
-  }
-
-  p {
-    margin-top: 0.5rem;
-    color: gray;
-    max-width: 32rem;
-  }
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-a,
-span,
-time {
-  font-size: 10px;
-  font-weight: 300;
-  line-height: 1.4;
-  color: var(--color-text);
-  margin: 0px;
-}
-
-a {
-  color: var(--blue);
-  text-decoration: none;
-
-  &:hover {
-    text-decoration: underline;
-  }
-}
-
-.content-container {
-  padding: var(--page-padding);
 }
