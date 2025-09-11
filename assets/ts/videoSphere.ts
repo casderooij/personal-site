@@ -162,6 +162,9 @@ export function renderVideoSphere() {
   renderer.setSize(width, height)
   sphereContainerElement.appendChild(renderer.domElement)
 
+  const controls = new TrackballControls(camera, renderer.domElement)
+  controls.noZoom = true
+
   window.addEventListener('resize', () =>
     handleResize(sphereContainerElement, camera, renderer),
   )
@@ -212,8 +215,6 @@ export function renderVideoSphere() {
       ease: 'power2.out',
     })
   })
-
-  const controls = new TrackballControls(camera, renderer.domElement)
 
   let activeVideoMesh: THREE.Mesh | null = null
 
