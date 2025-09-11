@@ -1,7 +1,8 @@
+import gsap from 'gsap'
 import * as THREE from 'three'
 import { TrackballControls } from 'three/addons/controls/TrackballControls.js'
 import { proxy, subscribe } from 'valtio/vanilla'
-import gsap from 'gsap'
+import { globalState } from './globalState'
 
 interface SphereVideo {
   url: string
@@ -133,6 +134,25 @@ function renderSelectedVideo(videoElements: HTMLVideoElement[]) {
   }
 }
 
+function updateSphereRadius(radius: number, meshes: THREE.Mesh[]) {
+  const positions = calculateSpherePositions(videos.length, radius)
+
+  meshes.forEach((mesh, index) => {
+    const { x, y, z } = positions[index]
+    gsap.to(mesh.position, {
+      x,
+      y,
+      z,
+      duration: 1,
+      ease: 'power2.inOut',
+    })
+  })
+}
+
+function getSphereRadius() {
+  return globalState.screen === 'mobile' ? 3 : 4
+}
+
 const state = proxy<{
   selectedVideoTitle?: string
   selectedVideoId?: string
@@ -169,7 +189,7 @@ export function renderVideoSphere() {
     handleResize(sphereContainerElement, camera, renderer),
   )
 
-  const spherePositions = calculateSpherePositions(videos.length, 4)
+  const positions = calculateSpherePositions(videos.length, getSphereRadius())
 
   const videoMeshes = videos.map((video, index) => {
     const geometry = new THREE.PlaneGeometry(video.aspect, 1)
@@ -194,12 +214,16 @@ export function renderVideoSphere() {
     mesh.userData.videoTitle = video.title
     mesh.userData.videoId = videoId
 
-    const [x, y, z] = spherePositions[index].toArray()
+    const { x, y, z } = positions[index]
     mesh.position.set(x, y, z)
 
     sphere.add(mesh)
 
     return mesh
+  })
+
+  subscribe(globalState, () => {
+    updateSphereRadius(getSphereRadius(), videoMeshes)
   })
 
   const videoLoadPromises = videoElements.map((videoElement) => {
