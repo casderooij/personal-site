@@ -13,8 +13,5 @@
     "prettier": "^3.6.2",
     "typescript": "^5.8.3",
     "vite": "^7.0.0"
-  },
-  "dependencies": {
-    "modern-normalize": "^3.0.1"
   }
 }
