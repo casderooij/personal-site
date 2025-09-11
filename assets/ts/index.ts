@@ -1,7 +1,7 @@
 import * as THREE from 'three'
 import { TrackballControls } from 'three/addons/controls/TrackballControls.js'
 import { proxy, subscribe } from 'valtio/vanilla'
-import { devtools } from 'valtio/vanilla/utils'
+import gsap from 'gsap'
 
 interface SphereVideo {
   url: string
@@ -104,8 +104,6 @@ document.addEventListener('DOMContentLoaded', () => {
     selectedVideoId: string | null
   }>({ selectedVideoTitle: null, selectedVideoId: null })
 
-  devtools(state)
-
   const sphereContainerElement = document.getElementById('sphere-container')
   const selectedVideoContainer = document.getElementById(
     'selected-video-container',
@@ -183,29 +181,48 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const controls = new TrackballControls(camera, renderer.domElement)
 
+  let activeVideoMesh: THREE.Mesh | null = null
+
   function animate() {
     requestAnimationFrame(animate)
 
     let minDistance = Infinity
-    let selectedVideoMesh = null
+    let closestMesh: THREE.Mesh | null = null
 
     for (const videoMesh of videoMeshes) {
       videoMesh.quaternion.copy(camera.quaternion)
       const worldPosition = new THREE.Vector3()
       videoMesh.getWorldPosition(worldPosition)
       const distance = camera.position.distanceTo(worldPosition)
-      videoMesh.scale.set(1, 1, 0)
+
       if (distance < minDistance) {
         minDistance = distance
-        selectedVideoMesh = videoMesh
-      } else {
+        closestMesh = videoMesh
       }
     }
 
-    if (selectedVideoMesh) {
-      selectedVideoMesh.scale.set(2, 2, 0)
-      state.selectedVideoTitle = selectedVideoMesh.userData.videoTitle
-      state.selectedVideoId = selectedVideoMesh.userData.videoId
+    if (closestMesh && closestMesh !== activeVideoMesh) {
+      if (activeVideoMesh) {
+        gsap.to(activeVideoMesh.scale, {
+          x: 1,
+          y: 1,
+          z: 1,
+          duration: 0.5,
+          ease: 'power2.out',
+        })
+      }
+
+      gsap.to(closestMesh.scale, {
+        x: 2,
+        y: 2,
+        z: 1,
+        duration: 0.5,
+        ease: 'power2.out',
+      })
+
+      activeVideoMesh = closestMesh
+      state.selectedVideoTitle = activeVideoMesh.userData.videoTitle
+      state.selectedVideoId = activeVideoMesh.userData.videoId
     }
 
     controls.update()

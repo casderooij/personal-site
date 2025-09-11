@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      gsap:
+        specifier: ^3.13.0
+        version: 3.13.0
       three:
         specifier: ^0.180.0
         version: 0.180.0
@@ -349,6 +352,9 @@ packages:
     resolution: {integrity: sha512-5xoDfX+fL7faATnagmWPpbFtwh/R77WmMMqqHGS65C3vvB0YHrgF+B1YmZ3441tMj5n63k0212XNoJwzlhffQw==}
     engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
     os: [darwin]
+
+  gsap@3.13.0:
+    resolution: {integrity: sha512-QL7MJ2WMjm1PHWsoFrAQH/J8wUeqZvMtHO58qdekHpCfhvhSL4gSiz6vJf5EeMP0LOn3ZCprL2ki/gjED8ghVw==}
 
   laravel-vite-plugin@1.3.0:
     resolution: {integrity: sha512-P5qyG56YbYxM8OuYmK2OkhcKe0AksNVJUjq9LUZ5tOekU9fBn9LujYyctI4t9XoLjuMvHJXXpCoPntY1oKltuA==}
@@ -747,6 +753,8 @@ snapshots:
 
   fsevents@2.3.3:
     optional: true
+
+  gsap@3.13.0: {}
 
   laravel-vite-plugin@1.3.0(vite@7.0.0(lightningcss@1.30.1)):
     dependencies:
