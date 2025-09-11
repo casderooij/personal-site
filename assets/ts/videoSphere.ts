@@ -98,19 +98,7 @@ function calculateSpherePositions(total: number, radius: number) {
   return points
 }
 
-export function renderVideoSphere() {
-  const videoElements: HTMLVideoElement[] = []
-
-  function pauseAllVideos() {
-    videoElements.forEach((videoElement) => videoElement.pause())
-  }
-
-  const state = proxy<{
-    selectedVideoTitle: string | null
-    selectedVideoId: string | null
-  }>({ selectedVideoTitle: null, selectedVideoId: null })
-
-  const sphereContainerElement = document.getElementById('sphere-container')
+function renderSelectedVideo(videoElements: HTMLVideoElement[]) {
   const selectedVideoContainer = document.getElementById(
     'selected-video-container',
   )
@@ -137,17 +125,31 @@ export function renderVideoSphere() {
       ) as HTMLVideoElement
 
       if (videoElement) {
-        pauseAllVideos()
+        // Pause all videos
+        videoElements.forEach((videoElement) => videoElement.pause())
         videoElement.play()
       }
     })
   }
+}
+
+const state = proxy<{
+  selectedVideoTitle?: string
+  selectedVideoId?: string
+}>({ selectedVideoTitle: undefined, selectedVideoId: undefined })
+
+export function renderVideoSphere() {
+  const videoElements: HTMLVideoElement[] = []
+
+  const sphereContainerElement = document.getElementById('sphere-container')
 
   if (!sphereContainerElement) return
 
   const { width, height } = sphereContainerElement.getBoundingClientRect()
 
   const scene = new THREE.Scene()
+  scene.fog = new THREE.Fog(0xf7f6f2, 4, 10)
+
   const sphere = new THREE.Group()
   scene.add(sphere)
 
@@ -269,4 +271,6 @@ export function renderVideoSphere() {
     renderer.render(scene, camera)
   }
   animate()
+
+  renderSelectedVideo(videoElements)
 }
