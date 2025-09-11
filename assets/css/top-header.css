@@ -29,10 +29,7 @@
   bottom: 2rem;
   right: 2rem;
   opacity: 0;
-  background-color: white;
   color: blue;
-  padding-block: 0.4rem;
-  padding-inline: 0.8rem;
 
   @media (--viewport-sm) {
     display: block;
