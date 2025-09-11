@@ -99,6 +99,12 @@ function calculateSpherePositions(total: number, radius: number) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+  const videoElements: HTMLVideoElement[] = []
+
+  function pauseAllVideos() {
+    videoElements.forEach((videoElement) => videoElement.pause())
+  }
+
   const state = proxy<{
     selectedVideoTitle: string | null
     selectedVideoId: string | null
@@ -110,13 +116,6 @@ document.addEventListener('DOMContentLoaded', () => {
   )
 
   if (selectedVideoContainer) {
-    function pauseAllVideos() {
-      const videoElements =
-        document.querySelectorAll<HTMLVideoElement>('.sphere-video')
-
-      videoElements.forEach((videoElement) => videoElement.pause())
-    }
-
     subscribe(state, () => {
       gsap.to(selectedVideoContainer, {
         opacity: 0,
@@ -168,6 +167,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const videoMeshes = videos.map((video, index) => {
     const geometry = new THREE.PlaneGeometry(video.aspect, 1)
     const videoElement = document.createElement('video')
+    videoElements.push(videoElement)
     document.body.appendChild(videoElement)
 
     const videoId = `video-${index}`
