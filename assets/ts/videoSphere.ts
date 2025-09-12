@@ -182,6 +182,7 @@ export function renderVideoSphere() {
 
   const controls = new TrackballControls(camera, renderer.domElement)
   controls.noZoom = true
+  controls.enabled = false
 
   window.addEventListener('resize', () => {
     const newSizes = handleResize(sphereContainerElement, camera, renderer)
@@ -244,8 +245,11 @@ export function renderVideoSphere() {
     gsap.to(camera.position, {
       x: -2,
       y: -1,
-      duration: 2,
+      duration: 1,
       ease: 'power2.out',
+      onComplete: () => {
+        controls.enabled = true
+      },
     })
   })
 
