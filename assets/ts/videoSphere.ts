@@ -37,14 +37,14 @@ const videos: SphereVideo[] = [
     title: 'Idomeneo digital poster',
   },
   {
-    url: '/assets/videos/marching-squares.mp4',
-    aspect: 1,
-    title: 'Marching squares',
-  },
-  {
     url: '/assets/videos/marching-squares-lowres.mp4',
     aspect: 1,
     title: 'Marching squares lowres',
+  },
+  {
+    url: '/assets/videos/marching-squares.mp4',
+    aspect: 1,
+    title: 'Marching squares',
   },
   {
     url: '/assets/videos/noise-gallery.mp4',
@@ -177,8 +177,8 @@ export function renderVideoSphere() {
   scene.add(sphere)
 
   const camera = new THREE.PerspectiveCamera(75, width / height)
-  camera.position.setX(-2)
-  camera.position.setY(-1.5)
+  camera.position.setX(2)
+  camera.position.setY(-2)
   camera.position.setZ(7)
 
   const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true })
@@ -242,6 +242,12 @@ export function renderVideoSphere() {
     gsap.to(sphereContainerElement, {
       opacity: 1,
       duration: 1,
+      ease: 'power2.out',
+    })
+    gsap.to(camera.position, {
+      x: -2,
+      y: -1,
+      duration: 2,
       ease: 'power2.out',
     })
   })

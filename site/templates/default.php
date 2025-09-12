@@ -6,9 +6,15 @@
         <h1>creative web developer</h1>
     </div>
 
+    <div class="top-header-sketch-info">
+        <p>Selection of sketches, projects and experiments. Drag around to view other videos.</p>
+        <br />
+        <div id="selected-video-container" class="selected-video-container"></div>
+    </div>
+
     <div id="sphere-container" class="sphere-container"></div>
     <div id="sphere-videos-container" class="sphere-videos-container"></div>
-    <div id="selected-video-container" class="selected-video-container"></div>
+
 
     <button id="scroll-down-to-main-button" class="scroll-down-button">Scroll down</button>
 </header>
