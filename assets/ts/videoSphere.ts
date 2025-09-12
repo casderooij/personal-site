@@ -102,27 +102,11 @@ function calculateSpherePositions(total: number, radius: number) {
 }
 
 function renderSelectedVideo(videoElements: HTMLVideoElement[]) {
-  const selectedVideoContainer = document.getElementById(
-    'selected-video-container',
-  )
   const selectedVideoTitle = document.getElementById('selected-video-title')
 
-  if (selectedVideoContainer && selectedVideoTitle) {
+  if (selectedVideoTitle) {
     subscribe(state, () => {
-      gsap.to(selectedVideoContainer, {
-        opacity: 0,
-        duration: 0.3,
-        ease: 'power2.inOut',
-        onComplete: () => {
-          selectedVideoTitle.innerHTML = state.selectedVideoTitle || ''
-
-          gsap.to(selectedVideoContainer, {
-            opacity: 1,
-            duration: 0.3,
-            ease: 'power2.inOut',
-          })
-        },
-      })
+      selectedVideoTitle.innerHTML = state.selectedVideoTitle || ''
 
       const videoElement = document.getElementById(
         state.selectedVideoId || '',
