@@ -4,6 +4,7 @@
     <h1>creative web developer</h1>
 
     <div id="sphere-container" class="sphere-container"></div>
+    <div id="sphere-videos-container" class="sphere-videos-container"></div>
     <div id="selected-video-container" class="selected-video-container"></div>
 
     <button id="scroll-down-to-main-button" class="scroll-down-button">Scroll down</button>

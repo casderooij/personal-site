@@ -162,6 +162,9 @@ export function renderVideoSphere() {
   const videoElements: HTMLVideoElement[] = []
 
   const sphereContainerElement = document.getElementById('sphere-container')
+  const sphereVideosContainerElement = document.getElementById(
+    'sphere-videos-container',
+  )
 
   if (!sphereContainerElement) return
 
@@ -197,13 +200,14 @@ export function renderVideoSphere() {
     const geometry = new THREE.PlaneGeometry(video.aspect, 1)
     const videoElement = document.createElement('video')
     videoElements.push(videoElement)
-    document.body.appendChild(videoElement)
+    if (sphereVideosContainerElement) {
+      sphereVideosContainerElement.appendChild(videoElement)
+    }
 
     const videoId = `video-${index}`
     videoElement.src = video.url
     videoElement.loop = true
     videoElement.muted = true
-    videoElement.classList.add('sphere-video')
     videoElement.id = videoId
 
     const texture = new THREE.VideoTexture(videoElement)
