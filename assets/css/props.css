@@ -1,16 +1,4 @@
 @font-face {
-  font-family: 'Martian Mono';
-  src: url('../fonts/martian-mono-light.woff2') format(woff2);
-  display: swap;
-}
-
-@font-face {
-  font-family: 'Whois Mono';
-  src: url('../fonts/whois-mono.woff2') format(woff2);
-  display: swap;
-}
-
-@font-face {
   font-family: 'Hedvig Letters Sans';
   src: url('../fonts/hedvig-letters-sans-regular.woff2') format(woff2);
   display: swap;
@@ -20,7 +8,6 @@
 
 :root {
   --font-sans: 'Hedvig Letters Sans', sans-serif;
-  --font-mono: 'Martian Mono', monospace;
 
   --color-bg: hsl(220, 13%, 91%);
   --color-text: hsl(210, 4%, 22%);
