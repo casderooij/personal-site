@@ -239,13 +239,7 @@ export function renderVideoSphere() {
   })
 
   Promise.all(videoLoadPromises).then(() => {
-    gsap.to(selectedVideoContainerElement, {
-      opacity: 1,
-      duration: 1,
-      ease: 'power2.out',
-    })
-
-    gsap.to(sphereContainerElement, {
+    gsap.to([sphereContainerElement, selectedVideoContainerElement], {
       opacity: 1,
       duration: 1,
       ease: 'power2.out',
