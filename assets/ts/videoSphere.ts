@@ -101,12 +101,14 @@ function calculateSpherePositions(total: number, radius: number) {
   return points
 }
 
-function renderSelectedVideo(videoElements: HTMLVideoElement[]) {
+function renderSelectedVideoTitle(videoElements: HTMLVideoElement[]) {
   const selectedVideoTitle = document.getElementById('selected-video-title')
 
   if (selectedVideoTitle) {
     subscribe(state, () => {
-      selectedVideoTitle.innerHTML = state.selectedVideoTitle || ''
+      if (!state.selectedVideoTitle) return
+
+      selectedVideoTitle.innerHTML = state.selectedVideoTitle
 
       const videoElement = document.getElementById(
         state.selectedVideoId || '',
@@ -237,6 +239,12 @@ export function renderVideoSphere() {
   })
 
   Promise.all(videoLoadPromises).then(() => {
+    gsap.to(selectedVideoContainerElement, {
+      opacity: 1,
+      duration: 1,
+      ease: 'power2.out',
+    })
+
     gsap.to(sphereContainerElement, {
       opacity: 1,
       duration: 1,
@@ -320,5 +328,5 @@ export function renderVideoSphere() {
   }
   animate()
 
-  renderSelectedVideo(videoElements)
+  renderSelectedVideoTitle(videoElements)
 }
