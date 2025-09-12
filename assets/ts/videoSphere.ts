@@ -174,7 +174,7 @@ export function renderVideoSphere() {
   camera.position.setY(-2)
   camera.position.setZ(7)
 
-  const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true })
+  const renderer = new THREE.WebGLRenderer({ alpha: true })
   renderer.outputColorSpace = THREE.SRGBColorSpace
   renderer.setPixelRatio(window.devicePixelRatio)
   renderer.setSize(width, height)
