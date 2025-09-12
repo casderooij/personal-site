@@ -7,12 +7,16 @@
     </div>
 
     <div class="top-header-sketch-info">
-        <p>Selection of sketches, projects and experiments. Drag around to view other videos.</p>
-        <br />
-        <div id="selected-video-container" class="selected-video-container"></div>
+        <p>Selection of projects and experiments</p>
     </div>
 
-    <div id="sphere-container" class="sphere-container"></div>
+
+
+    <div id="sphere-container" class="sphere-container">
+        <div id="selected-video-container" class="selected-video-container">
+            <div id="selected-video-title" class="selected-video-title"></div>
+        </div>
+    </div>
     <div id="sphere-videos-container" class="sphere-videos-container"></div>
 
 

@@ -82,6 +82,8 @@ function handleResize(
   camera.aspect = width / height
   camera.updateProjectionMatrix()
   renderer.setSize(width, height)
+
+  return { width, height }
 }
 
 function calculateSpherePositions(total: number, radius: number) {
@@ -103,15 +105,16 @@ function renderSelectedVideo(videoElements: HTMLVideoElement[]) {
   const selectedVideoContainer = document.getElementById(
     'selected-video-container',
   )
+  const selectedVideoTitle = document.getElementById('selected-video-title')
 
-  if (selectedVideoContainer) {
+  if (selectedVideoContainer && selectedVideoTitle) {
     subscribe(state, () => {
       gsap.to(selectedVideoContainer, {
         opacity: 0,
         duration: 0.3,
         ease: 'power2.inOut',
         onComplete: () => {
-          selectedVideoContainer.innerHTML = state.selectedVideoTitle || ''
+          selectedVideoTitle.innerHTML = state.selectedVideoTitle || ''
 
           gsap.to(selectedVideoContainer, {
             opacity: 1,
@@ -168,7 +171,13 @@ export function renderVideoSphere() {
 
   if (!sphereContainerElement) return
 
-  const { width, height } = sphereContainerElement.getBoundingClientRect()
+  const selectedVideoContainerElement = document.getElementById(
+    'selected-video-container',
+  ) as HTMLDivElement
+
+  let { width, height } = sphereContainerElement.getBoundingClientRect()
+  let halfWidth = width / 2
+  let halfHeight = height / 2
 
   const scene = new THREE.Scene()
   scene.fog = new THREE.Fog(0xe5e7eb, 4, 10)
@@ -190,9 +199,13 @@ export function renderVideoSphere() {
   const controls = new TrackballControls(camera, renderer.domElement)
   controls.noZoom = true
 
-  window.addEventListener('resize', () =>
-    handleResize(sphereContainerElement, camera, renderer),
-  )
+  window.addEventListener('resize', () => {
+    const newSizes = handleResize(sphereContainerElement, camera, renderer)
+    width = newSizes.width
+    halfWidth = newSizes.width / 2
+    height = newSizes.height
+    halfHeight = newSizes.height / 2
+  })
 
   const positions = calculateSpherePositions(videos.length, getSphereRadius())
 
@@ -261,6 +274,16 @@ export function renderVideoSphere() {
 
     for (const videoMesh of videoMeshes) {
       videoMesh.quaternion.copy(camera.quaternion)
+    }
+
+    if (activeVideoMesh) {
+      const position = activeVideoMesh.position.clone()
+      position.project(camera)
+
+      gsap.to(selectedVideoContainerElement, {
+        x: position.x * halfWidth + halfWidth,
+        y: -(position.y * halfHeight) + halfHeight,
+      })
     }
 
     if (frameCount % 10 === 0) {
