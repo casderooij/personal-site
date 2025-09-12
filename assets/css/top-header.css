@@ -77,7 +77,7 @@
   transform: translate(calc(-50% - 50px), calc(-50% + 110px));
   text-wrap: nowrap;
   background-color: white;
-  padding: 0.2rem 0.4rem;
+  padding: 0.1rem 0.4rem;
 
   @media (--viewport-sm) {
     transform: translate(calc(-50% - 90px), calc(-50% + 150px));
