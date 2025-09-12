@@ -3,7 +3,7 @@
 @import './top-header.css';
 
 body {
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   background-color: var(--color-bg);
   color: var(--color-text);
 }
@@ -23,7 +23,7 @@ main {
   flex-direction: column;
 
   h2 {
-    color: blue;
+    color: var(--color-accent);
     font-size: 2rem;
 
     @media (--viewport-sm) {
@@ -57,7 +57,7 @@ main {
 }
 
 .external-link {
-  color: blue;
+  color: var(--color-accent);
   background-color: rgba(255, 255, 255, 0.6);
   padding-inline: 0.5rem;
   padding-block: 0.25rem;

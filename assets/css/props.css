@@ -23,8 +23,8 @@
   --font-mono: 'Martian Mono', monospace;
 
   --color-bg: hsl(220, 13%, 91%);
-  --color-light: hsl(0, 0%, 100%);
-  --color-text: hsl(217, 19%, 27%);
+  --color-text: hsl(210, 4%, 22%);
+  --color-accent: blue;
 
   @media (--viewport-sm) {
   }
