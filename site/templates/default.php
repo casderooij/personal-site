@@ -1,7 +1,10 @@
 <?php snippet('head') ?>
 
 <header class="top-header">
-    <h1>creative web developer</h1>
+    <div class="top-header-heading">
+        <img src="favicon.png" width="20" />
+        <h1>creative web developer</h1>
+    </div>
 
     <div id="sphere-container" class="sphere-container"></div>
     <div id="sphere-videos-container" class="sphere-videos-container"></div>
