@@ -185,6 +185,7 @@ export function renderVideoSphere() {
   const controls = new TrackballControls(camera, renderer.domElement)
   controls.noZoom = true
   controls.enabled = false
+  controls.panSpeed = globalState.screen === 'mobile' ? 1 : 2
 
   window.addEventListener('resize', () => {
     const newSizes = handleResize(sphereContainerElement, camera, renderer)
@@ -233,6 +234,11 @@ export function renderVideoSphere() {
 
   subscribe(globalState, () => {
     updateSphereRadius(getSphereRadius(), videoMeshes)
+    if (globalState.screen === 'mobile') {
+      controls.panSpeed = 1
+    } else {
+      controls.panSpeed = 2
+    }
   })
 
   const videoLoadPromises = videoElements.map((videoElement) => {
