@@ -23,7 +23,7 @@
     <button id="scroll-down-to-main-button" class="scroll-down-button">Scroll down</button>
 </header>
 
-<main>
+<!-- <main>
     <section class="intro-section">
         <div class="intro-content">
             <p>
@@ -52,6 +52,6 @@
             <?php snippet('external-link', ['label' => 'LinkedIn', 'url' => 'https://www.linkedin.com/in/cas-de-rooij-86374861/']) ?>
         </div>
     </section>
-</main>
+</main> -->
 
 <?php snippet('footer') ?>
