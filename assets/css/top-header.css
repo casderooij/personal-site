@@ -97,7 +97,6 @@
   padding-inline: 0.8rem;
   cursor: pointer;
   opacity: 1;
-  display: none;
 
   @media (hover: hover) {
     display: none;

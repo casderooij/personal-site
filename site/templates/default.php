@@ -20,7 +20,7 @@
     <div id="sphere-videos-container" class="sphere-videos-container"></div>
 
 
-    <button id="scroll-down-to-main-button" class="scroll-down-button">Scroll down</button>
+    <!-- <button id="scroll-down-to-main-button" class="scroll-down-button">Scroll down</button> -->
 </header>
 
 <!-- <main>
