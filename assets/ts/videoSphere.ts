@@ -208,6 +208,7 @@ export function renderVideoSphere() {
     videoElement.src = video.url
     videoElement.loop = true
     videoElement.muted = true
+    videoElement.autoplay = true
     videoElement.id = videoId
 
     const texture = new THREE.VideoTexture(videoElement)
