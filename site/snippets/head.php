@@ -7,7 +7,7 @@
 
 	<link
 		rel="preload"
-		href="<?= vite()->asset('assets/fonts/hedvig-letters-sans.woff2') ?>"
+		href="<?= vite()->asset('assets/fonts/hedvig-letters-sans-regular.woff2') ?>"
 		as="font"
 		type="font/woff2"
 		crossorigin>
