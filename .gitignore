@@ -58,6 +58,8 @@ Icon
 /content/artifacts/*
 !/content/artifacts/artifacts.txt
 
+/content/home/*
+
 vendor
 kirby
 node_modules

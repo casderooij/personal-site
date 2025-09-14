@@ -1,6 +1,22 @@
 title: Home
 
 fields:
+  introVideos:
+    label: Intro videos
+    type: structure
+    fields:
+      title:
+        label: Title
+        type: text
+      video:
+        label: Video
+        type: files
+        multiple: false
+        accept: video/mp4
+      aspectRatio:
+        label: Aspect ratio
+        type: number
+        step: 0.01
   location:
     label: location
     type: text

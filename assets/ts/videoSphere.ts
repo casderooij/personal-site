@@ -6,72 +6,9 @@ import { globalState } from './globalState'
 
 interface SphereVideo {
   url: string
-  aspect: number
+  aspectratio: number
   title: string
 }
-
-const videos: SphereVideo[] = [
-  {
-    url: '/assets/videos/diffusion.mp4',
-    aspect: 1,
-    title: 'Diffusion algorithm',
-  },
-  {
-    url: '/assets/videos/falling-words.mp4',
-    aspect: 1.75,
-    title: 'Falling words',
-  },
-  {
-    url: '/assets/videos/green-hills.mp4',
-    aspect: 1,
-    title: 'Green hills',
-  },
-  {
-    url: '/assets/videos/grid.mp4',
-    aspect: 1,
-    title: 'Pattern generator',
-  },
-  {
-    url: '/assets/videos/idomeneo.mp4',
-    aspect: 1.77,
-    title: 'Idomeneo digital poster',
-  },
-  {
-    url: '/assets/videos/marching-squares-lowres.mp4',
-    aspect: 1,
-    title: 'Marching squares lowres',
-  },
-  {
-    url: '/assets/videos/marching-squares.mp4',
-    aspect: 1,
-    title: 'Marching squares',
-  },
-  {
-    url: '/assets/videos/noise-gallery.mp4',
-    aspect: 1,
-    title: 'Noise gallery',
-  },
-  {
-    url: '/assets/videos/number-grid.mp4',
-    aspect: 1,
-    title: 'Number grid',
-  },
-  {
-    url: '/assets/videos/organic-chart.mp4',
-    aspect: 1,
-    title: 'Organic chart',
-  },
-  {
-    url: '/assets/videos/sliding-ui.mp4',
-    aspect: 1,
-    title: 'Sliding UI',
-  },
-  {
-    url: '/assets/videos/window.mp4',
-    aspect: 1,
-    title: 'CSS window',
-  },
-]
 
 function handleResize(
   element: HTMLElement,
@@ -123,8 +60,12 @@ function renderSelectedVideoTitle(videoElements: HTMLVideoElement[]) {
   }
 }
 
-function updateSphereRadius(radius: number, meshes: THREE.Mesh[]) {
-  const positions = calculateSpherePositions(videos.length, radius)
+function updateSphereRadius(
+  totalNumberOfVideos: number,
+  radius: number,
+  meshes: THREE.Mesh[],
+) {
+  const positions = calculateSpherePositions(totalNumberOfVideos, radius)
 
   meshes.forEach((mesh, index) => {
     const { x, y, z } = positions[index]
@@ -156,6 +97,9 @@ export function renderVideoSphere() {
   )
 
   if (!sphereContainerElement) return
+
+  const videos = JSON.parse(sphereContainerElement.dataset.videos!)
+    .data as SphereVideo[]
 
   const selectedVideoContainerElement = document.getElementById(
     'selected-video-container',
@@ -198,7 +142,7 @@ export function renderVideoSphere() {
   const positions = calculateSpherePositions(videos.length, getSphereRadius())
 
   const videoMeshes = videos.map((video, index) => {
-    const geometry = new THREE.PlaneGeometry(video.aspect, 1)
+    const geometry = new THREE.PlaneGeometry(video.aspectratio, 1)
     const videoElement = document.createElement('video')
     videoElements.push(videoElement)
     if (sphereVideosContainerElement) {
@@ -233,7 +177,7 @@ export function renderVideoSphere() {
   })
 
   subscribe(globalState, () => {
-    updateSphereRadius(getSphereRadius(), videoMeshes)
+    updateSphereRadius(videos.length, getSphereRadius(), videoMeshes)
     if (globalState.screen === 'mobile') {
       controls.panSpeed = 1
     } else {

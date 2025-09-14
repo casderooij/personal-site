@@ -2,6 +2,71 @@ Title: Cas de Rooij
 
 ----
 
+Introvideos:
+
+- 
+  title: Diffusion algorithm
+  video:
+    - file://q3xneoxehbozjmz3
+  aspectratio: 1
+- 
+  title: Falling words
+  video:
+    - file://mrdywxsxdjlmmilg
+  aspectratio: 1.75
+- 
+  title: Green hills
+  video:
+    - file://g0dn7d3igcy9s8ms
+  aspectratio: 1
+- 
+  title: Pattern generator
+  video:
+    - file://7rsddwdaoj1qr1z6
+  aspectratio: 1
+- 
+  title: Idomeneo digital poster
+  video:
+    - file://ruk04kdsahul6bv4
+  aspectratio: 1.77
+- 
+  title: Marching squares lowres
+  video:
+    - file://jr34oug7vdmkzdzy
+  aspectratio: 1
+- 
+  title: Marching squares
+  video:
+    - file://r8gwyxgh3dv8phjq
+  aspectratio: 1
+- 
+  title: Noise gallery
+  video:
+    - file://yduavaexvo40ypsf
+  aspectratio: 1
+- 
+  title: Number grid
+  video:
+    - file://e8dfqzaale7cqfab
+  aspectratio: 1
+- 
+  title: Organic chart
+  video:
+    - file://v9uujnrwdazd32dz
+  aspectratio: 1
+- 
+  title: Sliding UI
+  video:
+    - file://tc7w0sf4o00ss8qm
+  aspectratio: 1
+- 
+  title: CSS window
+  video:
+    - file://uidnfdeom0jqiiwm
+  aspectratio: 1
+
+----
+
 Location: Leipzig
 
 ----

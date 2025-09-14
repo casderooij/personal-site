@@ -1,7 +1,7 @@
 <?php
 
 return [
-	'debug' => false,
+	'debug' => true,
 	'thumbs' => [
 		'presets' => [
 			'project' => [
