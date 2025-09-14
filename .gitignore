@@ -58,7 +58,8 @@ Icon
 /content/artifacts/*
 !/content/artifacts/artifacts.txt
 
-/content/home/*
+/content/home/intro-videos/*
+!/content/home/intro-videos/intro-videos.txt
 
 vendor
 kirby

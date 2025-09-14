@@ -13,6 +13,8 @@ fields:
         type: files
         multiple: false
         accept: video/mp4
+        uploads:
+          parent: "page('home').children().findBy('slug', 'intro-videos')"
       aspectRatio:
         label: Aspect ratio
         type: number
