@@ -3,14 +3,3 @@ title: Site
 sections:
   pages:
     type: pages
-
-  artifacts:
-    type: pages
-    parent: site.find('artifacts')
-    label: Artifacts
-    sortBy: date desc
-    create:
-      - artifact
-    templates:
-      - artifact
-    info: "{{ page.date.toDate('d-m-Y') }}"

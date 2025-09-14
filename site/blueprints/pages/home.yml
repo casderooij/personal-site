@@ -19,29 +19,7 @@ fields:
         label: Aspect ratio
         type: number
         step: 0.01
-  location:
-    label: location
-    type: text
-    width: 1/2
-  github:
-    label: Github
-    type: object
-    width: 1/2
-    fields:
-      link:
-        type: link
-      label:
-        type: text
-  linkedin:
-    label: LinkedIn
-    type: object
-    width: 1/2
-    fields:
-      link:
-        type: link
-      label:
-        type: text
+
   introText:
     label: Intro text
-    type: textarea
-    width: 1/2
+    type: writer

@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function showHideSelectedVideoContainer(isIntersecting: boolean) {
-    gsap.to('#selected-video-container', {
+    gsap.to(['#selected-video-container', '#scroll-down-to-main-button'], {
       opacity: isIntersecting ? 0 : 1,
       duration: 0.4,
       ease: 'power2.inOut',
