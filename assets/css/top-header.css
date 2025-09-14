@@ -1,14 +1,18 @@
 .top-header {
-  position: relative;
+  height: 100svh;
+
+  @media (--viewport-sm) {
+    height: 800px;
+  }
 
   .top-header-heading {
+    position: fixed;
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    position: absolute;
     top: 1.4rem;
     left: 1.4rem;
-    z-index: 2;
+    z-index: 100;
   }
 
   h1 {
@@ -21,10 +25,10 @@
 
   .top-header-sketch-info {
     display: none;
-    position: absolute;
+    position: fixed;
+    z-index: -100;
     top: 1rem;
     right: 1rem;
-    z-index: 2;
     padding: 0.4rem;
     font-size: var(--font-size);
     line-height: 1.2rem;
@@ -42,8 +46,13 @@
 }
 
 .sphere-container {
+  position: fixed;
   width: 100%;
   height: 100svh;
+  z-index: 0;
+
+  left: 50%;
+  transform: translateX(-50%);
 
   mask-composite: intersect, intersect, intersect;
   mask-image:
@@ -56,9 +65,9 @@
   @media (--viewport-sm) {
     width: 1200px;
     max-width: 100vw;
-    height: 800px;
-    max-height: 100svh;
-    margin-inline: auto;
+    max-height: 800px;
+    left: 50%;
+    transform: translateX(-50%);
   }
 }
 

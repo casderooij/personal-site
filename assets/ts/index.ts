@@ -2,16 +2,22 @@ import { globalState } from './globalState'
 import { renderVideoSphere } from './videoSphere'
 import gsap from 'gsap'
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
-gsap.registerPlugin(ScrollToPlugin)
+gsap.registerPlugin(ScrollToPlugin, ScrollTrigger)
 
 document.addEventListener('DOMContentLoaded', () => {
-  renderVideoSphere()
+  const sphereContainerElement = document.getElementById('sphere-container')
+  renderVideoSphere(sphereContainerElement!)
+
+  const mainElement = document.querySelector('main')
 
   const mql = window.matchMedia('(max-width: 700px)')
 
   function handleScreenChange(event: MediaQueryListEvent | MediaQueryList) {
     globalState.screen = event.matches ? 'mobile' : 'desktop'
+    globalState.sphereRadius = event.matches ? 3 : 4
+    setupScrollTrigger()
   }
 
   handleScreenChange(mql)
@@ -20,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const scrollDownToMainButton = document.getElementById(
     'scroll-down-to-main-button',
   )
-  const mainElement = document.querySelector('main')
+
   if (scrollDownToMainButton && mainElement) {
     scrollDownToMainButton.addEventListener('click', () =>
       gsap.to(window, {
@@ -30,4 +36,42 @@ document.addEventListener('DOMContentLoaded', () => {
       }),
     )
   }
+
+  function showHideSelectedVideoContainer(isIntersecting: boolean) {
+    gsap.to('#selected-video-container', {
+      opacity: isIntersecting ? 0 : 1,
+      duration: 0.4,
+      ease: 'power2.inOut',
+    })
+  }
+
+  function setupScrollTrigger() {
+    ScrollTrigger.getAll().forEach((trigger) => trigger.kill())
+
+    ScrollTrigger.create({
+      trigger: mainElement,
+      start: () => `top ${sphereContainerElement!.offsetHeight}px`,
+      end: () => `bottom 100px`,
+
+      onEnter: () => {
+        showHideSelectedVideoContainer(true)
+        globalState.isMainElementIntersecting = true
+      },
+      onLeave: () => {
+        showHideSelectedVideoContainer(false)
+        globalState.isMainElementIntersecting = false
+      },
+
+      onEnterBack: () => {
+        showHideSelectedVideoContainer(true)
+        globalState.isMainElementIntersecting = true
+      },
+      onLeaveBack: () => {
+        showHideSelectedVideoContainer(false)
+        globalState.isMainElementIntersecting = false
+      },
+    })
+  }
+
+  setupScrollTrigger()
 })

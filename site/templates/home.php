@@ -17,9 +17,7 @@
         <h1>creative web developer</h1>
     </div>
 
-    <div class="top-header-sketch-info">
-        <p>Selection of projects and experiments</p>
-    </div>
+
 
 
 
@@ -29,10 +27,16 @@
         </div>
     </div>
     <div id="sphere-videos-container" class="sphere-videos-container"></div>
-
-
-    <!-- <button id="scroll-down-to-main-button" class="scroll-down-button">Scroll down</button> -->
 </header>
+
+
+<!-- <button id="scroll-down-to-main-button" class="scroll-down-button">Scroll down</button> -->
+
+<main>
+    <div class="inner"></div>
+</main>
+
+<footer></footer>
 
 <!-- <main>
     <section class="intro-section">

@@ -9,6 +9,33 @@ body {
 }
 
 main {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  padding-inline: 1rem;
+
+  @media (--viewport-sm) {
+    width: 50%;
+  }
+
+  .inner {
+    width: 100%;
+    height: 100%;
+    margin-inline-start: auto;
+    background-color: rgb(255, 250, 208);
+    border-radius: 0.5rem;
+
+    @media (--viewport-sm) {
+      max-width: 700px;
+    }
+  }
+}
+
+footer {
+  height: 40rem;
+}
+
+/* main {
   display: flex;
   flex-direction: column;
   gap: 11rem;
@@ -66,4 +93,4 @@ main {
 }
 .external-link:hover {
   background-color: white;
-}
+} */

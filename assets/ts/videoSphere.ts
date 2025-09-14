@@ -80,7 +80,9 @@ function updateSphereRadius(
 }
 
 function getSphereRadius() {
-  return globalState.screen === 'mobile' ? 3 : 4
+  const radius = globalState.screen === 'desktop' ? 4 : 3
+
+  return globalState.isMainElementIntersecting ? radius - 1 : radius
 }
 
 const state = proxy<{
@@ -88,15 +90,12 @@ const state = proxy<{
   selectedVideoId?: string
 }>({ selectedVideoTitle: undefined, selectedVideoId: undefined })
 
-export function renderVideoSphere() {
+export function renderVideoSphere(sphereContainerElement: HTMLElement) {
   const videoElements: HTMLVideoElement[] = []
 
-  const sphereContainerElement = document.getElementById('sphere-container')
   const sphereVideosContainerElement = document.getElementById(
     'sphere-videos-container',
   )
-
-  if (!sphereContainerElement) return
 
   const videos = JSON.parse(sphereContainerElement.dataset.videos!)
     .data as SphereVideo[]
@@ -178,10 +177,34 @@ export function renderVideoSphere() {
 
   subscribe(globalState, () => {
     updateSphereRadius(videos.length, getSphereRadius(), videoMeshes)
+
     if (globalState.screen === 'mobile') {
       controls.panSpeed = 1
     } else {
       controls.panSpeed = 2
+    }
+
+    if (
+      globalState.isMainElementIntersecting &&
+      globalState.screen === 'mobile'
+    ) {
+      controls.disconnect()
+    } else {
+      controls.connect(renderer.domElement)
+    }
+
+    if (globalState.screen === 'desktop') {
+      gsap.to(sphereContainerElement, {
+        x: globalState.isMainElementIntersecting ? '25%' : '0%',
+        duration: 1.4,
+        ease: 'power2.inOut',
+      })
+    } else {
+      gsap.to(sphereContainerElement, {
+        x: '0%',
+        duration: 1.4,
+        ease: 'power2.inOut',
+      })
     }
   })
 
@@ -211,6 +234,7 @@ export function renderVideoSphere() {
   let activeVideoMesh: THREE.Mesh | null = null
 
   let frameCount = 0
+
   function animate() {
     requestAnimationFrame(animate)
     frameCount++
