@@ -69,6 +69,8 @@ main {
 }
 
 footer {
+  position: relative;
+
   @media (--viewport-sm) {
     padding-inline: 1rem;
     margin-top: 2rem;
