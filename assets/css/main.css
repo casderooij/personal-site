@@ -25,7 +25,7 @@ main {
     margin-inline-start: auto;
     padding: 1rem;
     background-color: rgb(255, 250, 208);
-    border-radius: 2rem;
+    border-radius: 1rem;
 
     @media (--viewport-sm) {
       max-width: 700px;
@@ -35,7 +35,7 @@ main {
 
 .intro-video {
   width: 150px;
-  border-radius: 1rem;
+  border-radius: 0.5rem;
   margin-inline-end: 1rem;
 
   @media (--viewport-sm) {
@@ -59,23 +59,36 @@ main {
 }
 
 .links-container {
-  margin-block-start: 1rem;
   display: flex;
   gap: 0.5rem;
 }
 
 footer {
-  padding: 1rem;
-  margin-block-start: 6rem;
+  padding-block: 1rem;
+  padding-inline: 1rem;
+  background-color: rgb(210, 210, 210);
+  border-radius: 1rem;
+  margin: 1rem 1rem 1rem;
+
+  @media (--viewport-sm) {
+    margin-top: 2rem;
+  }
 }
 
 .external-link {
+  border-radius: 0.5rem;
   color: var(--color-accent);
-  background-color: rgba(255, 255, 255, 0.6);
-  padding-inline: 0.5rem;
-  padding-block: 0.25rem;
+  background-color: white;
+  padding-inline: 1rem;
+  padding-block: 0.5rem;
   transition: background ease-out 0.2s;
   text-decoration: none;
+
+  @media (--viewport-sm) {
+    background-color: rgba(255, 255, 255, 0.6);
+    padding-inline: 0.5rem;
+    padding-block: 0.25rem;
+  }
 }
 .external-link:hover {
   background-color: white;
