@@ -3,3 +3,17 @@ title: Site
 sections:
   pages:
     type: pages
+
+  content:
+    type: fields
+    fields:
+      footerLinks:
+        label: Footer links
+        type: structure
+        fields:
+          label:
+            label: Label
+            type: text
+          url:
+            label: URL
+            type: url

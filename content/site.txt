@@ -1,1 +1,16 @@
 Title: Cas de Rooij
+
+----
+
+Footerlinks:
+
+- 
+  label: Github
+  url: https://github.com/casderooij
+- 
+  label: Bluesky
+  url: https://bsky.app/profile/casderooij.nl
+- 
+  label: LinkedIn
+  url: >
+    https://www.linkedin.com/in/cas-de-rooij-86374861/
