@@ -29,7 +29,7 @@ main {
   border-radius: 0.5rem;
   margin-inline-end: 1rem;
 
-  @media (--viewport-sm) {
+  @media (min-width: 900px) {
     float: left;
   }
 }
