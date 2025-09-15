@@ -71,7 +71,9 @@ footer {
   margin: 1rem 1rem 1rem;
 
   @media (--viewport-sm) {
+    max-width: calc(1400px + 2rem);
     margin-top: 2rem;
+    margin-inline: auto;
   }
 }
 
