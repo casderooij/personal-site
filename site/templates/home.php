@@ -27,8 +27,8 @@
 
 <button id="scroll-down-to-main-button" class="scroll-down-button">Scroll down for info</button>
 
-<main>
-    <div class="inner">
+<main class="float float--left">
+    <div class="float-inner main-inner">
         <section class="intro-section">
             <video
                 class="intro-video"
@@ -42,8 +42,8 @@
     </div>
 </main>
 
-<footer>
-    <div class="footer-inner">
+<footer class="float float--right">
+    <div class="float-inner footer-inner">
         <div class="links-container">
             <?php snippet('external-link', ['label' => 'Github', 'url' => 'https://github.com/casderooij']) ?>
             <?php snippet('external-link', ['label' => 'Bluesky', 'url' => 'https://bsky.app/profile/casderooij.nl']) ?>

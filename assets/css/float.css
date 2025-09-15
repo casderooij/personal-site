@@ -1,0 +1,31 @@
+.float {
+  --float-max-width: 44rem;
+
+  position: relative;
+  width: 100%;
+  padding-inline: 1rem;
+
+  @media (--viewport-sm) {
+    width: 50%;
+  }
+}
+
+.float--left {
+  .float-inner {
+    margin-inline-start: auto;
+  }
+}
+
+.float--right {
+  @media (--viewport-sm) {
+    transform: translateX(100%);
+  }
+}
+
+.float-inner {
+  width: 100%;
+
+  @media (--viewport-sm) {
+    max-width: var(--float-max-width);
+  }
+}
