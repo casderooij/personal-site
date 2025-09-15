@@ -1,9 +1,10 @@
-import { globalState } from './globalState'
-import { renderVideoSphere } from './videoSphere'
 import gsap from 'gsap'
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { createGallery } from './gallery'
+import { globalState } from './globalState'
 import { lazyVideoObserver } from './lazyVideoObserver'
+import { renderVideoSphere } from './videoSphere'
 
 gsap.registerPlugin(ScrollToPlugin, ScrollTrigger)
 
@@ -76,4 +77,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   setupScrollTrigger()
   lazyVideoObserver()
+
+  const galleryElements = document.querySelectorAll(
+    '.gallery',
+  ) as NodeListOf<HTMLElement>
+  galleryElements.forEach(createGallery)
 })

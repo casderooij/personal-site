@@ -27,9 +27,9 @@
 
 <button id="scroll-down-to-main-button" class="scroll-down-button">Scroll down for info</button>
 
-<main class="float float--left">
-    <div class="float-inner main-inner">
-        <section class="intro-section">
+<main>
+    <section class="float float--left" style="margin-bottom: 1rem;">
+        <div class="float-inner float-inner--yellow">
             <video
                 class="intro-video"
                 data-src="/assets/one-minute-capture.mp4"
@@ -38,8 +38,18 @@
             <div class="intro-text">
                 <?= $page->introText() ?>
             </div>
-        </section>
-    </div>
+        </div>
+    </section>
+
+    <section class="float float--right">
+        <div class="float-inner" style="background-color: white;">
+            <h2>Test</h2>
+
+            <?php snippet('gallery') ?>
+
+            <p>Dit is een test</p>
+        </div>
+    </section>
 </main>
 
 <?php snippet('footer') ?>

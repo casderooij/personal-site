@@ -24,8 +24,14 @@
 
 .float-inner {
   width: 100%;
+  padding: 1rem;
+  border-radius: 1rem;
 
   @media (--viewport-sm) {
     max-width: var(--float-max-width);
   }
+}
+
+.float-inner--yellow {
+  background-color: rgb(255, 250, 208);
 }

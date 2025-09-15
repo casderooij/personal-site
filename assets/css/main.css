@@ -10,18 +10,10 @@ body {
   color: var(--color-text);
 }
 
-main {
-  padding-block-start: 4rem;
-
-  @media (--viewport-sm) {
-    padding-block-start: 0;
-  }
-
-  .main-inner {
-    padding: 1rem;
-    background-color: rgb(255, 250, 208);
-    border-radius: 1rem;
-  }
+h1,
+h2,
+p {
+  margin: 0;
 }
 
 .intro-video {
@@ -43,10 +35,6 @@ main {
   @media (--viewport-sm) {
     margin: 0;
   }
-
-  p {
-    margin: 0;
-  }
 }
 
 .links-container {
@@ -66,8 +54,8 @@ footer {
 }
 
 .footer-inner {
-  padding: 1rem;
+  padding: 0.5rem;
   margin-block: 1rem;
   background-color: rgb(210, 210, 210);
-  border-radius: 1rem;
+  border-radius: 0;
 }

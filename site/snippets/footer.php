@@ -1,6 +1,6 @@
 <?php $externalLinks = $site->footerLinks()->toStructure(); ?>
 
-<footer class="float float--right">
+<footer class="float float--left">
     <div class="float-inner footer-inner">
         <div class="links-container">
             <?php foreach ($externalLinks as $link):
