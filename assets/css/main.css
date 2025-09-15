@@ -11,7 +11,6 @@ body {
 main {
   position: relative;
   width: 100%;
-  height: 100vh;
   padding-block-start: 4rem;
   padding-inline: 1rem;
 
@@ -26,7 +25,7 @@ main {
     margin-inline-start: auto;
     padding: 1rem;
     background-color: rgb(255, 250, 208);
-    border-radius: 0.5rem;
+    border-radius: 2rem;
 
     @media (--viewport-sm) {
       max-width: 700px;
@@ -34,66 +33,40 @@ main {
   }
 }
 
+.intro-video {
+  width: 150px;
+  border-radius: 1rem;
+  margin-inline-end: 1rem;
+
+  @media (--viewport-sm) {
+    float: left;
+  }
+}
+
 .intro-text {
+  margin-block-start: 1rem;
   display: flex;
   flex-direction: column;
   gap: 1rem;
+
+  @media (--viewport-sm) {
+    margin: 0;
+  }
 
   p {
     margin: 0;
   }
 }
 
+.links-container {
+  margin-block-start: 1rem;
+  display: flex;
+  gap: 0.5rem;
+}
+
 footer {
-  height: 40rem;
-}
-
-/* main {
-  display: flex;
-  flex-direction: column;
-  gap: 11rem;
-  margin-inline: auto;
-  margin-bottom: 8rem;
-  padding-inline: 1rem;
-  max-width: 760px;
-}
-
-.intro-section {
-  display: flex;
-  flex-direction: column;
-
-  h2 {
-    color: var(--color-accent);
-    font-size: 2rem;
-
-    @media (--viewport-sm) {
-      font-size: 3rem;
-    }
-  }
-
-  .intro-content {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-
-    @media (--viewport-sm) {
-      width: 66%;
-    }
-
-    p {
-      font-family: var(--font-sans);
-    }
-
-    p:first-child {
-      font-size: 1.25rem;
-    }
-  }
-
-  .intro-links {
-    display: flex;
-    gap: 0.5rem;
-    margin-top: 1.25rem;
-  }
+  padding: 1rem;
+  margin-block-start: 6rem;
 }
 
 .external-link {
@@ -106,4 +79,4 @@ footer {
 }
 .external-link:hover {
   background-color: white;
-} */
+}
