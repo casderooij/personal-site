@@ -3,6 +3,7 @@ import { renderVideoSphere } from './videoSphere'
 import gsap from 'gsap'
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { lazyVideoObserver } from './lazyVideoObserver'
 
 gsap.registerPlugin(ScrollToPlugin, ScrollTrigger)
 
@@ -74,4 +75,5 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   setupScrollTrigger()
+  lazyVideoObserver()
 })

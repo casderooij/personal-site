@@ -32,7 +32,7 @@
         <section class="intro-section">
             <video
                 class="intro-video"
-                src="/assets/one-minute-capture.mp4"
+                data-src="/assets/one-minute-capture.mp4"
                 autoplay playsinline muted loop></video>
 
             <div class="intro-text">
