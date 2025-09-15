@@ -61,18 +61,30 @@ main {
 .links-container {
   display: flex;
   gap: 0.5rem;
+  justify-content: space-evenly;
+
+  @media (--viewport-sm) {
+    justify-content: flex-start;
+  }
 }
 
 footer {
-  padding-block: 1rem;
-  padding-inline: 1rem;
+  @media (--viewport-sm) {
+    padding-inline: 1rem;
+    margin-top: 2rem;
+  }
+}
+
+.footer-inner {
   background-color: rgb(210, 210, 210);
   border-radius: 1rem;
+  padding-block: 1rem;
+  padding-inline: 1rem;
+
   margin: 1rem 1rem 1rem;
 
   @media (--viewport-sm) {
     max-width: calc(1400px + 2rem);
-    margin-top: 2rem;
     margin-inline: auto;
   }
 }
@@ -85,11 +97,14 @@ footer {
   padding-block: 0.5rem;
   transition: background ease-out 0.2s;
   text-decoration: none;
+  width: 100%;
+  text-align: center;
 
   @media (--viewport-sm) {
     background-color: rgba(255, 255, 255, 0.6);
     padding-inline: 0.5rem;
     padding-block: 0.25rem;
+    width: auto;
   }
 }
 .external-link:hover {

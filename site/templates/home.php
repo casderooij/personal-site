@@ -43,10 +43,12 @@
 </main>
 
 <footer>
-    <div class="links-container">
-        <?php snippet('external-link', ['label' => 'Github', 'url' => 'https://github.com/casderooij']) ?>
-        <?php snippet('external-link', ['label' => 'Bluesky', 'url' => 'https://bsky.app/profile/casderooij.nl']) ?>
-        <?php snippet('external-link', ['label' => 'LinkedIn', 'url' => 'https://www.linkedin.com/in/cas-de-rooij-86374861/']) ?>
+    <div class="footer-inner">
+        <div class="links-container">
+            <?php snippet('external-link', ['label' => 'Github', 'url' => 'https://github.com/casderooij']) ?>
+            <?php snippet('external-link', ['label' => 'Bluesky', 'url' => 'https://bsky.app/profile/casderooij.nl']) ?>
+            <?php snippet('external-link', ['label' => 'LinkedIn', 'url' => 'https://www.linkedin.com/in/cas-de-rooij-86374861/']) ?>
+        </div>
     </div>
 </footer>
 
