@@ -81,8 +81,11 @@ function updateSphereRadius(
 
 function getSphereRadius() {
   const radius = globalState.screen === 'desktop' ? 4 : 3
+  const subtractiveRadiusSize = globalState.screen === 'desktop' ? 1 : 2
 
-  return globalState.isMainElementIntersecting ? radius - 1 : radius
+  return globalState.isMainElementIntersecting
+    ? radius - subtractiveRadiusSize
+    : radius
 }
 
 const state = proxy<{
