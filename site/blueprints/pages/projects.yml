@@ -1,0 +1,10 @@
+title: Projects
+
+sections:
+  projects:
+    type: pages
+    label: Projects
+    create:
+      - project
+    templates:
+      - project

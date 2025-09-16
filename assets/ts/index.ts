@@ -81,5 +81,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const galleryElements = document.querySelectorAll(
     '.gallery',
   ) as NodeListOf<HTMLElement>
-  galleryElements.forEach(createGallery)
+  galleryElements.forEach((galleryElement) => {
+    const shiftItems = createGallery(galleryElement)
+    galleryElement.addEventListener('click', shiftItems)
+  })
 })

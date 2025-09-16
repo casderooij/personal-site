@@ -61,6 +61,9 @@ Icon
 /content/home/intro-videos/*
 !/content/home/intro-videos/intro-videos.txt
 
+/content/1_projects/*
+!/content/1_projects/projects.txt
+
 vendor
 kirby
 node_modules

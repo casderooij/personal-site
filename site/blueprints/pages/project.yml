@@ -1,0 +1,19 @@
+title: Project
+
+sections:
+  content:
+    type: fields
+    fields:
+      tags:
+        label: Tags
+        type: tags
+      title:
+        label: Title
+        type: text
+      description:
+        label: Description
+        type: writer
+      media:
+        label: Media
+        type: files
+        uploads: project-file

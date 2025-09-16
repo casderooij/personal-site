@@ -71,22 +71,13 @@ Introtext: <p>I am a web developer working at the intersection of user experienc
 
 ----
 
-Location: Leipzig
+Projects:
 
-----
-
-Github:
-
-link: https://github.com/casderooij
-label: /casderooij
-
-----
-
-Linkedin:
-
-link: >
-  https://www.linkedin.com/in/cas-de-rooij-86374861/
-label: LinkedIn
+- 
+  page:
+    - page://ev2yd0oqjqdgtpkj
+  position: left
+  backgroundcolor: '#ffefef'
 
 ----
 

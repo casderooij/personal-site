@@ -23,3 +23,22 @@ fields:
   introText:
     label: Intro text
     type: writer
+
+  projects:
+    label: Projects
+    type: structure
+    fields:
+      page:
+        label: Project page
+        type: pages
+        multiple: false
+        query: site.find('projects')
+      position:
+        label: Position
+        type: select
+        options:
+          left: Left
+          right: Right
+      backgroundColor:
+        label: Background color
+        type: color

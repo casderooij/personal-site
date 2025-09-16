@@ -5,7 +5,7 @@ return [
 	'thumbs' => [
 		'presets' => [
 			'project' => [
-				'width' => 400,
+				'width' => 800,
 				'format' => 'webp'
 			]
 		]
