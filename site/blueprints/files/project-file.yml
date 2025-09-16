@@ -24,3 +24,7 @@ columns:
           alt:
             label: Alternative Text
             type: text
+          aspectratio:
+            label: Aspect ratio
+            type: number
+            step: 0.01
