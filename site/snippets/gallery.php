@@ -1,4 +1,4 @@
-<div class="gallery">
+<div class="gallery <?= $media->count() == 1 ? 'gallery--not-interactive' : '' ?>" data-items-count="<?= $media->count() ?>">
     <?php foreach ($media as $item):
         $type = $item->type();
         $thumb = $item->thumb('project');

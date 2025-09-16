@@ -1,4 +1,4 @@
-Title: Cas de Rooij
+Title: Home
 
 ----
 
@@ -78,6 +78,11 @@ Projects:
     - page://ev2yd0oqjqdgtpkj
   position: left
   backgroundcolor: '#ffefef'
+- 
+  page:
+    - page://2rirrtrlptw5f4lk
+  position: left
+  backgroundcolor: '#c4b7ff'
 
 ----
 

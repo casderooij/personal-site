@@ -82,6 +82,10 @@ document.addEventListener('DOMContentLoaded', () => {
     '.gallery',
   ) as NodeListOf<HTMLElement>
   galleryElements.forEach((galleryElement) => {
+    const galleryItemsCount = Number(galleryElement.dataset.itemsCount)
+
+    if (galleryItemsCount == 1) return
+
     const shiftItems = createGallery(galleryElement)
     galleryElement.addEventListener('click', shiftItems)
   })
