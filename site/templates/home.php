@@ -9,7 +9,7 @@
     <?php snippet('video-sphere') ?>
 </header>
 
-<button id="scroll-down-to-main-button" class="scroll-down-button">Scroll down for info</button>
+<button id="scroll-down-to-main-button" class="scroll-down-button">Scroll down</button>
 
 <main>
     <section class="float float--left" style="margin-bottom: 1rem;">
