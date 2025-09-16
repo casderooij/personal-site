@@ -1,9 +1,18 @@
 import gsap from 'gsap'
 
 export function createGallery(containerElement: HTMLElement) {
+  const galleryMediaContainerElement = containerElement.querySelector(
+    '.gallery-media-container',
+  ) as HTMLDivElement
+  const indicatorElement = containerElement.querySelector(
+    '.gallery-indicator',
+  ) as HTMLDivElement
+
   const mediaItems = Array.from(
-    containerElement.querySelectorAll('.media-wrapper'),
+    galleryMediaContainerElement.querySelectorAll('.media-wrapper'),
   ) as HTMLDivElement[]
+
+  let currentIndex = 0
 
   mediaItems.forEach((item, index) => {
     if (index !== 0) {
@@ -13,9 +22,19 @@ export function createGallery(containerElement: HTMLElement) {
 
   const DURATION = 0.3
 
+  function updateIndicator() {
+    const indicator = mediaItems
+      .map((_, index) => (index === currentIndex ? '*' : '-'))
+      .join('')
+    indicatorElement.textContent = indicator
+  }
+
   function shiftItems() {
-    const bottomElement = mediaItems.shift()! // Take the first element
-    mediaItems.push(bottomElement) // Move it to the end of the array
+    currentIndex = (currentIndex + 1) % mediaItems.length
+    updateIndicator()
+
+    const bottomElement = mediaItems.shift()!
+    mediaItems.push(bottomElement)
 
     gsap.fromTo(
       bottomElement,
@@ -24,18 +43,18 @@ export function createGallery(containerElement: HTMLElement) {
         opacity: 0,
         duration: DURATION,
         onComplete: () => {
-          containerElement.appendChild(bottomElement) // Move the element in the DOM
+          galleryMediaContainerElement.appendChild(bottomElement)
         },
       },
     )
 
     gsap.fromTo(
-      mediaItems[0], // The new first element
+      mediaItems[0],
       { opacity: 0 },
       {
         opacity: 1,
         duration: DURATION,
-        delay: DURATION / 2, // Delay for overlapping
+        delay: DURATION / 2,
       },
     )
   }
