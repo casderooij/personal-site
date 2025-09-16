@@ -13,6 +13,7 @@
     top: 1rem;
     left: 1rem;
     background-color: white;
+    color: var(--color-accent);
     padding-block: 0.4rem;
     padding-inline: 0.4rem 0.8rem;
     border-radius: 10rem;
@@ -24,7 +25,6 @@
     font-size: var(--font-size);
     text-transform: uppercase;
     line-height: var(--font-size);
-    color: var(--color-accent);
     margin: 0;
   }
 

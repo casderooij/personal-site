@@ -12,7 +12,8 @@
 		type="font/woff2"
 		crossorigin>
 
-	<link rel="icon" href="<?= url('favicon.png') ?>" type="image/png">
+	<link rel="icon" href="<?= url('favicon.ico') ?>" type="any">
+	<link rel="icon" href="<?= url('favicon.svg') ?>" type="image/svg+xml">
 
 	<?= vite([
 		'assets/css/main.css',
