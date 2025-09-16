@@ -25,11 +25,6 @@ Introvideos:
     - file://cvpzhwibe7lqorb7
   aspectratio: 1
 - 
-  title: Idomeneo digital poster
-  video:
-    - file://e0zs66sbzekhkcxo
-  aspectratio: 1.77
-- 
   title: Marching squares lowres
   video:
     - file://hjb9fmj8dulnadrj
