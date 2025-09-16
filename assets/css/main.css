@@ -4,6 +4,7 @@
 @import './float.css';
 @import './external-link.css';
 @import './gallery.css';
+@import './project.css';
 
 body {
   background-color: var(--color-bg);
@@ -15,6 +16,7 @@ h1,
 h2,
 p {
   margin: 0;
+  font-size: 1rem;
 }
 
 .intro-video {
@@ -59,31 +61,6 @@ footer {
   margin-block: 1rem;
   background-color: rgb(210, 210, 210);
   border-radius: 0;
-}
-
-.project-sections {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.project-tags {
-  margin-bottom: 0.5rem;
-}
-
-.project-tag {
-  background-color: var(--color-text);
-  color: white;
-  padding-block: 0.15rem;
-  padding-inline: 0.5rem;
-  border-radius: 1000px;
-  font-size: 0.75rem;
-}
-
-.project-description {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
 }
 
 .error-main {

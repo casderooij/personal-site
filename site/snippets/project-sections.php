@@ -12,7 +12,7 @@ foreach ($projects as $project):
                 <?php endforeach ?>
             </div>
 
-            <h2><?= $projectPage->title() ?></h2>
+            <h2 class="project-title"><?= $projectPage->title() ?></h2>
             <?php snippet('gallery', ['media' => $projectPage->media()->toFiles()]) ?>
             <div class="project-description">
                 <?= $projectPage->description() ?>
