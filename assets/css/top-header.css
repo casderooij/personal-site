@@ -10,15 +10,20 @@
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    top: 1.4rem;
-    left: 1.4rem;
+    top: 1rem;
+    left: 1rem;
+    background-color: white;
+    padding-block: 0.4rem;
+    padding-inline: 0.4rem 0.8rem;
+    border-radius: 10rem;
     z-index: 1;
+    box-shadow: var(--shadow);
   }
 
   h1 {
     font-size: var(--font-size);
-    line-height: 0.8rem;
-    font-weight: 400;
+    text-transform: uppercase;
+    line-height: var(--font-size);
     color: var(--color-accent);
     margin: 0;
   }
@@ -88,7 +93,7 @@
   background-color: white;
   padding: 0.1rem 0.4rem 0.15rem;
   border-radius: 0.2rem;
-  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: var(--shadow);
 
   @media (--viewport-sm) {
     transform: translate(-50%, calc(-50% + 140px));
@@ -97,16 +102,20 @@
 
 .scroll-down-button {
   border: none;
-  color: var(--color-accent);
   position: absolute;
   bottom: 1rem;
   left: 50%;
   transform: translateX(-50%);
-  background-color: white;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   padding-block: 0.4rem;
   padding-inline: 0.8rem;
-  cursor: pointer;
+  background-color: white;
   opacity: 1;
+  color: var(--color-accent);
+  cursor: pointer;
+  border-radius: 0.4rem;
 
   @media (hover: hover) {
     display: none;

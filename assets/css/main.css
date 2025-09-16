@@ -17,6 +17,7 @@ h2,
 p {
   margin: 0;
   font-size: 1rem;
+  font-weight: 400;
 }
 
 .intro-video {
@@ -60,7 +61,7 @@ footer {
   padding: 0.5rem;
   margin-block: 1rem;
   background-color: rgb(210, 210, 210);
-  border-radius: 0;
+  border-radius: 1rem;
 }
 
 .error-main {

@@ -14,6 +14,8 @@
   --color-text: hsl(210, 4%, 22%);
   --color-accent: blue;
 
+  --shadow: 0 0 8px 0 rgba(0, 0, 0, 0.2);
+
   @media (--viewport-sm) {
   }
 }
