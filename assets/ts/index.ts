@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
     ScrollTrigger.create({
       trigger: mainElement,
       start: () => `top ${sphereContainerElement!.offsetHeight}px`,
-      end: () => `bottom 100px`,
+      end: () => `bottom`,
 
       onEnter: () => {
         showHideSelectedVideoContainer(true)
