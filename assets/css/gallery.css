@@ -17,6 +17,7 @@
 }
 
 .media-wrapper {
+  max-height: 26rem;
   grid-column: 1;
   grid-row: 1;
   aspect-ratio: var(--aspect-ratio);
