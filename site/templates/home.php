@@ -34,6 +34,14 @@
     <div class="project-sections">
         <?php snippet('project-sections') ?>
     </div>
+
+    <section class="float float--left">
+        <div class="float-inner float-inner--yellow spaced-paragraphs">
+            <p>This website is built using <a href="https://getkirby.com" target="_blank" rel="noopener noreferrer">Kirby</a>, a flat-file PHP framework and is hosted on a server at <a href="https://uberspace.de" target="_blank" rel="noopener noreferrer">Uberspace</a>.</p>
+            <p>The source code can be found in this <a href="https://github.com/casderooij/personal-site" target="_blank" rel="noopener noreferrer">Github repository</a>.</p>
+            <p>Font used is <a target="_blank" rel="noopener noreferrer" href="https://www.kanonfoundry.com/hedvig-letters">Hedvig Letters Sans</a> by Kanon Foundry.</p>
+        </div>
+    </section>
 </main>
 
 <?php snippet('footer') ?>
