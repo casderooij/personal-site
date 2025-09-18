@@ -26,6 +26,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  opacity: 0;
+  transition: opacity 0.4s ease-in-out;
+}
+
+.media-wrapper.active {
+  opacity: 1;
 }
 
 .media-wrapper img,
@@ -45,4 +51,20 @@
   letter-spacing: 0.1rem;
   border-radius: 0.2rem;
   box-shadow: var(--shadow);
+}
+
+.gallery-button-container {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.gallery-button {
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+.gallery-button:focus {
+  outline: none;
 }

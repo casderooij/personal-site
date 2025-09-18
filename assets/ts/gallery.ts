@@ -1,26 +1,21 @@
-import gsap from 'gsap'
-
 export function createGallery(containerElement: HTMLElement) {
-  const galleryMediaContainerElement = containerElement.querySelector(
+  const galleryMediaContainer = containerElement.querySelector(
     '.gallery-media-container',
   ) as HTMLDivElement
+  const mediaItems = Array.from(
+    galleryMediaContainer.querySelectorAll('.media-wrapper'),
+  )
   const indicatorElement = containerElement.querySelector(
     '.gallery-indicator',
   ) as HTMLDivElement
-
-  const mediaItems = Array.from(
-    galleryMediaContainerElement.querySelectorAll('.media-wrapper'),
-  ) as HTMLDivElement[]
+  const prevButton = containerElement.querySelector(
+    '.gallery-prev-button',
+  ) as HTMLButtonElement
+  const nextButton = containerElement.querySelector(
+    '.gallery-next-button',
+  ) as HTMLButtonElement
 
   let currentIndex = 0
-
-  mediaItems.forEach((item, index) => {
-    if (index !== 0) {
-      gsap.set(item, { opacity: 0 })
-    }
-  })
-
-  const DURATION = 0.3
 
   function updateIndicator() {
     const indicator = mediaItems
@@ -29,35 +24,25 @@ export function createGallery(containerElement: HTMLElement) {
     indicatorElement.textContent = indicator
   }
 
-  function shiftItems() {
-    currentIndex = (currentIndex + 1) % mediaItems.length
+  function showItem(index: number) {
+    mediaItems.forEach((item, i) => {
+      item.classList.toggle('active', i === index)
+    })
     updateIndicator()
-
-    const bottomElement = mediaItems.shift()!
-    mediaItems.push(bottomElement)
-
-    gsap.fromTo(
-      bottomElement,
-      { opacity: 1 },
-      {
-        opacity: 0,
-        duration: DURATION,
-        onComplete: () => {
-          galleryMediaContainerElement.appendChild(bottomElement)
-        },
-      },
-    )
-
-    gsap.fromTo(
-      mediaItems[0],
-      { opacity: 0 },
-      {
-        opacity: 1,
-        duration: DURATION,
-        delay: DURATION / 2,
-      },
-    )
   }
 
-  return shiftItems
+  function prevItem() {
+    currentIndex = (currentIndex - 1 + mediaItems.length) % mediaItems.length
+    showItem(currentIndex)
+  }
+
+  function nextItem() {
+    currentIndex = (currentIndex + 1) % mediaItems.length
+    showItem(currentIndex)
+  }
+
+  prevButton.addEventListener('click', prevItem)
+  nextButton.addEventListener('click', nextItem)
+
+  showItem(0)
 }

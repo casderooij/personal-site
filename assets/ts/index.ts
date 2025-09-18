@@ -86,7 +86,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (galleryItemsCount == 1) return
 
-    const shiftItems = createGallery(galleryElement)
-    galleryElement.addEventListener('click', shiftItems)
+    createGallery(galleryElement)
   })
 })

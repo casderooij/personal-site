@@ -5,7 +5,7 @@
             $thumb = $item->thumb('project');
         ?>
             <?php if ($type == 'image'): ?>
-                <div class="media-wrapper" style="--aspect-ratio: <?= $item->aspectratio() ?>">
+                <div class="media-wrapper <?php e($media->indexOf($item) == 0, 'active'); ?>" style="--aspect-ratio: <?= $item->aspectratio() ?>">
 
                     <img
                         src="<?= $thumb->url() ?>"
@@ -15,7 +15,7 @@
                         loading="lazy" />
                 </div>
             <?php elseif ($type == 'video'): ?>
-                <div class="media-wrapper" style="--aspect-ratio: <?= $item->aspectratio() ?>">
+                <div class="media-wrapper <?php e($media->indexOf($item) == 0, 'active'); ?>" style="--aspect-ratio: <?= $item->aspectratio() ?>">
                     <video
                         style="--aspect-ratio: <?= $item->aspectratio() ?>"
                         data-src="<?= $item->url() ?>"
@@ -32,6 +32,13 @@
     <?php if ($media->count() > 1): ?>
         <div class="gallery-indicator">
             <?php foreach ($media as $item): ?><?= $media->indexOf($item) == 0 ? '*' : '-' ?><?php endforeach ?>
+        </div>
+    <?php endif ?>
+
+    <?php if ($media->count() > 1): ?>
+        <div class="gallery-button-container">
+            <button class="gallery-button gallery-prev-button"></button>
+            <button class="gallery-button gallery-next-button"></button>
         </div>
     <?php endif ?>
 </div>
