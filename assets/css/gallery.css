@@ -65,6 +65,7 @@
   background: transparent;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
 }
 .gallery-button:focus {
   outline: none;
