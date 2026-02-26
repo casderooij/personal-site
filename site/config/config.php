@@ -7,6 +7,12 @@ return [
 			'project' => [
 				'width' => 800,
 				'format' => 'webp'
+			],
+			'timeline-thumb' => [
+				'width' => 400,
+				'height' => 300,
+				'crop' => true,
+				'format' => 'webp'
 			]
 		]
 	],

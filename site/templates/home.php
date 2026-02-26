@@ -1,47 +1,97 @@
 <?php snippet('head') ?>
 
-<header class="top-header">
-    <div class="top-header-heading">
-        <svg width="20" height="20" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M7.49991 0.876892C3.84222 0.876892 0.877075 3.84204 0.877075 7.49972C0.877075 11.1574 3.84222 14.1226 7.49991 14.1226C11.1576 14.1226 14.1227 11.1574 14.1227 7.49972C14.1227 3.84204 11.1576 0.876892 7.49991 0.876892ZM1.82708 7.49972C1.82708 4.36671 4.36689 1.82689 7.49991 1.82689C10.6329 1.82689 13.1727 4.36671 13.1727 7.49972C13.1727 10.6327 10.6329 13.1726 7.49991 13.1726C4.36689 13.1726 1.82708 10.6327 1.82708 7.49972ZM5.03747 9.21395C4.87949 8.98746 4.56782 8.93193 4.34133 9.08991C4.11484 9.24789 4.05931 9.55956 4.21729 9.78605C4.93926 10.8211 6.14033 11.5 7.50004 11.5C8.85974 11.5 10.0608 10.8211 10.7828 9.78605C10.9408 9.55956 10.8852 9.24789 10.6587 9.08991C10.4323 8.93193 10.1206 8.98746 9.9626 9.21395C9.41963 9.99238 8.51907 10.5 7.50004 10.5C6.481 10.5 5.58044 9.99238 5.03747 9.21395ZM5.37503 6.84998C5.85828 6.84998 6.25003 6.45815 6.25003 5.97498C6.25003 5.4918 5.85828 5.09998 5.37503 5.09998C4.89179 5.09998 4.50003 5.4918 4.50003 5.97498C4.50003 6.45815 4.89179 6.84998 5.37503 6.84998ZM10.5 5.97498C10.5 6.45815 10.1083 6.84998 9.62503 6.84998C9.14179 6.84998 8.75003 6.45815 8.75003 5.97498C8.75003 5.4918 9.14179 5.09998 9.62503 5.09998C10.1083 5.09998 10.5 5.4918 10.5 5.97498Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path>
-        </svg>
-        <h1>creative web developer</h1>
-    </div>
+<?php
+$projects = page('projects')
+    ->children()
+    ->listed()
+    ->filterBy('date', '!=', '')
+    ->sortBy('date', 'desc');
 
-    <?php snippet('video-sphere') ?>
-</header>
+$pixelsPerDay = (int)($page->pixelsPerDay()->or(40)->value());
+$today = new DateTime('today');
 
-<button id="scroll-down-to-main-button" class="scroll-down-button">
-    <span>scroll down</span>
-    <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M7.5 2C7.77614 2 8 2.22386 8 2.5L8 11.2929L11.1464 8.14645C11.3417 7.95118 11.6583 7.95118 11.8536 8.14645C12.0488 8.34171 12.0488 8.65829 11.8536 8.85355L7.85355 12.8536C7.75979 12.9473 7.63261 13 7.5 13C7.36739 13 7.24021 12.9473 7.14645 12.8536L3.14645 8.85355C2.95118 8.65829 2.95118 8.34171 3.14645 8.14645C3.34171 7.95118 3.65829 7.95118 3.85355 8.14645L7 11.2929L7 2.5C7 2.22386 7.22386 2 7.5 2Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path>
-    </svg>
-</button>
+$oldestDate = null;
+foreach ($projects as $project) {
+    $d = new DateTime($project->date()->value());
+    if ($oldestDate === null || $d < $oldestDate) {
+        $oldestDate = $d;
+    }
+}
 
-<main>
-    <section class="float float--left" style="margin-bottom: 1rem;">
-        <div class="float-inner float-inner--yellow">
-            <video
-                class="intro-video"
-                data-src="/assets/one-minute-capture.mp4"
-                autoplay playsinline muted loop></video>
-            <div class="intro-text">
-                <?= $page->introText() ?>
-            </div>
+$totalDays = $oldestDate
+    ? (int)$today->diff($oldestDate)->days + 60
+    : 365;
+$containerHeight = $totalDays * $pixelsPerDay;
+?>
+
+<div class="min-h-svh font-sans">
+
+    <header class="fixed top-4 left-4 z-10">
+        <span class="font-mono text-sm uppercase tracking-widest">Cas de Rooij</span>
+    </header>
+
+    <main
+        class="relative pl-20 pr-4 pt-20 md:pl-32 md:pr-8"
+        style="height: <?= $containerHeight ?>px">
+
+        <div class="absolute top-0 bottom-0 left-12 md:left-20 w-0.5 bg-black"></div>
+
+        <div class="absolute top-20 left-0 right-0 flex items-center">
+            <div class="ml-12 md:ml-20 w-8 md:w-10 h-0.5 bg-black shrink-0"></div>
+            <time
+                class="font-mono text-xs uppercase tracking-wider pl-2"
+                datetime="<?= $today->format('Y-m-d') ?>">
+                TODAY — <?= $today->format('j M Y') ?>
+            </time>
         </div>
-    </section>
 
-    <div class="project-sections">
-        <?php snippet('project-sections') ?>
-    </div>
+        <?php foreach ($projects as $project):
+            $projectDate = new DateTime($project->date()->value());
+            $diff = $today->diff($projectDate);
+            $daysAgo = $diff->invert ? -$diff->days : $diff->days;
+            $offset = max(0, $daysAgo) * $pixelsPerDay;
 
-    <section class="float float--left">
-        <div class="float-inner float-inner--yellow spaced-paragraphs">
-            <p>This website is built using <a href="https://getkirby.com" target="_blank" rel="noopener noreferrer">Kirby</a>, a flat-file PHP framework and is hosted on a server at <a href="https://uberspace.de" target="_blank" rel="noopener noreferrer">Uberspace</a>.</p>
-            <p>The source code can be found in this <a href="https://github.com/casderooij/personal-site" target="_blank" rel="noopener noreferrer">Github repository</a>.</p>
-            <p>Font used is <a target="_blank" rel="noopener noreferrer" href="https://www.kanonfoundry.com/hedvig-letters">Hedvig Letters Sans</a> by Kanon Foundry.</p>
-        </div>
-    </section>
-</main>
+            $imageFile = $project->thumbnail()->toFile();
+            $thumb = $imageFile ? $imageFile->thumb('timeline-thumb') : null;
+        ?>
+            <article
+                class="absolute left-0 right-4 md:right-8"
+                style="top: calc(5rem + <?= $offset ?>px)"
+                data-offset="<?= $offset ?>">
+
+                <div class="absolute top-4 left-[calc(3rem-5px)] md:left-[calc(5rem-5px)] w-2.5 h-2.5 bg-black"></div>
+                <div class="absolute top-[calc(1rem+4px)] left-12 md:left-20 w-8 md:w-12 h-0.5 bg-black"></div>
+
+                <a href="<?= $project->url() ?>"
+                   class="block pl-20 md:pl-32 no-underline text-black group">
+                    <div class="border-2 border-black bg-white md:max-w-sm transition-colors group-hover:bg-black group-hover:text-white">
+                        <?php if ($thumb): ?>
+                            <div class="aspect-[4/3] overflow-hidden border-b-2 border-black">
+                                <img
+                                    src="<?= $thumb->url() ?>"
+                                    alt="<?= $imageFile->alt()->or($project->title())->esc() ?>"
+                                    width="<?= $thumb->width() ?>"
+                                    height="<?= $thumb->height() ?>"
+                                    class="w-full h-full object-cover block group-hover:invert"
+                                    loading="lazy" />
+                            </div>
+                        <?php endif ?>
+                        <div class="p-2 flex flex-col gap-0.5">
+                            <time
+                                class="font-mono text-[0.7rem] uppercase tracking-wider opacity-60"
+                                datetime="<?= $project->date()->value() ?>">
+                                <?= $projectDate->format('j M Y') ?>
+                            </time>
+                            <h2 class="text-base font-bold uppercase tracking-wide m-0"><?= $project->title()->esc() ?></h2>
+                        </div>
+                    </div>
+                </a>
+
+            </article>
+        <?php endforeach ?>
+
+    </main>
+
+</div>
 
 <?php snippet('footer') ?>
