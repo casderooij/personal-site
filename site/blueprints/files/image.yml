@@ -1,0 +1,6 @@
+title: Image
+
+fields:
+  alt:
+    label: Alt text
+    type: text

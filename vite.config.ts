@@ -1,26 +1,14 @@
-import browserslist from 'browserslist'
+import tailwindcss from '@tailwindcss/vite'
 import laravel from 'laravel-vite-plugin'
-import { browserslistToTargets } from 'lightningcss'
 import { defineConfig } from 'vite'
 
 export default defineConfig({
-  css: {
-    transformer: 'lightningcss',
-    lightningcss: {
-      targets: browserslistToTargets(browserslist('>= 0.25%')),
-      drafts: {
-        customMedia: true,
-      },
-    },
-  },
   plugins: [
+    tailwindcss(),
     laravel({
       input: ['assets/css/main.css', 'assets/ts/index.ts'],
       refresh: ['site/templates/**', 'site/snippets/**'],
       publicDirectory: './',
     }),
   ],
-  build: {
-    cssMinify: 'lightningcss',
-  },
 })
