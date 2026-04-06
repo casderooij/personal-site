@@ -1,0 +1,10 @@
+name: Artifacts
+
+sections:
+  artifacts:
+    type: pages
+    template: artifact
+    sortBy: date desc
+    limit: 20
+    info: "{{ page.date.toDate('d-m-Y') }} – {{ page.tags }}"
+    layout: cards
