@@ -21,8 +21,6 @@ jobs:
           cache: 'pnpm'
 
       - name: Install dependencies
-        env:
-          pnpm_config_allow_builds: 'esbuild'
         run: pnpm install
 
       - name: Build project
