@@ -5,15 +5,16 @@ status:
   unlisted: true
   listed: false
 
+create:
+  title: "{{ page.date.toDate('Y-m-d') }}"
+  slug: "{{ page.date.toDate('Y-m-d') }}"
+  fields:
+    - date
+
 columns:
   main:
     width: 2/3
     fields:
-      description:
-        type: writer
-        label: description
-        marks: false
-        headings: []
       gallery:
         type: files
         label: Image(s)

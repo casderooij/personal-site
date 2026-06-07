@@ -1,11 +1,11 @@
 @import "tailwindcss";
 
 @font-face {
-  font-family: 'Hedvig Letters Sans';
-  src: url('../fonts/hedvig-letters-sans-regular.woff2') format('woff2');
+  font-family: 'Uncut Sans';
+  src: url('../fonts/uncut-sans-regular.woff2') format('woff2');
   font-display: swap;
 }
 
 @theme {
-  --font-sans: 'Hedvig Letters Sans', sans-serif;
+  --font-sans: 'Uncut Sans', sans-serif;
 }

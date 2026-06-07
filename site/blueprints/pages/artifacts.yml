@@ -6,5 +6,5 @@ sections:
     template: artifact
     sortBy: date desc
     limit: 20
-    info: "{{ page.date.toDate('d-m-Y') }} – {{ page.tags }}"
-    layout: cards
+    info: '{{ page.tags }}'
+    layout: list

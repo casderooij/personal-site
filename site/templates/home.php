@@ -13,12 +13,9 @@ $artifacts = page('artifacts')->children()->sortBy('date', 'desc');
         <?php foreach ($artifacts as $artifact):
             $date = $artifact->date()->value(); ?>
             <article>
-                <time
-                    class="font-mono text-[0.7rem] opacity-60"
-                    datetime="<?= $date ?>">
-                    <?= $date ?>
-                </time>
-                <h2 class="text-base font-bold"><?= $artifact->title() ?></h2>
+                <h2 class="text-base">
+                    <time datetime="<?= $date ?>"><?= $date ?></time>
+                </h2>
             </article>
         <?php endforeach; ?>
     </main>
