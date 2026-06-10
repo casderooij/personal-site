@@ -1,9 +1,9 @@
-name: Artifacts
+name: Sketches
 
 sections:
-  artifacts:
+  sketches:
     type: pages
-    template: artifact
+    template: sketch
     sortBy: date desc
     limit: 20
     info: '{{ page.tags }}'

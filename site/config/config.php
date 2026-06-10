@@ -4,15 +4,19 @@ return [
 	'debug' => true,
 	'thumbs' => [
 		'presets' => [
-			'project' => [
-				'width' => 800,
-				'format' => 'webp'
-			],
-			'timeline-thumb' => [
-				'width' => 400,
-				'height' => 300,
+			'sketch-fallback' => [
+				'width' => 600,
+				'height' => 450,
 				'crop' => true,
 				'format' => 'webp'
+			]
+		],
+		'srcsets' => [
+			'sketch' => [
+				'300w'  => ['width' => 300, 'format' => 'webp'],
+				'600w'  => ['width' => 600, 'format' => 'webp'],
+				'900w'  => ['width' => 900, 'format' => 'webp'],
+				'1200w' => ['width' => 1200, 'format' => 'webp']
 			]
 		]
 	],

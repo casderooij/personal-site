@@ -11,6 +11,12 @@
 		as="font"
 		type="font/woff2"
 		crossorigin>
+	<link
+		rel="preload"
+		href="<?= vite()->asset('assets/fonts/fragment-mono-regular.woff2') ?>"
+		as="font"
+		type="font/woff2"
+		crossorigin>
 
 	<link rel="icon" href="<?= url('favicon.ico') ?>" type="any">
 	<link rel="icon" href="<?= url('favicon.svg') ?>" type="image/svg+xml">
@@ -20,7 +26,7 @@
 		'assets/ts/index.ts'
 	]) ?>
 
-	<title>Cas de Rooij - creative web developer</title>
+	<title>Cas de Rooij</title>
 </head>
 
-<body>
+<body class="font-sans">

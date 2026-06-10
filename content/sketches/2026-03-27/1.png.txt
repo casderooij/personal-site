@@ -1,0 +1,13 @@
+Alt: 
+
+----
+
+Uuid: ankqt5dpgdhqf3dw
+
+----
+
+Template: image
+
+----
+
+Aspectratio: 1.00
