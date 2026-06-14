@@ -5,17 +5,14 @@ return [
 	'thumbs' => [
 		'presets' => [
 			'sketch-thumb' => [
-				'width'  => 300,
-				'height' => 300,
-				'crop'   => true,
+				'width'  => 400,
+				'height' => 400,
 				'format' => 'webp',
 				'quality' => 80
 			],
 			'sketch-placeholder' => [
 				'width'   => 16,
-				'height'  => 16,
-				'crop'    => true,
-				'quality' => 40
+				'height'  => 16
 			]
 		],
 	],
