@@ -21,14 +21,21 @@ return [
 	],
 	'routes' => [
 		[
-			'pattern' => 'artifact-details/(:any)',
-			'method' => 'GET',
-			'action' => function (string $artifactId) {
-				if ($artifact = page('artifacts/' . $artifactId)) {
-					return snippet('artifact-details', ['artifact' => $artifact], true);
-				} else {
-					return kirby()->response()->code(404);
+			'pattern' => '(:num)-(:num)', // matches YY-MM or YYYY-MM
+			'action'  => function ($year, $month) {
+				// Ensure the month is 2 digits
+				$month = sprintf('%02d', $month);
+
+				// If it is a 2-digit year (like 26), convert it to 4-digit (2026)
+				if (strlen($year) === 2) {
+					$year = '20' . $year;
 				}
+
+				// Render the homepage with the parsed year and month parameters passed in
+				return site()->visit(site()->homePage())->render([
+					'routeYear'  => $year,
+					'routeMonth' => $month
+				]);
 			}
 		]
 	],
