@@ -5,8 +5,7 @@
  */
 
 $sketch = $item['sketch'] ?? null;
-$day    = $item['day'];
-$paddedDay = sprintf('%02d', $day);
+$day    = sprintf('%02d', $item['day']);
 
 $image = null;
 if ($sketch && $sketch->gallery()->isNotEmpty()) {
@@ -18,12 +17,10 @@ if ($sketch && !$image) {
 ?>
 
 <?php if ($sketch && $image): ?>
-    <a href="<?= $sketch->url() ?>" class="group flex flex-col justify-between aspect-square text-left no-underline">
-        <span class="font-mono text-[10px] text-gray-900">[<?= $paddedDay ?>]</span>
+    <a href="<?= $sketch->url() ?>" class="flex flex-col justify-between aspect-square text-left no-underline">
+        <span>[<?= $day ?>]</span>
 
-        <!-- Wrapper with relative positioning -->
-        <div class="mt-1 w-full aspect-square overflow-hidden bg-gray-100 relative">
-
+        <div class="mt-1 w-full aspect-square overflow-hidden relative">
             <!-- 16x16 Pixelated Placeholder -->
             <img
                 src="<?= $image->thumb('sketch-placeholder')->url() ?>"
@@ -39,12 +36,11 @@ if ($sketch && !$image) {
                 loading="lazy"
                 onload="this.classList.remove('opacity-0')"
                 class="absolute inset-0 w-full h-full object-cover transition-opacity duration-300 opacity-0">
-
         </div>
     </a>
 <?php else: ?>
     <div class="flex flex-col justify-between aspect-square text-left">
-        <span class="font-mono text-[10px] text-gray-300">(<?= $paddedDay ?>)</span>
+        <span class="text-gray-300">[<?= $day ?>]</span>
         <div class="mt-1 w-full aspect-square"></div>
     </div>
 <?php endif ?>

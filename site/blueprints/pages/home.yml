@@ -1,7 +1,1 @@
-title: Home (Timeline)
-
-fields:
-  pixelsPerDay:
-    label: Pixels per day
-    type: number
-    default: 200
+title: Home
