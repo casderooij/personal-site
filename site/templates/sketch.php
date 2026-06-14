@@ -35,7 +35,7 @@ $next = $page->next($siblings);
     if ($images->count() > 0):
     ?>
         <?php foreach ($images as $image): ?>
-            <figure class="max-w-125 max-h-125 overflow-hidden relative rounded bg-neutral-100 dark:bg-neutral-900">
+            <figure class="max-w-125 max-h-125 overflow-hidden relative bg-neutral-100 dark:bg-neutral-900">
                 <!-- 16x16 Pixelated Placeholder -->
                 <img
                     src="<?= $image->thumb('sketch-placeholder')->url() ?>"
