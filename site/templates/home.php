@@ -1,5 +1,3 @@
-// Save to: site/templates/home.php
-
 <?php snippet('head'); ?>
 
 <div class="min-h-screen bg-[#f3f3f3] text-neutral-900 selection:bg-neutral-900 selection:text-white">

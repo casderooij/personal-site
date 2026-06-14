@@ -7,13 +7,7 @@
 
 	<link
 		rel="preload"
-		href="<?= vite()->asset('assets/fonts/uncut-sans-regular.woff2') ?>"
-		as="font"
-		type="font/woff2"
-		crossorigin>
-	<link
-		rel="preload"
-		href="<?= vite()->asset('assets/fonts/fragment-mono-regular.woff2') ?>"
+		href="<?= vite()->asset('assets/fonts/commit-mono-variable.woff2') ?>"
 		as="font"
 		type="font/woff2"
 		crossorigin>
@@ -29,4 +23,4 @@
 	<title>Cas de Rooij</title>
 </head>
 
-<body class="font-sans">
+<body class="font-mono">

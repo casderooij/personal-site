@@ -1,18 +1,11 @@
 @import "tailwindcss";
 
 @font-face {
-  font-family: 'Uncut Sans';
-  src: url('../fonts/uncut-sans-regular.woff2') format('woff2');
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Fragment Mono';
-  src: url('../fonts/fragment-mono-regular.woff2') format('woff2');
+  font-family: 'Commit Mono';
+  src: url('../fonts/commit-mono-variable.woff2') format('woff2');
   font-display: swap;
 }
 
 @theme {
-  --font-sans: 'Uncut Sans', sans-serif;
-  --font-mono: 'Fragment Mono', monospace;
+  --font-mono: 'Commit Mono', monospace;
 }
