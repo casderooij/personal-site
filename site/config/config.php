@@ -13,6 +13,12 @@ return [
 			'sketch-placeholder' => [
 				'width'   => 16,
 				'height'  => 16
+			],
+			'sketch-large' => [
+				'width'   => 500,
+				'height'  => 500,
+				'format'  => 'webp',
+				'quality' => 200
 			]
 		],
 	],

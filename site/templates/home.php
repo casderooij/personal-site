@@ -23,7 +23,7 @@ snippet('head');
 
 <span class="mb-2 inline-block"><?= $currentMonth ?></span>
 
-<main class="grid grid-cols-2 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-8 gap-x-4 gap-y-6">
+<main class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-x-4 gap-y-6">
     <?php foreach ($grid as $item): ?>
         <?php snippet('sketch-thumb', ['item' => $item]) ?>
     <?php endforeach ?>
