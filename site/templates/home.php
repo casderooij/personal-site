@@ -16,7 +16,7 @@ snippet('head');
     <a href="<?= site()->url() ?>">Cas de Rooij</a>
 </header>
 
-<nav class="flex items-center gap-2 mb-16 sticky top-4 z-10">
+<nav class="flex items-center gap-2 mb-16 sm:sticky top-4 z-10">
     <a href="<?= $prevLink ?>" class="text-xs bg-[#dcdcff] px-4 py-1 sm:py-0.5 rounded-full hover:bg-white transition duration-300 ease-in-out">&larr; <?= $prevMonth ?></a>
     <a href="<?= $nextLink ?>" class="text-xs bg-[#dcdcff] px-4 py-1 sm:py-0.5 rounded-full hover:bg-white transition duration-300 ease-in-out"><?= $nextMonth ?> &rarr;</a>
 </nav>

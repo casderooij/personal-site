@@ -13,15 +13,15 @@ $next = $page->next($siblings);
     <a href="<?= site()->url() ?>">Cas de Rooij</a>
 </header>
 
-<nav class="flex items-center gap-2 mb-16 sticky top-4 z-50">
+<nav class="flex items-center gap-2 mb-16 sm:sticky top-4 z-10">
     <?php if ($prev): ?>
-        <a href="<?= $prev->url() ?>" class="text-xs bg-[#dcdcff] px-4 py-0.5 rounded-full hover:bg-white transition duration-300 ease-in-out">
+        <a href="<?= $prev->url() ?>" class="text-xs bg-[#dcdcff] px-4 py-1 sm:py-0.5 rounded-full hover:bg-white transition duration-300 ease-in-out">
             &larr; <?= $prev->date()->toDate('F d') ?>
         </a>
     <?php endif ?>
 
     <?php if ($next): ?>
-        <a href="<?= $next->url() ?>" class="text-xs bg-[#dcdcff] px-4 py-0.5 rounded-full hover:bg-white transition duration-300 ease-in-out">
+        <a href="<?= $next->url() ?>" class="text-xs bg-[#dcdcff] px-4 py-1 sm:py-0.5 rounded-full hover:bg-white transition duration-300 ease-in-out">
             <?= $next->date()->toDate('F d') ?> &rarr;
         </a>
     <?php endif ?>
