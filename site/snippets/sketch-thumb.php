@@ -19,7 +19,7 @@ if ($sketch && !$image) {
 
 <?php if ($sketch && $image): ?>
     <a href="<?= $sketch->url() ?>" class="group flex flex-col justify-between aspect-square text-left no-underline">
-        <span class="font-mono text-[10px] text-gray-900">(<?= $paddedDay ?>)</span>
+        <span class="font-mono text-[10px] text-gray-900">[<?= $paddedDay ?>]</span>
 
         <!-- Wrapper with relative positioning -->
         <div class="mt-1 w-full aspect-square overflow-hidden bg-gray-100 relative">
