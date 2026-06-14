@@ -23,4 +23,4 @@
 	<title>Cas de Rooij</title>
 </head>
 
-<body class="font-mono">
+<body class="font-mono min-h-screen bg-[#f3f3f3] text-neutral-900 selection:bg-neutral-900 selection:text-white">

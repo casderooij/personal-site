@@ -4,21 +4,20 @@ return [
 	'debug' => true,
 	'thumbs' => [
 		'presets' => [
-			'sketch-fallback' => [
-				'width' => 600,
-				'height' => 450,
-				'crop' => true,
-				'format' => 'webp'
+			'sketch-thumb' => [
+				'width'  => 300,
+				'height' => 300,
+				'crop'   => true,
+				'format' => 'webp',
+				'quality' => 80
+			],
+			'sketch-placeholder' => [
+				'width'   => 16,
+				'height'  => 16,
+				'crop'    => true,
+				'quality' => 40
 			]
 		],
-		'srcsets' => [
-			'sketch' => [
-				'300w'  => ['width' => 300, 'format' => 'webp'],
-				'600w'  => ['width' => 600, 'format' => 'webp'],
-				'900w'  => ['width' => 900, 'format' => 'webp'],
-				'1200w' => ['width' => 1200, 'format' => 'webp']
-			]
-		]
 	],
 	'routes' => [
 		[
@@ -82,6 +81,4 @@ return [
 			}
 		}
 	]
-
-
 ];

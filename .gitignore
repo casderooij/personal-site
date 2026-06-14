@@ -52,8 +52,8 @@ Icon
 # Content
 # ---------------
 
-/content/artifacts/*
-!/content/artifacts/artifacts.txt
+/content/sketches/*
+!/content/sketches/sketches.txt
 
 vendor
 kirby
