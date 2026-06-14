@@ -27,7 +27,7 @@ $next = $page->next($siblings);
     <?php endif ?>
 </nav>
 
-<span class="mb-2 inline-block"><?= $page->date()->toDate('F d, Y') ?></span>
+<span class="mb-2 inline-block"><?= $page->date()->toDate('d-m-y') ?></span>
 
 <main class="flex flex-col gap-6 items-start">
     <?php
