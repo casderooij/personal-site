@@ -43,21 +43,12 @@ $sketchMonthUrl = $homePage->url() . '/' . $page->date()->toDate('y-m');
     ?>
         <?php foreach ($images as $image): ?>
             <figure class="max-w-125 max-h-125 overflow-hidden relative bg-neutral-100 dark:bg-neutral-900">
-                <!-- 16x16 Pixelated Placeholder -->
-                <img
-                    src="<?= $image->thumb('sketch-placeholder')->url() ?>"
-                    alt=""
-                    aria-hidden="true"
-                    class="absolute inset-0 w-full h-full object-cover select-none pointer-events-none"
-                    style="image-rendering: pixelated; image-rendering: crisp-edges;">
-
-                <!-- Max 500px sharp image utilizing 'sketch-large' preset -->
-                <img
-                    src="<?= $image->thumb('sketch-large')->url() ?>"
-                    alt="<?= $page->title()->esc() ?>"
-                    loading="lazy"
-                    onload="this.classList.remove('opacity-0')"
-                    class="relative z-10 w-full h-auto object-contain transition-opacity duration-300 opacity-0 block">
+                <?php snippet('progressive-image', [
+                    'image'       => $image,
+                    'thumbPreset' => 'sketch-large',
+                    'alt'         => $page->title(),
+                    'class'       => 'relative z-10 w-full h-auto object-contain block'
+                ]) ?>
             </figure>
         <?php endforeach ?>
     <?php else: ?>

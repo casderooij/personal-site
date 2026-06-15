@@ -21,21 +21,12 @@ if ($sketch && !$image) {
         <span>[<?= $day ?>]</span>
 
         <div class="mt-1 w-full aspect-square overflow-hidden relative">
-            <!-- 16x16 Pixelated Placeholder -->
-            <img
-                src="<?= $image->thumb('sketch-placeholder')->url() ?>"
-                alt=""
-                aria-hidden="true"
-                class="absolute inset-0 w-full h-full object-cover select-none pointer-events-none"
-                style="image-rendering: pixelated; image-rendering: crisp-edges;">
-
-            <!-- Sharp Main Image (fades in once loaded) -->
-            <img
-                src="<?= $image->thumb('sketch-thumb')->url() ?>"
-                alt="<?= $sketch->title()->esc() ?>"
-                loading="lazy"
-                onload="this.classList.remove('opacity-0')"
-                class="absolute inset-0 w-full h-full object-cover transition-opacity duration-300 opacity-0">
+            <?php snippet('progressive-image', [
+                'image'       => $image,
+                'thumbPreset' => 'sketch-thumb',
+                'alt'         => $sketch->title(),
+                'class'       => 'absolute inset-0 w-full h-full object-cover z-10'
+            ]) ?>
         </div>
     </a>
 <?php else: ?>
