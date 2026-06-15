@@ -9,4 +9,5 @@
 
 @theme {
   --font-mono: 'Commit Mono', monospace;
+  --color-button-bg: #dcdcff;
 }

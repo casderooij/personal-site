@@ -17,7 +17,7 @@ if ($sketch && !$image) {
 ?>
 
 <?php if ($sketch && $image): ?>
-    <a href="<?= $sketch->url() ?>" class="flex flex-col justify-between aspect-square text-left no-underline">
+    <a href="<?= $sketch->url() ?>" class="flex flex-col justify-between aspect-square text-left no-underline text-[10px]">
         <span>[<?= $day ?>]</span>
 
         <div class="mt-1 w-full aspect-square overflow-hidden relative">
