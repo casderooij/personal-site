@@ -7,7 +7,8 @@ return [
 			'sketch-thumb' => [
 				'width'  => 400,
 				'height' => 400,
-				'format' => 'webp'
+				'format' => 'webp',
+				'quality' => 100
 			],
 			'sketch-placeholder' => [
 				'width'   => 16,
@@ -16,7 +17,8 @@ return [
 			'sketch-large' => [
 				'width'   => 500,
 				'height'  => 500,
-				'format'  => 'webp'
+				'format'  => 'webp',
+				'quality' => 100
 			]
 		],
 	],
