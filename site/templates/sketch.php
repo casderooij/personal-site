@@ -18,17 +18,17 @@ $sketchMonthUrl = $homePage->url() . '/' . $page->date()->toDate('y-m');
 
 <nav class="flex items-center gap-2 mb-16 sm:sticky top-4 z-10">
     <?php if ($prev): ?>
-        <a href="<?= $prev->url() ?>" class="text-xs bg-button-bg px-4 py-1 sm:py-0.5 rounded-full hover:bg-white transition duration-300 ease-in-out">
+        <a href="<?= $prev->url() ?>" class="text-xs bg-button-bg px-4 py-1 sm:py-0.5 rounded-full hover:bg-white dark:hover:bg-stone-900 transition duration-300 ease-in-out">
             &larr; <?= $prev->date()->toDate('F d') ?>
         </a>
     <?php endif ?>
 
-    <a href="<?= $sketchMonthUrl ?>" class="text-xs bg-button-bg px-4 py-1 sm:py-0.5 rounded-full hover:bg-white transition duration-300 ease-in-out">
+    <a href="<?= $sketchMonthUrl ?>" class="text-xs bg-button-bg px-4 py-1 sm:py-0.5 rounded-full hover:bg-white dark:hover:bg-stone-900 transition duration-300 ease-in-out">
         &uarr; <?= $page->date()->toDate('F') ?>
     </a>
 
     <?php if ($next): ?>
-        <a href="<?= $next->url() ?>" class="text-xs bg-button-bg px-4 py-1 sm:py-0.5 rounded-full hover:bg-white transition duration-300 ease-in-out">
+        <a href="<?= $next->url() ?>" class="text-xs bg-button-bg px-4 py-1 sm:py-0.5 rounded-full hover:bg-white dark:hover:bg-stone-900 transition duration-300 ease-in-out">
             <?= $next->date()->toDate('F d') ?> &rarr;
         </a>
     <?php endif ?>

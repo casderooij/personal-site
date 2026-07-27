@@ -21,8 +21,8 @@ snippet('head');
 </header>
 
 <nav class="flex items-center gap-2 mb-16 sm:sticky top-4 z-10">
-    <a href="<?= $prevLink ?>" class="text-xs bg-button-bg px-4 py-1 sm:py-0.5 rounded-full hover:bg-white transition duration-300 ease-in-out">&larr; <?= $prevMonth ?></a>
-    <a href="<?= $nextLink ?>" class="text-xs bg-button-bg px-4 py-1 sm:py-0.5 rounded-full hover:bg-white transition duration-300 ease-in-out"><?= $nextMonth ?> &rarr;</a>
+    <a href="<?= $prevLink ?>" class="text-xs bg-button-bg px-4 py-1 sm:py-0.5 rounded-full hover:bg-white dark:hover:bg-stone-900 transition duration-300 ease-in-out">&larr; <?= $prevMonth ?></a>
+    <a href="<?= $nextLink ?>" class="text-xs bg-button-bg px-4 py-1 sm:py-0.5 rounded-full hover:bg-white dark:hover:bg-stone-900 transition duration-300 ease-in-out"><?= $nextMonth ?> &rarr;</a>
 </nav>
 
 <span class="mb-2 inline-block"><?= $currentMonth ?></span>

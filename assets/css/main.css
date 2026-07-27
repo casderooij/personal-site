@@ -11,3 +11,9 @@
   --font-mono: 'Commit Mono', monospace;
   --color-button-bg: #dcdcff;
 }
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-button-bg: #2d2d44;
+  }
+}
